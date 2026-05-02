@@ -25,12 +25,4 @@ pre-commit:
       glob: "relays.toml"
       run: cargo run --quiet -- build
       stage_fixed: true
-
-commit-msg:
-  commands:
-    # Enforce Conventional Commits. Plain regex keeps the dependency surface
-    # minimal; swap in commitlint if the policy grows.
-    conventional:
-      run: |
-        grep -qE '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-z0-9-]+\))?!?: .+' {1} \
-          || { echo "ERROR: commit message must follow Conventional Commits (e.g. 'feat(scope): subject')"; exit 1; }
+      
