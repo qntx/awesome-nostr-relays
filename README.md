@@ -7,42 +7,17 @@
 [![Health Check](https://github.com/qntx/awesome-nostr-relays/actions/workflows/health-check.yml/badge.svg)](https://github.com/qntx/awesome-nostr-relays/actions/workflows/health-check.yml)
 [![Pages](https://github.com/qntx/awesome-nostr-relays/actions/workflows/pages.yml/badge.svg)](https://relays.meowl.social/)
 
-## What is this?
+## Endpoints
 
-A single TOML file (`relays.toml`) is the source of truth for every relay in the catalogue. A Rust CLI regenerates:
-
-- `api/relays.json`       — full dataset with health metadata
-- `api/urls.json`         — flat list of URLs (lightest format)
-- `api/collections.json`  — relays grouped by collection id
-- the `<!-- RELAYS:* -->` section of this README (below)
-
-The `api/` directory is published to GitHub Pages so downstream apps can fetch the data with proper `Content-Type: application/json`, permissive CORS, and without the 60 req/hour limit of `raw.githubusercontent.com`.
-
-CI runs four workflows:
-
-| Workflow           | Trigger                                   | Purpose                                               |
-|--------------------|-------------------------------------------|-------------------------------------------------------|
-| `ci.yml`           | push / PR                                 | `cargo fmt` + `clippy` + `test` + `relays validate`   |
-| `build.yml`        | push to `main` that touches `relays.toml` | regenerate `api/*.json` + README, auto-commit         |
-| `health-check.yml` | hourly cron + manual dispatch             | NIP-11 + WebSocket probe, update `health.json`        |
-| `pages.yml`        | after `build.yml` / `health-check.yml`    | publish `web/` + `api/` to GitHub Pages               |
-
-## Consume the JSON (from GitHub Pages)
+Served via GitHub Pages with `Content-Type: application/json`, permissive CORS, and no rate limit. Prefer these over `raw.githubusercontent.com/...`, which throttles unauthenticated clients to 60 req/hour.
 
 ```bash
-# Flat URL list (smallest payload, ideal for relay rotation)
-curl -sL https://relays.meowl.social/urls.json
-
-# Full dataset with health status + NIP-11 metadata
-curl -sL https://relays.meowl.social/relays.json
-
-# Grouped by collection id
-curl -sL https://relays.meowl.social/collections.json
+curl -sL https://relays.meowl.social/urls.json         # flat URL list
+curl -sL https://relays.meowl.social/relays.json       # full dataset + health status
+curl -sL https://relays.meowl.social/collections.json  # grouped by collection id
 ```
 
-> **Tip:** prefer the Pages URLs above over `raw.githubusercontent.com/...`. The raw endpoint rate-limits unauthenticated clients to 60 req/hour/IP and returns `Content-Type: text/plain`, which many JSON clients reject.
-
-Each relay entry in `relays.json` looks like:
+Entry shape in `relays.json` (the `status` block only appears after the first health probe):
 
 ```jsonc
 {
@@ -53,7 +28,7 @@ Each relay entry in `relays.json` looks like:
   "software": "strfry",
   "paid": false,
   "collections": ["featured", "global", "regional-americas"],
-  "tags": ["pappar", "ios"],
+  "tags": ["popular", "ios"],
   "status": {
     "last_checked": "2026-05-02T06:00:00Z",
     "last_success": "2026-05-02T06:00:00Z",
@@ -64,26 +39,9 @@ Each relay entry in `relays.json` looks like:
 }
 ```
 
-## Local development
-
-```bash
-# Validate the TOML catalogue
-cargo run --release -- validate
-
-# Regenerate api/ and README
-cargo run --release -- build
-
-# Run health probe against 10 relays with 8s timeout
-cargo run --release -- check --limit 10 --timeout 8
-```
-
 ## Contributing
 
-PRs that add / update / remove relays should only touch `relays.toml`. Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) first. CI will automatically:
-
-1. lint Markdown and YAML style
-2. validate the TOML schema, URL normalisation, duplicate URLs, and unknown collection ids
-3. probe any *newly added* relay URLs so reviewers can see they work
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md). PRs adding / updating / removing relays should only touch `relays.toml`.
 
 ## Catalogue
 

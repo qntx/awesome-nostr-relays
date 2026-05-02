@@ -5,139 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Curated Nostr relay catalog with CI-driven JSON API and hourly health probes."
+      content="Curated Nostr relay catalog — static JSON API refreshed hourly by CI."
     />
-    <title>Awesome Nostr Relays — static JSON API</title>
+    <title>awesome-nostr-relays</title>
     <style>
-      :root {
+      html {
         color-scheme: light dark;
-        --bg: #ffffff;
-        --fg: #1a1a1a;
-        --muted: #5b5b5b;
-        --accent: #6a00ff;
-        --code-bg: #f4f4f5;
-        --border: #e5e5e5;
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --bg: #0f0f11;
-          --fg: #e8e8ea;
-          --muted: #9a9aa0;
-          --accent: #a87dff;
-          --code-bg: #1d1d21;
-          --border: #2a2a2f;
-        }
-      }
-      * {
-        box-sizing: border-box;
       }
       body {
-        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-        max-width: 42rem;
-        margin: 0 auto;
-        padding: 3rem 1.25rem 4rem;
-        background: var(--bg);
-        color: var(--fg);
+        font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+        max-width: 38rem;
+        margin: 3.5rem auto;
+        padding: 0 1.25rem 6rem;
       }
       h1 {
-        font-size: 1.75rem;
-        margin: 0 0 0.5rem;
-        letter-spacing: -0.01em;
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 0 0 1rem;
       }
       h2 {
-        font-size: 1.1rem;
-        margin: 2rem 0 0.75rem;
-        color: var(--muted);
+        font-size: 0.95rem;
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
+        margin: 2.25rem 0 0.75rem;
+        opacity: 0.7;
       }
       p {
-        margin: 0.5rem 0 1rem;
-        color: var(--muted);
+        margin: 0.75rem 0;
       }
       a {
-        color: var(--accent);
-        text-decoration: none;
+        color: currentColor;
+        text-underline-offset: 2px;
       }
       a:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
-      ul.endpoints {
+      ul {
         list-style: none;
         padding: 0;
-        margin: 0;
-        border: 1px solid var(--border);
-        border-radius: 0.5rem;
-        overflow: hidden;
+        margin: 0.5rem 0;
       }
-      ul.endpoints li {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        padding: 0.85rem 1rem;
-        border-top: 1px solid var(--border);
+      ul li {
+        padding: 0.15rem 0;
       }
-      ul.endpoints li:first-child {
-        border-top: none;
-      }
-      ul.endpoints a {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        font-weight: 600;
-      }
-      ul.endpoints small {
-        color: var(--muted);
-      }
-      code {
-        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-        background: var(--code-bg);
-        padding: 0.1em 0.4em;
-        border-radius: 0.3rem;
+      code,
+      pre {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 0.92em;
       }
-      footer {
-        margin-top: 3rem;
-        font-size: 0.85rem;
-        color: var(--muted);
-        border-top: 1px solid var(--border);
-        padding-top: 1rem;
+      pre {
+        margin: 0.75rem 0;
+        overflow-x: auto;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid;
+        opacity: 0.15;
+        margin: 2.5rem 0 1.25rem;
+      }
+      small {
+        opacity: 0.65;
+        font-size: 0.88em;
       }
     </style>
   </head>
   <body>
-    <h1>Awesome Nostr Relays</h1>
+    <h1>awesome-nostr-relays</h1>
     <p>
-      Curated Nostr relay catalog. This domain serves a static JSON API generated from
-      <a href="https://github.com/qntx/awesome-nostr-relays"><code>qntx/awesome-nostr-relays</code></a>
-      and refreshed hourly by CI.
+      A curated catalogue of Nostr relays, organised into discovery collections
+      and refreshed hourly by CI. Source on
+      <a href="https://github.com/qntx/awesome-nostr-relays">GitHub</a>.
     </p>
 
     <h2>Endpoints</h2>
-    <ul class="endpoints">
-      <li>
-        <a href="relays.json">relays.json</a>
-        <small>Full dataset with curator metadata and CI-measured health status.</small>
-      </li>
-      <li>
-        <a href="urls.json">urls.json</a>
-        <small>Flat list of relay URLs — lightest format, ideal for client-side relay rotation.</small>
-      </li>
-      <li>
-        <a href="collections.json">collections.json</a>
-        <small>Relays grouped by collection id (<code>featured</code>, <code>global</code>, …).</small>
-      </li>
+    <ul>
+      <li><a href="urls.json"><code>urls.json</code></a> — flat URL list</li>
+      <li><a href="relays.json"><code>relays.json</code></a> — full dataset with health status</li>
+      <li><a href="collections.json"><code>collections.json</code></a> — grouped by collection id</li>
     </ul>
 
-    <h2>Usage</h2>
-    <p>Proper <code>Content-Type: application/json</code>, permissive CORS, no rate limit.</p>
     <p>
-      <code>curl -sL https://relays.meowl.social/urls.json | jq .urls</code>
+      <small>Served with <code>Content-Type: application/json</code>, permissive CORS, no rate limit.</small>
     </p>
 
-    <footer>
-      <a href="https://github.com/qntx/awesome-nostr-relays">Source</a> ·
-      <a href="https://github.com/qntx/awesome-nostr-relays/blob/main/CONTRIBUTING.md">Contribute</a> ·
-      <a href="https://qntx.fun">QNTX</a>
-    </footer>
+    <pre>curl -sL https://relays.meowl.social/urls.json | jq .urls</pre>
+
+    <hr />
+
+    <p>
+      <small>
+        <a href="https://github.com/qntx/awesome-nostr-relays/blob/main/CONTRIBUTING.md">Contribute</a>
+        ·
+        <a href="https://qntx.fun">QNTX</a>
+      </small>
+    </p>
   </body>
 </html>
