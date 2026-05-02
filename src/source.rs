@@ -15,8 +15,9 @@ pub const RELAYS_FILE: &str = "relays.toml";
 /// Default filename of the JSON health snapshot.
 pub const HEALTH_FILE: &str = "health.json";
 
-/// Default output directory for generated artefacts.
-pub const DIST_DIR: &str = "dist";
+/// Default output directory for generated artefacts (published to GitHub
+/// Pages as a static JSON API).
+pub const API_DIR: &str = "api";
 
 /// Default README path that [`crate::render::markdown`] will rewrite.
 pub const README_FILE: &str = "README.md";
@@ -85,8 +86,8 @@ pub fn default_health_path() -> PathBuf {
 
 /// Default output directory for generated JSON artefacts.
 #[must_use]
-pub fn default_dist_dir() -> PathBuf {
-    PathBuf::from(DIST_DIR)
+pub fn default_api_dir() -> PathBuf {
+    PathBuf::from(API_DIR)
 }
 
 /// Default README path.

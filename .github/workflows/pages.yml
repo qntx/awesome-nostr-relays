@@ -1,0 +1,82 @@
+name: Pages
+
+# Publishes the generated `api/` directory to GitHub Pages so downstream apps
+# can fetch JSON with proper `Content-Type`, permissive CORS, and without the
+# raw.githubusercontent.com rate limit.
+#
+# Triggers:
+#   - Direct push to `main` when `api/` changes (e.g. after `build.yml` or
+#     `health-check.yml` auto-commits fresh artefacts).
+#   - Manual dispatch.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "api/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+# Only one concurrent deployment; newer ones supersede in-flight runs so the
+# latest data always wins.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    name: Deploy api/ to GitHub Pages
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p _site
+          cp -r api/* _site/
+          # Minimal landing page so visiting the Pages root doesn't 404.
+          cat > _site/index.html <<'EOF'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8">
+              <title>awesome-nostr-relays — static JSON API</title>
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <style>
+                body { font: 16px/1.5 system-ui, sans-serif; max-width: 40rem; margin: 3rem auto; padding: 0 1rem; }
+                code { background: #f4f4f4; padding: 0.1em 0.3em; border-radius: 3px; }
+                li { margin: 0.35em 0; }
+              </style>
+            </head>
+            <body>
+              <h1>awesome-nostr-relays</h1>
+              <p>Static JSON API generated from
+                <a href="https://github.com/qntx/awesome-nostr-relays">qntx/awesome-nostr-relays</a>.
+              </p>
+              <ul>
+                <li><a href="relays.json">relays.json</a> — full dataset with health metadata</li>
+                <li><a href="urls.json">urls.json</a> — flat list of URLs (lightest format)</li>
+                <li><a href="collections.json">collections.json</a> — relays grouped by collection id</li>
+              </ul>
+            </body>
+          </html>
+          EOF
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

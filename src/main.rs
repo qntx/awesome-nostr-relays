@@ -4,7 +4,7 @@
 //!
 //! * `validate` — lint `relays.toml` and exit with a non-zero status on any
 //!   schema / reference error. Intended for PR checks.
-//! * `build` — regenerate `dist/*.json` and refresh the `RELAYS:*` block in
+//! * `build` — regenerate `api/*.json` and refresh the `RELAYS:*` block in
 //!   `README.md` from `relays.toml` and `health.json`.
 //! * `check` — probe every relay (or a subset with `--limit`), merge results
 //!   into `health.json`, and re-run `build`.
@@ -30,7 +30,7 @@ use awesome_nostr_relays::{
     probe::{self, ProbeConfig},
     render,
     source::{
-        self, default_dist_dir, default_health_path, default_readme_path, default_relays_path,
+        self, default_api_dir, default_health_path, default_readme_path, default_relays_path,
     },
     validate,
 };
@@ -67,11 +67,11 @@ enum Command {
     /// Lint the relay catalog.
     Validate,
 
-    /// Regenerate `dist/*.json` and the README data section.
+    /// Regenerate `api/*.json` and the README data section.
     Build {
-        /// Output directory for JSON artefacts (defaults to CWD/dist).
-        #[arg(long)]
-        dist: Option<PathBuf>,
+        /// Output directory for JSON artefacts (defaults to CWD/api).
+        #[arg(long, alias = "dist")]
+        output: Option<PathBuf>,
         /// README to rewrite (defaults to CWD/README.md).
         #[arg(long)]
         readme: Option<PathBuf>,
@@ -91,7 +91,7 @@ enum Command {
         /// Stop after this many relays (useful for smoke tests).
         #[arg(long)]
         limit: Option<usize>,
-        /// Do not rewrite README / dist after the check.
+        /// Do not rewrite README / api/ after the check.
         #[arg(long)]
         no_build: bool,
     },
@@ -108,13 +108,13 @@ async fn main() -> Result<()> {
     match cli.command {
         Command::Validate => run_validate(&relays_path),
         Command::Build {
-            dist,
+            output,
             readme,
             skip_readme,
         } => run_build(
             &relays_path,
             &health_path,
-            dist.as_deref(),
+            output.as_deref(),
             readme.as_deref(),
             skip_readme,
         ),
@@ -163,7 +163,7 @@ fn run_validate(relays_path: &Path) -> Result<()> {
 fn run_build(
     relays_path: &Path,
     health_path: &Path,
-    dist: Option<&Path>,
+    output: Option<&Path>,
     readme: Option<&Path>,
     skip_readme: bool,
 ) -> Result<()> {
@@ -171,11 +171,11 @@ fn run_build(
     validate::validate(&dataset).map_err(anyhow::Error::from)?;
 
     let health = source::load_health(health_path)?;
-    let dist_dir = dist.map_or_else(default_dist_dir, Path::to_path_buf);
+    let api_dir = output.map_or_else(default_api_dir, Path::to_path_buf);
     let readme_path = readme.map_or_else(default_readme_path, Path::to_path_buf);
 
-    render::json::write_all(&dataset, &health, &dist_dir)?;
-    info!(dir = %dist_dir.display(), "wrote dist/*.json");
+    render::json::write_all(&dataset, &health, &api_dir)?;
+    info!(dir = %api_dir.display(), "wrote api/*.json");
 
     if !skip_readme {
         render::markdown::update_readme(&readme_path, &dataset, &health)?;

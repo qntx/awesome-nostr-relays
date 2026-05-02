@@ -4,9 +4,9 @@
 # Edit this file to add / remove / reclassify relays.
 # CI will regenerate:
 #   - README.md (section between <!-- RELAYS:START --> and <!-- RELAYS:END -->)
-#   - dist/relays.json        (full dataset with health status)
-#   - dist/relays-flat.json   (flat list of URLs only)
-#   - dist/collections.json   (grouped by collection)
+#   - api/relays.json        (full dataset with health status)
+#   - api/urls.json           (flat list of URLs only)
+#   - api/collections.json    (grouped by collection)
 #
 # Conventions
 # -----------

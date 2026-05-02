@@ -1,6 +1,7 @@
 //! JSON artefact generation.
 //!
-//! Produces three files in the `dist/` directory:
+//! Produces three files in the `api/` directory, which is published to
+//! GitHub Pages:
 //!
 //! * `relays.json` — full dataset including curator metadata and the latest
 //!   health status per relay.
@@ -64,16 +65,16 @@ struct CollectionView<'a> {
     relays: Vec<&'a str>,
 }
 
-/// Write all three JSON artefacts into `dist_dir`, creating the directory if
+/// Write all three JSON artefacts into `api_dir`, creating the directory if
 /// it does not yet exist.
 ///
 /// # Errors
 ///
 /// Returns an error when the directory cannot be created, when serialisation
 /// fails, or when any individual artefact cannot be written.
-pub fn write_all(dataset: &Dataset, health: &HealthReport, dist_dir: &Path) -> Result<()> {
-    fs::create_dir_all(dist_dir)
-        .with_context(|| format!("failed to create dist dir {}", dist_dir.display()))?;
+pub fn write_all(dataset: &Dataset, health: &HealthReport, api_dir: &Path) -> Result<()> {
+    fs::create_dir_all(api_dir)
+        .with_context(|| format!("failed to create output dir {}", api_dir.display()))?;
 
     let generated_at = Utc::now();
 
@@ -98,14 +99,14 @@ pub fn write_all(dataset: &Dataset, health: &HealthReport, dist_dir: &Path) -> R
         collections: &dataset.collections,
         relays: relay_views,
     };
-    write_json(&dist_dir.join(FULL_FILE), &full)?;
+    write_json(&api_dir.join(FULL_FILE), &full)?;
 
     let flat = FlatDocument {
         generated_at,
         total: dataset.relays.len(),
         urls: dataset.relays.iter().map(|r| r.url.as_str()).collect(),
     };
-    write_json(&dist_dir.join(URLS_FILE), &flat)?;
+    write_json(&api_dir.join(URLS_FILE), &flat)?;
 
     let collections = CollectionsDocument {
         generated_at,
@@ -125,7 +126,7 @@ pub fn write_all(dataset: &Dataset, health: &HealthReport, dist_dir: &Path) -> R
             })
             .collect(),
     };
-    write_json(&dist_dir.join(COLLECTIONS_FILE), &collections)?;
+    write_json(&api_dir.join(COLLECTIONS_FILE), &collections)?;
 
     Ok(())
 }

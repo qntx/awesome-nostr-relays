@@ -5,7 +5,7 @@ golden rule:
 
 > `relays.toml` is the **single source of truth**. Every other file in the
 > repo is either curator-written prose (README intro, this document) or
-> generated output (`dist/*.json`, the `<!-- RELAYS:* -->` block of the
+> generated output (`api/*.json`, the `<!-- RELAYS:* -->` block of the
 > README).
 
 If you only want to **add / fix / remove a relay**, you will almost certainly
