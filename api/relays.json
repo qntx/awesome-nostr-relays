@@ -1,8 +1,8 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-05-02T09:15:36.438100416Z",
+  "generated_at": "2026-05-02T09:55:59.670568130Z",
   "total": 107,
-  "healthy": 73,
+  "healthy": 84,
   "collections": [
     {
       "id": "featured",
@@ -95,10 +95,10 @@
         "short-form"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.498574908Z",
-        "last_success": "2026-05-02T09:15:05.498574908Z",
+        "last_checked": "2026-05-02T09:54:55.967863273Z",
+        "last_success": "2026-05-02T09:54:55.967863273Z",
         "consecutive_failures": 0,
-        "rtt_ms": 919
+        "rtt_ms": 764
       }
     },
     {
@@ -115,10 +115,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.819434421Z",
-        "last_success": "2026-05-02T09:15:05.819434421Z",
+        "last_checked": "2026-05-02T09:54:56.172032799Z",
+        "last_success": "2026-05-02T09:54:56.172032799Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1239,
+        "rtt_ms": 1105,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -138,10 +138,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.281567403Z",
-        "last_success": "2026-05-02T09:15:05.281567403Z",
+        "last_checked": "2026-05-02T09:54:54.865803386Z",
+        "last_success": "2026-05-02T09:54:54.865803386Z",
         "consecutive_failures": 0,
-        "rtt_ms": 701,
+        "rtt_ms": 254,
         "supported_nips": [
           1,
           2,
@@ -171,10 +171,19 @@
         "bookmarks"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:34.581654834Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:55.959096236Z",
+        "last_success": "2026-05-02T09:54:55.959096236Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1005,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86
+        ],
+        "nip11_software": "bookmarks/khatru/relays.land",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -190,10 +199,10 @@
         "personal"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.358574972Z",
-        "last_success": "2026-05-02T09:15:05.358574972Z",
+        "last_checked": "2026-05-02T09:54:54.771922926Z",
+        "last_success": "2026-05-02T09:54:54.771922926Z",
         "consecutive_failures": 0,
-        "rtt_ms": 778,
+        "rtt_ms": 208,
         "supported_nips": [
           1,
           11
@@ -212,10 +221,10 @@
         "christian"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.869829740Z",
-        "last_success": "2026-05-02T09:15:04.869829740Z",
+        "last_checked": "2026-05-02T09:54:54.910544818Z",
+        "last_success": "2026-05-02T09:54:54.910544818Z",
         "consecutive_failures": 0,
-        "rtt_ms": 289,
+        "rtt_ms": 204,
         "supported_nips": [
           1,
           2,
@@ -252,10 +261,10 @@
         "fediverse"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.197866012Z",
+        "last_checked": "2026-05-02T09:54:55.008557798Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 302 Found"
+        "consecutive_failures": 3,
+        "last_error": "unexpected HTTP status 302 during WebSocket handshake"
       }
     },
     {
@@ -272,10 +281,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.822109893Z",
-        "last_success": "2026-05-02T09:15:05.822109893Z",
+        "last_checked": "2026-05-02T09:54:56.172522279Z",
+        "last_success": "2026-05-02T09:54:56.172522279Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1240,
+        "rtt_ms": 1096,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -293,10 +302,10 @@
         "feedback"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.716949805Z",
-        "last_success": "2026-05-02T09:15:05.716949805Z",
+        "last_checked": "2026-05-02T09:54:56.028287567Z",
+        "last_success": "2026-05-02T09:54:56.028287567Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1134,
+        "rtt_ms": 952,
         "supported_nips": [
           1,
           11,
@@ -327,10 +336,25 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.955975043Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:55.096843490Z",
+        "last_success": "2026-05-02T09:54:55.096843490Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 539,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          40,
+          42,
+          50,
+          59,
+          65,
+          94
+        ],
+        "nip11_software": "https://filter.nostr.wine",
+        "nip11_version": "1.6"
       }
     },
     {
@@ -347,10 +371,22 @@
         "nip29"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:34.584691071Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:54.788112390Z",
+        "last_success": "2026-05-02T09:54:54.788112390Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 192,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          29,
+          9
+        ],
+        "nip11_software": "https://github.com/fiatjaf/khatru",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -367,10 +403,22 @@
         "outbox"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.197438092Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:55.992476532Z",
+        "last_success": "2026-05-02T09:54:55.992476532Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 679,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          9,
+          45
+        ],
+        "nip11_software": "https://github.com/barrydeen/haven",
+        "nip11_version": "v1.2.2+dirty"
       }
     },
     {
@@ -385,10 +433,22 @@
         "ephemeral"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:34.585755040Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:55.768675006Z",
+        "last_success": "2026-05-02T09:54:55.768675006Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 833,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "impromptu/khatru/relays.land",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -407,10 +467,21 @@
         "nip17"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.914344380Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:54.718255229Z",
+        "last_success": "2026-05-02T09:54:54.718255229Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 137,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          40,
+          42
+        ],
+        "nip11_software": "https://inbox.nostr.wine",
+        "nip11_version": "0.1.4"
       }
     },
     {
@@ -425,10 +496,22 @@
         "write-only"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:34.586833537Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:55.676950278Z",
+        "last_success": "2026-05-02T09:54:55.676950278Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 720,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lockbox/khatru/relays.land",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -443,10 +526,10 @@
         "news"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.242682611Z",
-        "last_success": "2026-05-02T09:15:05.242682611Z",
+        "last_checked": "2026-05-02T09:54:55.110856304Z",
+        "last_success": "2026-05-02T09:54:55.110856304Z",
         "consecutive_failures": 0,
-        "rtt_ms": 657,
+        "rtt_ms": 302,
         "supported_nips": [
           1,
           9,
@@ -474,10 +557,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.403451336Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:55.578583535Z",
+        "last_success": "2026-05-02T09:54:55.578583535Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 873
       }
     },
     {
@@ -492,10 +575,22 @@
         "preview"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.818507494Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:55.359348217Z",
+        "last_success": "2026-05-02T09:54:55.359348217Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 409,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "https://pkg.go.dev/fiatjaf.com/nostr/khatru",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -507,10 +602,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.969292342Z",
-        "last_success": "2026-05-02T09:15:04.969292342Z",
+        "last_checked": "2026-05-02T09:54:54.981153942Z",
+        "last_success": "2026-05-02T09:54:54.981153942Z",
         "consecutive_failures": 0,
-        "rtt_ms": 382,
+        "rtt_ms": 273,
         "supported_nips": [
           1,
           2,
@@ -547,10 +642,10 @@
         "popular"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.321504254Z",
-        "last_success": "2026-05-02T09:15:05.321504254Z",
+        "last_checked": "2026-05-02T09:54:56.164812755Z",
+        "last_success": "2026-05-02T09:54:56.164812755Z",
         "consecutive_failures": 0,
-        "rtt_ms": 734,
+        "rtt_ms": 876,
         "supported_nips": [
           1,
           2,
@@ -580,10 +675,10 @@
         "yakihonne"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.716657429Z",
-        "last_success": "2026-05-02T09:15:05.716657429Z",
+        "last_checked": "2026-05-02T09:54:55.914693706Z",
+        "last_success": "2026-05-02T09:54:55.914693706Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1128,
+        "rtt_ms": 716,
         "supported_nips": [
           1,
           2,
@@ -616,10 +711,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.890762329Z",
-        "last_success": "2026-05-02T09:15:04.890762329Z",
+        "last_checked": "2026-05-02T09:54:55.050911106Z",
+        "last_success": "2026-05-02T09:54:55.050911106Z",
         "consecutive_failures": 0,
-        "rtt_ms": 301,
+        "rtt_ms": 457,
         "supported_nips": [
           1,
           2,
@@ -652,10 +747,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.679209576Z",
-        "last_success": "2026-05-02T09:15:05.679209576Z",
+        "last_checked": "2026-05-02T09:54:55.919671543Z",
+        "last_success": "2026-05-02T09:54:55.919671543Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1089,
+        "rtt_ms": 838,
         "supported_nips": [
           1,
           2,
@@ -688,10 +783,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.502782425Z",
-        "last_success": "2026-05-02T09:15:05.502782425Z",
+        "last_checked": "2026-05-02T09:54:56.209350969Z",
+        "last_success": "2026-05-02T09:54:56.209350969Z",
         "consecutive_failures": 0,
-        "rtt_ms": 912,
+        "rtt_ms": 1182,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -712,10 +807,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.467695782Z",
-        "last_success": "2026-05-02T09:15:05.467695782Z",
+        "last_checked": "2026-05-02T09:54:56.327045999Z",
+        "last_success": "2026-05-02T09:54:56.327045999Z",
         "consecutive_failures": 0,
-        "rtt_ms": 877,
+        "rtt_ms": 1111,
         "supported_nips": [
           1,
           2,
@@ -747,10 +842,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.433628630Z",
-        "last_success": "2026-05-02T09:15:05.433628630Z",
+        "last_checked": "2026-05-02T09:54:56.109665862Z",
+        "last_success": "2026-05-02T09:54:56.109665862Z",
         "consecutive_failures": 0,
-        "rtt_ms": 843,
+        "rtt_ms": 910,
         "supported_nips": [
           1,
           2,
@@ -782,10 +877,10 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.644446259Z",
+        "last_checked": "2026-05-02T09:54:54.531027684Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "IO error: failed to lookup address information: No address associated with hostname"
+        "last_error": "dns lookup failed: failed to lookup address information: No address associated with hostname"
       }
     },
     {
@@ -798,10 +893,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.547133174Z",
-        "last_success": "2026-05-02T09:15:05.547133174Z",
+        "last_checked": "2026-05-02T09:54:56.180319839Z",
+        "last_success": "2026-05-02T09:54:56.180319839Z",
         "consecutive_failures": 0,
-        "rtt_ms": 956,
+        "rtt_ms": 862,
         "supported_nips": [
           1,
           2,
@@ -832,10 +927,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.614862738Z",
+        "last_checked": "2026-05-02T09:54:54.508836362Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "IO error: failed to lookup address information: Name or service not known"
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -849,10 +944,10 @@
         "community"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.299127455Z",
-        "last_success": "2026-05-02T09:15:05.299127455Z",
+        "last_checked": "2026-05-02T09:54:55.609440905Z",
+        "last_success": "2026-05-02T09:54:55.609440905Z",
         "consecutive_failures": 0,
-        "rtt_ms": 707,
+        "rtt_ms": 525,
         "supported_nips": [
           1,
           2,
@@ -887,10 +982,23 @@
         "popular"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.883328057Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:55.111123098Z",
+        "last_success": "2026-05-02T09:54:55.111123098Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 580,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          40,
+          42,
+          50,
+          70
+        ],
+        "nip11_software": "https://nostr.wine",
+        "nip11_version": "0.3.3"
       }
     },
     {
@@ -904,10 +1012,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:04.906932161Z",
-        "last_success": "2026-05-02T09:15:04.906932161Z",
+        "last_checked": "2026-05-02T09:54:54.925329559Z",
+        "last_success": "2026-05-02T09:54:54.925329559Z",
         "consecutive_failures": 0,
-        "rtt_ms": 314,
+        "rtt_ms": 249,
         "supported_nips": [
           1,
           2,
@@ -933,10 +1041,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.371126892Z",
+        "last_checked": "2026-05-02T09:54:55.207083111Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 302 Found"
+        "consecutive_failures": 3,
+        "last_error": "unexpected HTTP status 302 during WebSocket handshake"
       }
     },
     {
@@ -951,10 +1059,22 @@
         "personal"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:34.645012568Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:55.619097143Z",
+        "last_success": "2026-05-02T09:54:55.619097143Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 642,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "personal/khatru/relays.land",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -970,10 +1090,10 @@
         "nip13"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.570353558Z",
-        "last_success": "2026-05-02T09:15:05.570353558Z",
+        "last_checked": "2026-05-02T09:54:55.953856230Z",
+        "last_success": "2026-05-02T09:54:55.953856230Z",
         "consecutive_failures": 0,
-        "rtt_ms": 751,
+        "rtt_ms": 631,
         "supported_nips": [
           1,
           11,
@@ -1002,10 +1122,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.747291817Z",
-        "last_success": "2026-05-02T09:15:05.747291817Z",
+        "last_checked": "2026-05-02T09:54:56.123030196Z",
+        "last_success": "2026-05-02T09:54:56.123030196Z",
         "consecutive_failures": 0,
-        "rtt_ms": 877,
+        "rtt_ms": 631,
         "supported_nips": [
           1,
           2,
@@ -1031,10 +1151,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.163222790Z",
-        "last_success": "2026-05-02T09:15:05.163222790Z",
+        "last_checked": "2026-05-02T09:54:55.221524711Z",
+        "last_success": "2026-05-02T09:54:55.221524711Z",
         "consecutive_failures": 0,
-        "rtt_ms": 279,
+        "rtt_ms": 216,
         "supported_nips": [
           1,
           2,
@@ -1072,10 +1192,10 @@
         "index"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.754921653Z",
-        "last_success": "2026-05-02T09:15:05.754921653Z",
+        "last_checked": "2026-05-02T09:54:56.358284109Z",
+        "last_success": "2026-05-02T09:54:56.358284109Z",
         "consecutive_failures": 0,
-        "rtt_ms": 864,
+        "rtt_ms": 768,
         "supported_nips": [
           1,
           11,
@@ -1104,10 +1224,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.005064115Z",
-        "last_success": "2026-05-02T09:15:06.005064115Z",
+        "last_checked": "2026-05-02T09:54:56.307283001Z",
+        "last_success": "2026-05-02T09:54:56.307283001Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1098,
+        "rtt_ms": 852,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -1129,10 +1249,10 @@
         "invite-only"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.620852217Z",
-        "last_success": "2026-05-02T09:15:05.620852217Z",
+        "last_checked": "2026-05-02T09:54:56.020775392Z",
+        "last_success": "2026-05-02T09:54:56.020775392Z",
         "consecutive_failures": 0,
-        "rtt_ms": 706,
+        "rtt_ms": 630,
         "supported_nips": [
           1,
           11,
@@ -1164,10 +1284,25 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.872516216Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:56.878684234Z",
+        "last_success": "2026-05-02T09:54:56.878684234Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 897,
+        "supported_nips": [
+          1,
+          4,
+          5,
+          9,
+          17,
+          25,
+          28,
+          40,
+          57,
+          58,
+          96
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "0.9.6-39-g32a3677"
       }
     },
     {
@@ -1183,10 +1318,10 @@
         "curation"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.412401111Z",
-        "last_success": "2026-05-02T09:15:05.412401111Z",
+        "last_checked": "2026-05-02T09:54:55.647506776Z",
+        "last_success": "2026-05-02T09:54:55.647506776Z",
         "consecutive_failures": 0,
-        "rtt_ms": 437
+        "rtt_ms": 299
       }
     },
     {
@@ -1206,10 +1341,24 @@
         "ios"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.288019076Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 503 Service Unavailable"
+        "last_checked": "2026-05-02T09:54:55.139531389Z",
+        "last_success": "2026-05-02T09:54:55.139531389Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 71,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4-1-g783f9ce8cc77"
       }
     },
     {
@@ -1225,10 +1374,10 @@
         "video"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.240512065Z",
-        "last_success": "2026-05-02T09:15:06.240512065Z",
+        "last_checked": "2026-05-02T09:54:56.722894211Z",
+        "last_success": "2026-05-02T09:54:56.722894211Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1043,
+        "rtt_ms": 236,
         "supported_nips": [
           1,
           4,
@@ -1271,10 +1420,20 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:35.199739770Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:55.723803621Z",
+        "last_success": "2026-05-02T09:54:55.723803621Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 253,
+        "supported_nips": [
+          1,
+          11,
+          47,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "alby-nwc-relay",
+        "nip11_version": "2.0.0"
       }
     },
     {
@@ -1290,10 +1449,10 @@
         "activitypub"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.891203463Z",
-        "last_success": "2026-05-02T09:15:05.891203463Z",
+        "last_checked": "2026-05-02T09:54:55.709914048Z",
+        "last_success": "2026-05-02T09:54:55.709914048Z",
         "consecutive_failures": 0,
-        "rtt_ms": 648,
+        "rtt_ms": 354,
         "supported_nips": [
           1,
           2,
@@ -1320,10 +1479,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.717554398Z",
-        "last_success": "2026-05-02T09:15:05.717554398Z",
+        "last_checked": "2026-05-02T09:54:55.899001663Z",
+        "last_success": "2026-05-02T09:54:55.899001663Z",
         "consecutive_failures": 0,
-        "rtt_ms": 435,
+        "rtt_ms": 403,
         "supported_nips": [
           1,
           2,
@@ -1359,10 +1518,10 @@
         "nip50"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:35.289911503Z",
+        "last_checked": "2026-05-02T09:55:58.211423897Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "consecutive_failures": 3,
+        "last_error": "probe timed out after 30s"
       }
     },
     {
@@ -1375,10 +1534,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.434983512Z",
-        "last_success": "2026-05-02T09:15:06.434983512Z",
+        "last_checked": "2026-05-02T09:54:57.103986564Z",
+        "last_success": "2026-05-02T09:54:57.103986564Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1135,
+        "rtt_ms": 1132,
         "supported_nips": [
           1,
           11,
@@ -1402,10 +1561,10 @@
         "anime"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.607482820Z",
-        "last_success": "2026-05-02T09:15:06.607482820Z",
+        "last_checked": "2026-05-02T09:54:57.229360051Z",
+        "last_success": "2026-05-02T09:54:57.229360051Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1285,
+        "rtt_ms": 924,
         "supported_nips": [
           1,
           2,
@@ -1441,10 +1600,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.282188646Z",
-        "last_success": "2026-05-02T09:15:06.282188646Z",
+        "last_checked": "2026-05-02T09:54:57.089824772Z",
+        "last_success": "2026-05-02T09:54:57.089824772Z",
         "consecutive_failures": 0,
-        "rtt_ms": 923,
+        "rtt_ms": 698,
         "supported_nips": [
           1,
           2,
@@ -1475,10 +1634,10 @@
         "chinese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.049281479Z",
-        "last_success": "2026-05-02T09:15:07.049281479Z",
+        "last_checked": "2026-05-02T09:54:57.189505487Z",
+        "last_success": "2026-05-02T09:54:57.189505487Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1678,
+        "rtt_ms": 575,
         "supported_nips": [
           1,
           11,
@@ -1513,10 +1672,10 @@
         "caching"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.248384606Z",
-        "last_success": "2026-05-02T09:15:06.248384606Z",
+        "last_checked": "2026-05-02T09:54:56.581647504Z",
+        "last_success": "2026-05-02T09:54:56.581647504Z",
         "consecutive_failures": 0,
-        "rtt_ms": 844,
+        "rtt_ms": 598,
         "supported_nips": [
           1,
           2,
@@ -1543,10 +1702,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:21.166774217Z",
+        "last_checked": "2026-05-02T09:55:11.274207160Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 504 Gateway Timeout"
+        "consecutive_failures": 3,
+        "last_error": "unexpected HTTP status 504 during WebSocket handshake"
       }
     },
     {
@@ -1563,10 +1722,10 @@
         "long-form"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.305665923Z",
-        "last_success": "2026-05-02T09:15:06.305665923Z",
+        "last_checked": "2026-05-02T09:54:57.149276192Z",
+        "last_success": "2026-05-02T09:54:57.149276192Z",
         "consecutive_failures": 0,
-        "rtt_ms": 872,
+        "rtt_ms": 752,
         "supported_nips": [
           1,
           11,
@@ -1593,10 +1752,10 @@
         "spatianostra"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.185736264Z",
-        "last_success": "2026-05-02T09:15:06.185736264Z",
+        "last_checked": "2026-05-02T09:54:56.935772154Z",
+        "last_success": "2026-05-02T09:54:56.935772154Z",
         "consecutive_failures": 0,
-        "rtt_ms": 718,
+        "rtt_ms": 611,
         "supported_nips": [
           1,
           11,
@@ -1617,10 +1776,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.775439705Z",
-        "last_success": "2026-05-02T09:15:05.775439705Z",
+        "last_checked": "2026-05-02T09:54:56.172460664Z",
+        "last_success": "2026-05-02T09:54:56.172460664Z",
         "consecutive_failures": 0,
-        "rtt_ms": 276,
+        "rtt_ms": 221,
         "supported_nips": [
           1,
           2,
@@ -1651,10 +1810,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.762551548Z",
-        "last_success": "2026-05-02T09:15:05.762551548Z",
+        "last_checked": "2026-05-02T09:54:56.190205991Z",
+        "last_success": "2026-05-02T09:54:56.190205991Z",
         "consecutive_failures": 0,
-        "rtt_ms": 259,
+        "rtt_ms": 201,
         "supported_nips": [
           1,
           2,
@@ -1688,10 +1847,10 @@
         "qna"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.669568172Z",
-        "last_success": "2026-05-02T09:15:06.669568172Z",
+        "last_checked": "2026-05-02T09:54:56.955546427Z",
+        "last_success": "2026-05-02T09:54:56.955546427Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1122,
+        "rtt_ms": 600,
         "supported_nips": [
           1,
           11,
@@ -1715,10 +1874,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.671278740Z",
-        "last_success": "2026-05-02T09:15:06.671278740Z",
+        "last_checked": "2026-05-02T09:54:56.980272464Z",
+        "last_success": "2026-05-02T09:54:56.980272464Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1100,
+        "rtt_ms": 590,
         "supported_nips": [
           1,
           11,
@@ -1742,10 +1901,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.694339616Z",
-        "last_success": "2026-05-02T09:15:06.694339616Z",
+        "last_checked": "2026-05-02T09:54:56.983569295Z",
+        "last_success": "2026-05-02T09:54:56.983569295Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1073,
+        "rtt_ms": 615,
         "supported_nips": [
           1,
           11,
@@ -1769,10 +1928,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.694479357Z",
-        "last_success": "2026-05-02T09:15:06.694479357Z",
+        "last_checked": "2026-05-02T09:54:56.998074457Z",
+        "last_success": "2026-05-02T09:54:56.998074457Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1015,
+        "rtt_ms": 590,
         "supported_nips": [
           1,
           11,
@@ -1796,10 +1955,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.699563413Z",
-        "last_success": "2026-05-02T09:15:06.699563413Z",
+        "last_checked": "2026-05-02T09:54:57.038493846Z",
+        "last_success": "2026-05-02T09:54:57.038493846Z",
         "consecutive_failures": 0,
-        "rtt_ms": 982,
+        "rtt_ms": 635,
         "supported_nips": [
           1,
           11,
@@ -1823,10 +1982,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.676257498Z",
-        "last_success": "2026-05-02T09:15:06.676257498Z",
+        "last_checked": "2026-05-02T09:54:57.035231850Z",
+        "last_success": "2026-05-02T09:54:57.035231850Z",
         "consecutive_failures": 0,
-        "rtt_ms": 959,
+        "rtt_ms": 614,
         "supported_nips": [
           1,
           11,
@@ -1854,10 +2013,10 @@
         "trending"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.475172493Z",
-        "last_success": "2026-05-02T09:15:06.475172493Z",
+        "last_checked": "2026-05-02T09:54:57.475526104Z",
+        "last_success": "2026-05-02T09:54:57.475526104Z",
         "consecutive_failures": 0,
-        "rtt_ms": 757,
+        "rtt_ms": 870,
         "supported_nips": [
           1,
           11,
@@ -1879,10 +2038,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.584741040Z",
-        "last_success": "2026-05-02T09:15:06.584741040Z",
+        "last_checked": "2026-05-02T09:54:57.366206432Z",
+        "last_success": "2026-05-02T09:54:57.366206432Z",
         "consecutive_failures": 0,
-        "rtt_ms": 837,
+        "rtt_ms": 696,
         "supported_nips": [
           1,
           11,
@@ -1905,10 +2064,21 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.981439254Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_checked": "2026-05-02T09:54:56.504598613Z",
+        "last_success": "2026-05-02T09:54:56.504598613Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 255,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          9
+        ],
+        "nip11_software": "https://github.com/girino/wot-relay",
+        "nip11_version": "dev"
       }
     },
     {
@@ -1921,10 +2091,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.600822657Z",
-        "last_success": "2026-05-02T09:15:06.600822657Z",
+        "last_checked": "2026-05-02T09:54:57.563435868Z",
+        "last_success": "2026-05-02T09:54:57.563435868Z",
         "consecutive_failures": 0,
-        "rtt_ms": 838,
+        "rtt_ms": 657,
         "supported_nips": [
           1,
           11,
@@ -1947,10 +2117,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.925484980Z",
+        "last_checked": "2026-05-02T09:54:56.197232310Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 530 <unknown status code>"
+        "consecutive_failures": 3,
+        "last_error": "unexpected HTTP status 530 during WebSocket handshake"
       }
     },
     {
@@ -1966,10 +2136,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.961903939Z",
+        "last_checked": "2026-05-02T09:54:56.256843688Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_error": "forbidden by upstream (HTTP 403)"
       }
     },
     {
@@ -1985,10 +2155,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.026038420Z",
+        "last_checked": "2026-05-02T09:54:56.307900583Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "HTTP error: 403 Forbidden"
+        "last_error": "forbidden by upstream (HTTP 403)"
       }
     },
     {
@@ -2004,10 +2174,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:05.986512379Z",
+        "last_checked": "2026-05-02T09:54:56.284679119Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "IO error: failed to lookup address information: Name or service not known"
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -2023,10 +2193,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.761491078Z",
-        "last_success": "2026-05-02T09:15:06.761491078Z",
+        "last_checked": "2026-05-02T09:54:57.301469674Z",
+        "last_success": "2026-05-02T09:54:57.301469674Z",
         "consecutive_failures": 0,
-        "rtt_ms": 870,
+        "rtt_ms": 562,
         "supported_nips": [
           1,
           2,
@@ -2059,10 +2229,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.573824349Z",
-        "last_success": "2026-05-02T09:15:06.573824349Z",
+        "last_checked": "2026-05-02T09:54:57.144510922Z",
+        "last_success": "2026-05-02T09:54:57.144510922Z",
         "consecutive_failures": 0,
-        "rtt_ms": 648,
+        "rtt_ms": 499,
         "supported_nips": [
           1,
           2,
@@ -2094,10 +2264,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.982190272Z",
-        "last_success": "2026-05-02T09:15:06.982190272Z",
+        "last_checked": "2026-05-02T09:54:58.434903571Z",
+        "last_success": "2026-05-02T09:54:58.434903571Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1020,
+        "rtt_ms": 1180,
         "supported_nips": [
           1,
           2,
@@ -2127,10 +2297,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.148658491Z",
+        "last_checked": "2026-05-02T09:54:59.585441789Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "IO error: received fatal alert: InternalError"
+        "consecutive_failures": 3,
+        "last_error": "tls error: received fatal alert: InternalError"
       }
     },
     {
@@ -2146,10 +2316,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.390128781Z",
-        "last_success": "2026-05-02T09:15:06.390128781Z",
+        "last_checked": "2026-05-02T09:54:56.701773727Z",
+        "last_success": "2026-05-02T09:54:56.701773727Z",
         "consecutive_failures": 0,
-        "rtt_ms": 403,
+        "rtt_ms": 257,
         "supported_nips": [
           1,
           11,
@@ -2171,10 +2341,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.420617485Z",
-        "last_success": "2026-05-02T09:15:07.420617485Z",
+        "last_checked": "2026-05-02T09:54:58.373137490Z",
+        "last_success": "2026-05-02T09:54:58.373137490Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1415,
+        "rtt_ms": 1201,
         "supported_nips": [
           1,
           2,
@@ -2201,10 +2371,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:11.108012727Z",
-        "last_success": "2026-05-02T09:15:11.108012727Z",
+        "last_checked": "2026-05-02T09:55:02.214282286Z",
+        "last_success": "2026-05-02T09:55:02.214282286Z",
         "consecutive_failures": 0,
-        "rtt_ms": 5081,
+        "rtt_ms": 5004,
         "supported_nips": [
           1,
           2,
@@ -2234,10 +2404,10 @@
         "gaming"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.218239384Z",
+        "last_checked": "2026-05-02T09:54:59.346994460Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "IO error: invalid peer certificate: certificate not valid for name \"nostr.zebedee.cloud\"; certificate is only valid for DnsName(\"names-hub.com\") or DnsName(\"www.names-hub.com\")"
+        "consecutive_failures": 3,
+        "last_error": "tls error: invalid peer certificate: certificate not valid for name \"nostr.zebedee.cloud\"; certificate is only valid for DnsName(\"names-hub.com\") or DnsName(\"www.names-hub.com\")"
       }
     },
     {
@@ -2255,10 +2425,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.521513826Z",
-        "last_success": "2026-05-02T09:15:06.521513826Z",
+        "last_checked": "2026-05-02T09:54:56.527202618Z",
+        "last_success": "2026-05-02T09:54:56.527202618Z",
         "consecutive_failures": 0,
-        "rtt_ms": 335,
+        "rtt_ms": 165,
         "supported_nips": [
           1,
           2,
@@ -2289,10 +2459,10 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.335064609Z",
-        "last_success": "2026-05-02T09:15:07.335064609Z",
+        "last_checked": "2026-05-02T09:54:58.288620769Z",
+        "last_success": "2026-05-02T09:54:58.288620769Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1116,
+        "rtt_ms": 536,
         "supported_nips": [
           1,
           2,
@@ -2313,10 +2483,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.300664652Z",
+        "last_checked": "2026-05-02T09:54:56.375491703Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "IO error: failed to lookup address information: Name or service not known"
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -2328,10 +2498,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:16.258322466Z",
+        "last_checked": "2026-05-02T09:55:06.389789091Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "IO error: failed to lookup address information: Temporary failure in name resolution"
+        "last_error": "dns lookup failed: failed to lookup address information: Temporary failure in name resolution"
       }
     },
     {
@@ -2347,10 +2517,10 @@
         "photo"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.180302245Z",
-        "last_success": "2026-05-02T09:15:07.180302245Z",
+        "last_checked": "2026-05-02T09:54:58.081207887Z",
+        "last_success": "2026-05-02T09:54:58.081207887Z",
         "consecutive_failures": 0,
-        "rtt_ms": 898
+        "rtt_ms": 853
       }
     },
     {
@@ -2369,10 +2539,22 @@
         "chat"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:36.301141512Z",
-        "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:54:57.685518902Z",
+        "last_success": "2026-05-02T09:54:57.685518902Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 663,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          29,
+          9
+        ],
+        "nip11_software": "https://github.com/fiatjaf/khatru",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -2387,10 +2569,10 @@
         "algorithm"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.454889040Z",
+        "last_checked": "2026-05-02T09:54:56.655459901Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 530 <unknown status code>"
+        "consecutive_failures": 3,
+        "last_error": "unexpected HTTP status 530 during WebSocket handshake"
       }
     },
     {
@@ -2407,10 +2589,10 @@
         "rss"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.554815209Z",
+        "last_checked": "2026-05-02T09:54:56.666343376Z",
         "last_success": null,
         "consecutive_failures": 2,
-        "last_error": "IO error: failed to lookup address information: Name or service not known"
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -2426,10 +2608,10 @@
         "rss"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:36.436312744Z",
+        "last_checked": "2026-05-02T09:55:59.668943418Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "probe timeout"
+        "consecutive_failures": 3,
+        "last_error": "probe timed out after 30s"
       }
     },
     {
@@ -2443,10 +2625,10 @@
         "arabic"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.311971693Z",
-        "last_success": "2026-05-02T09:15:07.311971693Z",
+        "last_checked": "2026-05-02T09:54:57.845690450Z",
+        "last_success": "2026-05-02T09:54:57.845690450Z",
         "consecutive_failures": 0,
-        "rtt_ms": 857,
+        "rtt_ms": 665,
         "supported_nips": [
           1,
           11,
@@ -2473,10 +2655,10 @@
         "german"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.338129139Z",
-        "last_success": "2026-05-02T09:15:07.338129139Z",
+        "last_checked": "2026-05-02T09:54:57.766764562Z",
+        "last_success": "2026-05-02T09:54:57.766764562Z",
         "consecutive_failures": 0,
-        "rtt_ms": 862,
+        "rtt_ms": 599,
         "supported_nips": [
           1,
           11,
@@ -2502,10 +2684,10 @@
         "english"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.190764826Z",
+        "last_checked": "2026-05-02T09:54:57.474617432Z",
         "last_success": null,
-        "consecutive_failures": 2,
-        "last_error": "HTTP error: 200 OK"
+        "consecutive_failures": 3,
+        "last_error": "unexpected HTTP status 200 during WebSocket handshake"
       }
     },
     {
@@ -2519,10 +2701,10 @@
         "spanish"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.321456957Z",
-        "last_success": "2026-05-02T09:15:07.321456957Z",
+        "last_checked": "2026-05-02T09:54:57.913598882Z",
+        "last_success": "2026-05-02T09:54:57.913598882Z",
         "consecutive_failures": 0,
-        "rtt_ms": 766,
+        "rtt_ms": 599,
         "supported_nips": [
           1,
           11,
@@ -2549,10 +2731,10 @@
         "french"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.314688873Z",
-        "last_success": "2026-05-02T09:15:07.314688873Z",
+        "last_checked": "2026-05-02T09:54:57.987033811Z",
+        "last_success": "2026-05-02T09:54:57.987033811Z",
         "consecutive_failures": 0,
-        "rtt_ms": 740,
+        "rtt_ms": 630,
         "supported_nips": [
           1,
           11,
@@ -2579,10 +2761,10 @@
         "italian"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.306758786Z",
-        "last_success": "2026-05-02T09:15:07.306758786Z",
+        "last_checked": "2026-05-02T09:54:57.999619682Z",
+        "last_success": "2026-05-02T09:54:57.999619682Z",
         "consecutive_failures": 0,
-        "rtt_ms": 721,
+        "rtt_ms": 609,
         "supported_nips": [
           1,
           11,
@@ -2609,10 +2791,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.309549354Z",
-        "last_success": "2026-05-02T09:15:07.309549354Z",
+        "last_checked": "2026-05-02T09:54:58.030845690Z",
+        "last_success": "2026-05-02T09:54:58.030845690Z",
         "consecutive_failures": 0,
-        "rtt_ms": 708,
+        "rtt_ms": 607,
         "supported_nips": [
           1,
           11,
@@ -2639,10 +2821,10 @@
         "korean"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.337385138Z",
-        "last_success": "2026-05-02T09:15:07.337385138Z",
+        "last_checked": "2026-05-02T09:54:58.038736431Z",
+        "last_success": "2026-05-02T09:54:58.038736431Z",
         "consecutive_failures": 0,
-        "rtt_ms": 729,
+        "rtt_ms": 619,
         "supported_nips": [
           1,
           11,
@@ -2668,10 +2850,10 @@
         "portuguese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.399556427Z",
-        "last_success": "2026-05-02T09:15:07.399556427Z",
+        "last_checked": "2026-05-02T09:54:58.045229055Z",
+        "last_success": "2026-05-02T09:54:58.045229055Z",
         "consecutive_failures": 0,
-        "rtt_ms": 729,
+        "rtt_ms": 633,
         "supported_nips": [
           1,
           11,
@@ -2697,10 +2879,10 @@
         "russian"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.361231202Z",
-        "last_success": "2026-05-02T09:15:07.361231202Z",
+        "last_checked": "2026-05-02T09:54:58.060389489Z",
+        "last_success": "2026-05-02T09:54:58.060389489Z",
         "consecutive_failures": 0,
-        "rtt_ms": 689,
+        "rtt_ms": 638,
         "supported_nips": [
           1,
           11,
@@ -2726,10 +2908,10 @@
         "turkish"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.402250164Z",
-        "last_success": "2026-05-02T09:15:07.402250164Z",
+        "last_checked": "2026-05-02T09:54:58.072265934Z",
+        "last_success": "2026-05-02T09:54:58.072265934Z",
         "consecutive_failures": 0,
-        "rtt_ms": 725,
+        "rtt_ms": 595,
         "supported_nips": [
           1,
           11,
@@ -2756,10 +2938,10 @@
         "vietnamese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.422949795Z",
-        "last_success": "2026-05-02T09:15:07.422949795Z",
+        "last_checked": "2026-05-02T09:54:58.120661935Z",
+        "last_success": "2026-05-02T09:54:58.120661935Z",
         "consecutive_failures": 0,
-        "rtt_ms": 728,
+        "rtt_ms": 600,
         "supported_nips": [
           1,
           11,
@@ -2786,10 +2968,10 @@
         "chinese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:07.413032193Z",
-        "last_success": "2026-05-02T09:15:07.413032193Z",
+        "last_checked": "2026-05-02T09:54:58.122556149Z",
+        "last_success": "2026-05-02T09:54:58.122556149Z",
         "consecutive_failures": 0,
-        "rtt_ms": 718,
+        "rtt_ms": 606,
         "supported_nips": [
           1,
           11,
@@ -2816,10 +2998,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.699567210Z",
+        "last_checked": "2026-05-02T09:54:57.149301710Z",
         "last_success": "2026-05-02T09:15:06.699567210Z",
         "consecutive_failures": 0,
-        "rtt_ms": 0
+        "skipped": true
       }
     },
     {
@@ -2834,10 +3016,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.699568502Z",
+        "last_checked": "2026-05-02T09:54:57.149332888Z",
         "last_success": "2026-05-02T09:15:06.699568502Z",
         "consecutive_failures": 0,
-        "rtt_ms": 0
+        "skipped": true
       }
     },
     {
@@ -2853,10 +3035,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.699569123Z",
+        "last_checked": "2026-05-02T09:54:57.149337046Z",
         "last_success": "2026-05-02T09:15:06.699569123Z",
         "consecutive_failures": 0,
-        "rtt_ms": 0
+        "skipped": true
       }
     },
     {
@@ -2872,10 +3054,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.699569725Z",
+        "last_checked": "2026-05-02T09:54:57.149340452Z",
         "last_success": "2026-05-02T09:15:06.699569725Z",
         "consecutive_failures": 0,
-        "rtt_ms": 0
+        "skipped": true
       }
     },
     {
@@ -2892,10 +3074,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:15:06.699570165Z",
+        "last_checked": "2026-05-02T09:54:57.149343588Z",
         "last_success": "2026-05-02T09:15:06.699570165Z",
         "consecutive_failures": 0,
-        "rtt_ms": 0
+        "skipped": true
       }
     }
   ]
