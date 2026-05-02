@@ -150,7 +150,7 @@ async fn websocket_exchange(relay_url: &Url) -> Result<()> {
     let request = relay_url.as_str().into_client_request()?;
     let (mut stream, _) = connect_async(request).await?;
 
-    let subscription_id = "anr-probe";
+    let subscription_id = "relays-probe";
     let req = serde_json::json!(["REQ", subscription_id, { "kinds": [1], "limit": 1 }]);
     stream.send(text_message(&req.to_string())).await?;
 

@@ -6,13 +6,13 @@
 //! on a dataset to produce JSON artefacts, Markdown, or updated health
 //! snapshots.
 
-// These crates are consumed only by the `anr` binary target; they appear
+// These crates are consumed only by the `relays` binary target; they appear
 // in `[dependencies]` because Cargo has no per-target dep table for binaries
 // in the same crate. Silencing the `unused_crate_dependencies` lint here keeps
 // the lint meaningful for all other deps.
 #[allow(
     unused_imports,
-    reason = "deps are consumed by the `anr` binary target"
+    reason = "deps are consumed by the `relays` binary target"
 )]
 use {clap as _, indicatif as _, tracing as _, tracing_subscriber as _};
 

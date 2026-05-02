@@ -42,13 +42,13 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Build binary
-        run: cargo build --release --quiet --bin anr
+        run: cargo build --release --quiet --bin relays
 
       - name: Run probe
         env:
           RUST_LOG: info
         run: |
-          ./target/release/anr check \
+          ./target/release/relays check \
             --concurrency "${{ github.event.inputs.concurrency || '32' }}" \
             --timeout     "${{ github.event.inputs.timeout     || '10' }}"
 

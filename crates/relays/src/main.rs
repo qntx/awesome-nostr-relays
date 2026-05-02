@@ -1,4 +1,4 @@
-//! `anr` — command-line interface for the awesome-nostr-relays catalog.
+//! `relays` — command-line interface for the awesome-nostr-relays catalog.
 //!
 //! Subcommands:
 //!
@@ -11,14 +11,18 @@
 
 // The library target re-exports these crates indirectly; declare them as
 // intentionally unused at the binary level so the `unused_crate_dependencies`
-// lint does not misfire on deps consumed only via `anr::`.
+// lint does not misfire on deps consumed only via `relays::`.
 use std::{
     path::{Path, PathBuf},
     sync::Arc,
     time::Duration,
 };
 
-use anr::{
+use anyhow::{Context, Result};
+use clap::{Parser, Subcommand};
+use futures::stream::{self, StreamExt};
+use indicatif::{ProgressBar, ProgressStyle};
+use relays::{
     health,
     probe::{self, ProbeConfig},
     render,
@@ -27,10 +31,6 @@ use anr::{
     },
     validate,
 };
-use anyhow::{Context, Result};
-use clap::{Parser, Subcommand};
-use futures::stream::{self, StreamExt};
-use indicatif::{ProgressBar, ProgressStyle};
 use tokio::sync::Mutex;
 use tracing::{info, warn};
 #[allow(
@@ -42,7 +42,7 @@ use {serde as _, serde_json as _, thiserror as _, tokio_tungstenite as _, toml a
 /// Top-level CLI argument parser.
 #[derive(Parser, Debug)]
 #[command(
-    name = "anr",
+    name = "relays",
     version,
     about = "Awesome Nostr Relays — curator CLI",
     long_about = None,
@@ -216,7 +216,7 @@ async fn run_check(
 
     let http = reqwest::Client::builder()
         .timeout(Duration::from_secs(15))
-        .user_agent(format!("anr/{}", env!("CARGO_PKG_VERSION")))
+        .user_agent(format!("relays/{}", env!("CARGO_PKG_VERSION")))
         .build()
         .context("build reqwest client")?;
 

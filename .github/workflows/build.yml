@@ -31,10 +31,10 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Build binary
-        run: cargo build --release --quiet --bin anr
+        run: cargo build --release --quiet --bin relays
 
       - name: Regenerate artefacts
-        run: ./target/release/anr build
+        run: ./target/release/relays build
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
