@@ -29,11 +29,27 @@ pub fn record_success(report: &mut HealthReport, url: &str, success: &ProbeSucce
     }
 }
 
-/// Apply a failed probe to the health entry identified by `url`.
+/// Apply a hard failed probe to the health entry identified by `url`.
+///
+/// Bumps `consecutive_failures`; use [`record_soft_failure`] for errors the
+/// probe already classified as transient / environmental.
 pub fn record_failure(report: &mut HealthReport, url: &str, error: &str) {
     let entry = report.entries.entry(url.to_owned()).or_default();
     entry.last_checked = Some(Utc::now());
     entry.consecutive_failures = entry.consecutive_failures.saturating_add(1);
+    entry.skipped = false;
+    entry.rtt_ms = None;
+    entry.last_error = Some(truncate(error, MAX_ERROR_CHARS));
+}
+
+/// Record a failure that should **not** bump the consecutive-failure counter.
+///
+/// Intended for errors outside the relay's control, e.g. DNS hiccups on the
+/// runner or Cloudflare bot-fight HTTP 403 — recording them for visibility
+/// without wrongly pushing the relay towards the dead threshold.
+pub fn record_soft_failure(report: &mut HealthReport, url: &str, error: &str) {
+    let entry = report.entries.entry(url.to_owned()).or_default();
+    entry.last_checked = Some(Utc::now());
     entry.skipped = false;
     entry.rtt_ms = None;
     entry.last_error = Some(truncate(error, MAX_ERROR_CHARS));
@@ -101,6 +117,7 @@ mod tests {
     fn success() -> ProbeSuccess {
         ProbeSuccess {
             rtt_ms: 42,
+            first_frame: Some("EOSE".to_owned()),
             nip11: None,
         }
     }
@@ -129,6 +146,18 @@ mod tests {
         assert_eq!(entry.consecutive_failures, 1);
         assert!(!entry.skipped);
         assert_eq!(entry.last_error.as_deref(), Some("network down"));
+    }
+
+    #[test]
+    fn soft_failure_records_error_without_bumping_counter() {
+        let mut report = HealthReport::default();
+        record_soft_failure(&mut report, URL, "dns lookup failed");
+        record_soft_failure(&mut report, URL, "forbidden (HTTP 403)");
+
+        let entry = report.entries.get(URL).expect("entry exists");
+        assert_eq!(entry.consecutive_failures, 0);
+        assert!(!entry.skipped);
+        assert_eq!(entry.last_error.as_deref(), Some("forbidden (HTTP 403)"));
     }
 
     #[test]

@@ -24,7 +24,7 @@ use futures::stream::{self, StreamExt};
 use indicatif::{ProgressBar, ProgressStyle};
 use relays::{
     health,
-    probe::{self, ProbeConfig, ProbeOutcome},
+    probe::{self, ProbeConfig, ProbeError, ProbeOutcome, USER_AGENT},
     render,
     source::{
         self, default_api_dir, default_health_path, default_readme_path, default_relays_path,
@@ -216,7 +216,7 @@ async fn run_check(
 
     let http = reqwest::Client::builder()
         .timeout(Duration::from_secs(15))
-        .user_agent(format!("relays/{}", env!("CARGO_PKG_VERSION")))
+        .user_agent(USER_AGENT)
         .build()
         .context("build reqwest client")?;
 
@@ -233,22 +233,9 @@ async fn run_check(
         let progress = progress.clone();
         async move {
             let url = relay.url.clone();
-            let outcome = probe::probe(&http, &url, config).await;
+            let outcome = probe_with_retry(&http, &url, config).await;
             let mut guard = report.lock().await;
-            match outcome {
-                Ok(ProbeOutcome::Success(ok)) => {
-                    health::record_success(&mut guard, url.as_str(), &ok);
-                }
-                Ok(ProbeOutcome::Skipped(reason)) => {
-                    info!(%url, reason = reason.as_str(), "probe skipped");
-                    health::record_skipped(&mut guard, url.as_str());
-                }
-                Err(e) => {
-                    let msg = e.to_string();
-                    warn!(%url, error = %msg, "probe failed");
-                    health::record_failure(&mut guard, url.as_str(), &msg);
-                }
-            }
+            apply_outcome(&mut guard, url.as_str(), outcome);
             progress.inc(1);
         }
     }))
@@ -278,4 +265,66 @@ fn build_progress_bar(total: u64) -> ProgressBar {
         bar.set_style(style.progress_chars("=>-"));
     }
     bar
+}
+
+/// Dispatch a probe outcome into the health report, choosing between
+/// success / skipped / hard-failure / soft-failure branches based on the
+/// classified [`ProbeError`].
+fn apply_outcome(
+    report: &mut relays::model::HealthReport,
+    url: &str,
+    outcome: Result<ProbeOutcome, ProbeError>,
+) {
+    match outcome {
+        Ok(ProbeOutcome::Success(ok)) => health::record_success(report, url, &ok),
+        Ok(ProbeOutcome::Skipped(reason)) => {
+            info!(%url, reason = reason.as_str(), "probe skipped");
+            health::record_skipped(report, url);
+        }
+        Err(err) if err.counts_as_failure() => {
+            warn!(%url, kind = err.kind(), error = %err, "probe failed");
+            health::record_failure(report, url, &err.to_string());
+        }
+        Err(err) => {
+            warn!(%url, kind = err.kind(), error = %err, "probe soft-failed");
+            health::record_soft_failure(report, url, &err.to_string());
+        }
+    }
+}
+
+/// Delay before a single retry attempt after a countable failure.
+///
+/// Picked to be long enough that a Cloudflare challenge token or transient
+/// rate-limit window clears, but short enough that the whole CI job finishes
+/// within its 20-minute budget even at the worst concurrency.
+const RETRY_BACKOFF: Duration = Duration::from_secs(3);
+
+/// Probe once and, for failures that are likely transient (timeouts, TLS
+/// internal alerts, generic I/O), retry exactly once after [`RETRY_BACKOFF`].
+///
+/// Errors the probe already classified as environmental (DNS, WAF 403) or
+/// deterministic (invalid URL, unexpected HTTP status) are **not** retried —
+/// retrying them would waste the runner's time without changing the result.
+async fn probe_with_retry(
+    http: &reqwest::Client,
+    url: &url::Url,
+    config: ProbeConfig,
+) -> Result<ProbeOutcome, ProbeError> {
+    match probe::probe(http, url, config).await {
+        Ok(outcome) => Ok(outcome),
+        Err(err) if should_retry(&err) => {
+            tokio::time::sleep(RETRY_BACKOFF).await;
+            probe::probe(http, url, config).await
+        }
+        Err(err) => Err(err),
+    }
+}
+
+/// Whether `err` is the sort of failure that a second attempt has any chance
+/// of resolving.
+const fn should_retry(err: &ProbeError) -> bool {
+    matches!(
+        err,
+        ProbeError::Timeout(_) | ProbeError::Tls(_) | ProbeError::Other(_),
+    )
 }
