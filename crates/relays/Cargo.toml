@@ -1,5 +1,5 @@
 [package]
-name = "awesome-nostr-relays"
+name = "relays"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -10,18 +10,6 @@ readme.workspace = true
 keywords.workspace = true
 categories.workspace = true
 description.workspace = true
-
-# Library and binary share the internal name `relays` so downstream `use`
-# paths and the `cargo run -- ...` / `cargo install awesome-nostr-relays`
-# invocations stay ergonomic even though the published package name is
-# namespaced.
-[lib]
-name = "relays"
-path = "src/lib.rs"
-
-[[bin]]
-name = "relays"
-path = "src/main.rs"
 
 [dependencies]
 anyhow.workspace = true
