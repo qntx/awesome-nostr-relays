@@ -1,44 +1,21 @@
-# =============================================================================
-# Workspace root (single-crate workspace).
-#
-# Declaring `[workspace]` alongside `[package]` turns this repository into a
-# one-member workspace so that the `[workspace.lints.*]` tables below take
-# effect. The crate opts into those lints with `[lints] workspace = true`.
-# Adding a second crate later only requires listing it in `members`.
-# =============================================================================
 [workspace]
+members = ["crates/*"]
+default-members = ["crates/anr"]
 resolver = "3"
 
-[package]
-name = "awesome-nostr-relays"
+[workspace.package]
 version = "0.1.0"
 edition = "2024"
-rust-version = "1.85"
-description = "Curated Nostr relay catalog with CI-driven JSON/Markdown generation and health checks"
-license = "MIT"
+license = "MIT OR Apache-2.0"
 repository = "https://github.com/qntx/awesome-nostr-relays"
+homepage = "https://github.com/qntx/awesome-nostr-relays"
+authors = ["QNTX <https://qntx.fun>"]
 readme = "README.md"
 keywords = ["nostr", "relay", "catalog", "websocket", "awesome"]
 categories = ["command-line-utilities", "data-structures"]
+description = "Curated Nostr relay catalog with CI-driven JSON/Markdown generation and health checks"
 
-[[bin]]
-name = "anrelays"
-path = "src/main.rs"
-
-[lib]
-name = "awesome_nostr_relays"
-path = "src/lib.rs"
-
-# -----------------------------------------------------------------------------
-# Crate-level opt-in to the workspace-wide lint configuration below.
-# -----------------------------------------------------------------------------
-[lints]
-workspace = true
-
-# -----------------------------------------------------------------------------
-# Dependencies
-# -----------------------------------------------------------------------------
-[dependencies]
+[workspace.dependencies]
 anyhow = "1"
 chrono = { version = "0.4", default-features = false, features = ["clock", "serde", "std"] }
 clap = { version = "4", features = ["derive"] }
@@ -55,9 +32,12 @@ tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 url = { version = "2", features = ["serde"] }
 
-# -----------------------------------------------------------------------------
-# Profiles
-# -----------------------------------------------------------------------------
+[profile.release]
+codegen-units = 1
+lto = "thin"
+panic = "abort"
+strip = true
+
 [profile.dev]
 debug = true
 opt-level = 0
@@ -65,27 +45,14 @@ opt-level = 0
 [profile.test]
 opt-level = 2
 
-[profile.release]
-codegen-units = 1
-lto = "thin"
-panic = "abort"
-# `"debuginfo"` keeps function names in panic backtraces while still shrinking
-# the binary (`true` would strip symbols too, making prod crashes unreadable).
-strip = "debuginfo"
+[profile.ci]
+debug = false
+inherits = "dev"
 
 [profile.bench]
-inherits = "release"
 debug = true
+inherits = "release"
 
-# Custom CI profile: fast compile + no debug info, used via `cargo build --profile ci`.
-[profile.ci]
-inherits = "dev"
-debug = false
-
-# =============================================================================
-# Workspace-wide lint configuration.
-# Reference: <https://doc.rust-lang.org/cargo/reference/workspaces.html#the-lints-table>
-# =============================================================================
 [workspace.lints.rust]
 unsafe_code = "deny"
 elided_lifetimes_in_paths = "warn"

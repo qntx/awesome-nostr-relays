@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "relays.toml"
-      - "src/**"
+      - "crates/**"
       - "Cargo.toml"
       - "Cargo.lock"
       - ".github/workflows/build.yml"
@@ -31,10 +31,10 @@ jobs:
       - uses: Swatinem/rust-cache@v2
 
       - name: Build binary
-        run: cargo build --release --quiet --bin anrelays
+        run: cargo build --release --quiet --bin anr
 
       - name: Regenerate artefacts
-        run: ./target/release/anrelays build
+        run: ./target/release/anr build
 
       - name: Commit and push if changed
         run: |
