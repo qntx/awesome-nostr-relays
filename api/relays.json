@@ -1,8 +1,8 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-05-02T09:07:58.044911500Z",
+  "generated_at": "2026-05-02T09:15:36.438100416Z",
   "total": 107,
-  "healthy": 37,
+  "healthy": 73,
   "collections": [
     {
       "id": "featured",
@@ -95,10 +95,10 @@
         "short-form"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:35.302694500Z",
-        "last_success": "2026-05-02T09:07:35.302694500Z",
+        "last_checked": "2026-05-02T09:15:05.498574908Z",
+        "last_success": "2026-05-02T09:15:05.498574908Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4456
+        "rtt_ms": 919
       }
     },
     {
@@ -115,10 +115,13 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.854269800Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.819434421Z",
+        "last_success": "2026-05-02T09:15:05.819434421Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1239,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
       }
     },
     {
@@ -135,10 +138,24 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.854575Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.281567403Z",
+        "last_success": "2026-05-02T09:15:05.281567403Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 701,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
       }
     },
     {
@@ -154,9 +171,9 @@
         "bookmarks"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.855005600Z",
+        "last_checked": "2026-05-02T09:15:34.581654834Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -173,10 +190,10 @@
         "personal"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:36.183137400Z",
-        "last_success": "2026-05-02T09:07:36.183137400Z",
+        "last_checked": "2026-05-02T09:15:05.358574972Z",
+        "last_success": "2026-05-02T09:15:05.358574972Z",
         "consecutive_failures": 0,
-        "rtt_ms": 5335,
+        "rtt_ms": 778,
         "supported_nips": [
           1,
           11
@@ -195,10 +212,29 @@
         "christian"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.855271500Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:04.869829740Z",
+        "last_success": "2026-05-02T09:15:04.869829740Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 289,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
       }
     },
     {
@@ -216,9 +252,9 @@
         "fediverse"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:35.220465200Z",
+        "last_checked": "2026-05-02T09:15:05.197866012Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "HTTP error: 302 Found"
       }
     },
@@ -236,10 +272,13 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.855493600Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.822109893Z",
+        "last_success": "2026-05-02T09:15:05.822109893Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1240,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
       }
     },
     {
@@ -254,10 +293,10 @@
         "feedback"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:34.571915600Z",
-        "last_success": "2026-05-02T09:07:34.571915600Z",
+        "last_checked": "2026-05-02T09:15:05.716949805Z",
+        "last_success": "2026-05-02T09:15:05.716949805Z",
         "consecutive_failures": 0,
-        "rtt_ms": 3723,
+        "rtt_ms": 1134,
         "supported_nips": [
           1,
           11,
@@ -288,10 +327,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.855780300Z",
+        "last_checked": "2026-05-02T09:15:04.955975043Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -308,9 +347,9 @@
         "nip29"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.856048200Z",
+        "last_checked": "2026-05-02T09:15:34.584691071Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -328,10 +367,10 @@
         "outbox"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.856337Z",
+        "last_checked": "2026-05-02T09:15:05.197438092Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -346,9 +385,9 @@
         "ephemeral"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.856749300Z",
+        "last_checked": "2026-05-02T09:15:34.585755040Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -368,10 +407,10 @@
         "nip17"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.857128900Z",
+        "last_checked": "2026-05-02T09:15:04.914344380Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -386,9 +425,9 @@
         "write-only"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.857701100Z",
+        "last_checked": "2026-05-02T09:15:34.586833537Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -404,10 +443,21 @@
         "news"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.858223700Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.242682611Z",
+        "last_success": "2026-05-02T09:15:05.242682611Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 657,
+        "supported_nips": [
+          1,
+          9,
+          11,
+          42,
+          45,
+          70,
+          86
+        ],
+        "nip11_software": "https://github.com/bitvora/sw2",
+        "nip11_version": "0.1.0"
       }
     },
     {
@@ -424,10 +474,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.858535100Z",
+        "last_checked": "2026-05-02T09:15:05.403451336Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -442,10 +492,10 @@
         "preview"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.858858200Z",
+        "last_checked": "2026-05-02T09:15:04.818507494Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -457,10 +507,29 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.859072900Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:04.969292342Z",
+        "last_success": "2026-05-02T09:15:04.969292342Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 382,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
       }
     },
     {
@@ -478,10 +547,23 @@
         "popular"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.859400Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.321504254Z",
+        "last_success": "2026-05-02T09:15:05.321504254Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 734,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-4-ge53d8de"
       }
     },
     {
@@ -498,10 +580,26 @@
         "yakihonne"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.859607500Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.716657429Z",
+        "last_success": "2026-05-02T09:15:05.716657429Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1128,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "0.9.6-8-g013d611"
       }
     },
     {
@@ -518,10 +616,24 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.859737500Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:04.890762329Z",
+        "last_success": "2026-05-02T09:15:04.890762329Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 301,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
       }
     },
     {
@@ -540,10 +652,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:38.007440400Z",
-        "last_success": "2026-05-02T09:07:38.007440400Z",
+        "last_checked": "2026-05-02T09:15:05.679209576Z",
+        "last_success": "2026-05-02T09:15:05.679209576Z",
         "consecutive_failures": 0,
-        "rtt_ms": 7154,
+        "rtt_ms": 1089,
         "supported_nips": [
           1,
           2,
@@ -576,10 +688,13 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.860688100Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.502782425Z",
+        "last_success": "2026-05-02T09:15:05.502782425Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 912,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
       }
     },
     {
@@ -597,10 +712,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:37.605266900Z",
-        "last_success": "2026-05-02T09:07:37.605266900Z",
+        "last_checked": "2026-05-02T09:15:05.467695782Z",
+        "last_success": "2026-05-02T09:15:05.467695782Z",
         "consecutive_failures": 0,
-        "rtt_ms": 6750,
+        "rtt_ms": 877,
         "supported_nips": [
           1,
           2,
@@ -632,10 +747,24 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.862073600Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.433628630Z",
+        "last_success": "2026-05-02T09:15:05.433628630Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 843,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
       }
     },
     {
@@ -653,10 +782,10 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:35.978932400Z",
+        "last_checked": "2026-05-02T09:15:04.644446259Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "IO error: 不知道这样的主机。 (os error 11001)"
+        "consecutive_failures": 2,
+        "last_error": "IO error: failed to lookup address information: No address associated with hostname"
       }
     },
     {
@@ -669,10 +798,24 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.863517400Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.547133174Z",
+        "last_success": "2026-05-02T09:15:05.547133174Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 956,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
       }
     },
     {
@@ -689,10 +832,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:35.488842700Z",
+        "last_checked": "2026-05-02T09:15:04.614862738Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "IO error: 不知道这样的主机。 (os error 11001)"
+        "consecutive_failures": 2,
+        "last_error": "IO error: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -706,10 +849,24 @@
         "community"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.863917900Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.299127455Z",
+        "last_success": "2026-05-02T09:15:05.299127455Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 707,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-4-ge53d8de"
       }
     },
     {
@@ -730,10 +887,10 @@
         "popular"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.864155200Z",
+        "last_checked": "2026-05-02T09:15:04.883328057Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -747,10 +904,24 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:40.865005Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:04.906932161Z",
+        "last_success": "2026-05-02T09:15:04.906932161Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 314,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
       }
     },
     {
@@ -762,9 +933,9 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:37.682074400Z",
+        "last_checked": "2026-05-02T09:15:05.371126892Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "HTTP error: 302 Found"
       }
     },
@@ -780,9 +951,9 @@
         "personal"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.237360700Z",
+        "last_checked": "2026-05-02T09:15:34.645012568Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -799,10 +970,10 @@
         "nip13"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:38.008489700Z",
-        "last_success": "2026-05-02T09:07:38.008489700Z",
+        "last_checked": "2026-05-02T09:15:05.570353558Z",
+        "last_success": "2026-05-02T09:15:05.570353558Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2705,
+        "rtt_ms": 751,
         "supported_nips": [
           1,
           11,
@@ -831,10 +1002,24 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.493734900Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.747291817Z",
+        "last_success": "2026-05-02T09:15:05.747291817Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 877,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.3-1-g60d35a6"
       }
     },
     {
@@ -846,10 +1031,29 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.990265800Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.163222790Z",
+        "last_success": "2026-05-02T09:15:05.163222790Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 279,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
       }
     },
     {
@@ -868,10 +1072,22 @@
         "index"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:46.189878200Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.754921653Z",
+        "last_success": "2026-05-02T09:15:05.754921653Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 864,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          51,
+          77,
+          9
+        ],
+        "nip11_software": "https://github.com/pablof7z/purplepag.es",
+        "nip11_version": "0.2.0"
       }
     },
     {
@@ -888,10 +1104,13 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:47.610849200Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.005064115Z",
+        "last_success": "2026-05-02T09:15:06.005064115Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1098,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
       }
     },
     {
@@ -910,10 +1129,10 @@
         "invite-only"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:39.418542600Z",
-        "last_success": "2026-05-02T09:07:39.418542600Z",
+        "last_checked": "2026-05-02T09:15:05.620852217Z",
+        "last_success": "2026-05-02T09:15:05.620852217Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1735,
+        "rtt_ms": 706,
         "supported_nips": [
           1,
           11,
@@ -945,10 +1164,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:48.010104900Z",
+        "last_checked": "2026-05-02T09:15:05.872516216Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -964,10 +1183,10 @@
         "curation"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:48.010659300Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.412401111Z",
+        "last_success": "2026-05-02T09:15:05.412401111Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 437
       }
     },
     {
@@ -987,10 +1206,10 @@
         "ios"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:49.425901400Z",
+        "last_checked": "2026-05-02T09:15:05.288019076Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 503 Service Unavailable"
       }
     },
     {
@@ -1006,10 +1225,10 @@
         "video"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:43.641348200Z",
-        "last_success": "2026-05-02T09:07:43.641348200Z",
+        "last_checked": "2026-05-02T09:15:06.240512065Z",
+        "last_success": "2026-05-02T09:15:06.240512065Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2781,
+        "rtt_ms": 1043,
         "supported_nips": [
           1,
           4,
@@ -1052,9 +1271,9 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.866928100Z",
+        "last_checked": "2026-05-02T09:15:35.199739770Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -1071,10 +1290,24 @@
         "activitypub"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.867464800Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.891203463Z",
+        "last_success": "2026-05-02T09:15:05.891203463Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 648,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
       }
     },
     {
@@ -1087,10 +1320,27 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.867799200Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.717554398Z",
+        "last_success": "2026-05-02T09:15:05.717554398Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 435,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          62
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.3"
       }
     },
     {
@@ -1109,9 +1359,9 @@
         "nip50"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.868229300Z",
+        "last_checked": "2026-05-02T09:15:35.289911503Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -1125,10 +1375,17 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.868517900Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.434983512Z",
+        "last_success": "2026-05-02T09:15:06.434983512Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1135,
+        "supported_nips": [
+          1,
+          11,
+          50
+        ],
+        "nip11_software": "custom",
+        "nip11_version": "0.0.1"
       }
     },
     {
@@ -1145,10 +1402,33 @@
         "anime"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.868946300Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.607482820Z",
+        "last_success": "2026-05-02T09:15:06.607482820Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1285,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          15,
+          16,
+          20,
+          22,
+          25,
+          26,
+          28,
+          33,
+          40,
+          42,
+          45,
+          50,
+          70
+        ],
+        "nip11_software": "https://github.com/rnostr/rnostr",
+        "nip11_version": "0.4.7"
       }
     },
     {
@@ -1161,10 +1441,24 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.869178200Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.282188646Z",
+        "last_success": "2026-05-02T09:15:06.282188646Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 923,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-beta5-4-gf31a1b9"
       }
     },
     {
@@ -1181,10 +1475,25 @@
         "chinese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.869515200Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:07.049281479Z",
+        "last_success": "2026-05-02T09:15:07.049281479Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1678,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45,
+          77,
+          43,
+          29,
+          16
+        ],
+        "nip11_software": "https://github.com/fiatjaf/pyramid"
       }
     },
     {
@@ -1204,10 +1513,24 @@
         "caching"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.869773600Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.248384606Z",
+        "last_success": "2026-05-02T09:15:06.248384606Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 844,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.3-1-g60d35a6"
       }
     },
     {
@@ -1220,10 +1543,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.870203500Z",
+        "last_checked": "2026-05-02T09:15:21.166774217Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 504 Gateway Timeout"
       }
     },
     {
@@ -1240,10 +1563,10 @@
         "long-form"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:44.854916300Z",
-        "last_success": "2026-05-02T09:07:44.854916300Z",
+        "last_checked": "2026-05-02T09:15:06.305665923Z",
+        "last_success": "2026-05-02T09:15:06.305665923Z",
         "consecutive_failures": 0,
-        "rtt_ms": 3989,
+        "rtt_ms": 872,
         "supported_nips": [
           1,
           11,
@@ -1270,10 +1593,10 @@
         "spatianostra"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:47.556272500Z",
-        "last_success": "2026-05-02T09:07:47.556272500Z",
+        "last_checked": "2026-05-02T09:15:06.185736264Z",
+        "last_success": "2026-05-02T09:15:06.185736264Z",
         "consecutive_failures": 0,
-        "rtt_ms": 6690,
+        "rtt_ms": 718,
         "supported_nips": [
           1,
           11,
@@ -1294,10 +1617,29 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.870480600Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.775439705Z",
+        "last_success": "2026-05-02T09:15:05.775439705Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 276,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
       }
     },
     {
@@ -1309,10 +1651,29 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.870816Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:05.762551548Z",
+        "last_success": "2026-05-02T09:15:05.762551548Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 259,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
       }
     },
     {
@@ -1327,10 +1688,10 @@
         "qna"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.125604800Z",
-        "last_success": "2026-05-02T09:07:45.125604800Z",
+        "last_checked": "2026-05-02T09:15:06.669568172Z",
+        "last_success": "2026-05-02T09:15:06.669568172Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4259,
+        "rtt_ms": 1122,
         "supported_nips": [
           1,
           11,
@@ -1354,10 +1715,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.452367600Z",
-        "last_success": "2026-05-02T09:07:45.452367600Z",
+        "last_checked": "2026-05-02T09:15:06.671278740Z",
+        "last_success": "2026-05-02T09:15:06.671278740Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4585,
+        "rtt_ms": 1100,
         "supported_nips": [
           1,
           11,
@@ -1381,10 +1742,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.478386700Z",
-        "last_success": "2026-05-02T09:07:45.478386700Z",
+        "last_checked": "2026-05-02T09:15:06.694339616Z",
+        "last_success": "2026-05-02T09:15:06.694339616Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4611,
+        "rtt_ms": 1073,
         "supported_nips": [
           1,
           11,
@@ -1408,10 +1769,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.186589900Z",
-        "last_success": "2026-05-02T09:07:45.186589900Z",
+        "last_checked": "2026-05-02T09:15:06.694479357Z",
+        "last_success": "2026-05-02T09:15:06.694479357Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4319,
+        "rtt_ms": 1015,
         "supported_nips": [
           1,
           11,
@@ -1435,10 +1796,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.371772400Z",
-        "last_success": "2026-05-02T09:07:45.371772400Z",
+        "last_checked": "2026-05-02T09:15:06.699563413Z",
+        "last_success": "2026-05-02T09:15:06.699563413Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4504,
+        "rtt_ms": 982,
         "supported_nips": [
           1,
           11,
@@ -1462,10 +1823,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.442975500Z",
-        "last_success": "2026-05-02T09:07:45.442975500Z",
+        "last_checked": "2026-05-02T09:15:06.676257498Z",
+        "last_success": "2026-05-02T09:15:06.676257498Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4574,
+        "rtt_ms": 959,
         "supported_nips": [
           1,
           11,
@@ -1493,10 +1854,10 @@
         "trending"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.861280200Z",
-        "last_success": "2026-05-02T09:07:45.861280200Z",
+        "last_checked": "2026-05-02T09:15:06.475172493Z",
+        "last_success": "2026-05-02T09:15:06.475172493Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4992,
+        "rtt_ms": 757,
         "supported_nips": [
           1,
           11,
@@ -1518,10 +1879,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:46.020234600Z",
-        "last_success": "2026-05-02T09:07:46.020234600Z",
+        "last_checked": "2026-05-02T09:15:06.584741040Z",
+        "last_success": "2026-05-02T09:15:06.584741040Z",
         "consecutive_failures": 0,
-        "rtt_ms": 5151,
+        "rtt_ms": 837,
         "supported_nips": [
           1,
           11,
@@ -1544,10 +1905,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.873088400Z",
+        "last_checked": "2026-05-02T09:15:05.981439254Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -1560,10 +1921,20 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:53.654538500Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.600822657Z",
+        "last_success": "2026-05-02T09:15:06.600822657Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 838,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          9
+        ],
+        "nip11_software": "https://github.com/bitvora/wot-relay",
+        "nip11_version": ""
       }
     },
     {
@@ -1576,10 +1947,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:54.866656900Z",
+        "last_checked": "2026-05-02T09:15:05.925484980Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 530 <unknown status code>"
       }
     },
     {
@@ -1595,10 +1966,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:55.142275700Z",
+        "last_checked": "2026-05-02T09:15:05.961903939Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 403 Forbidden"
       }
     },
     {
@@ -1614,9 +1985,9 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:46.600624Z",
+        "last_checked": "2026-05-02T09:15:06.026038420Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "HTTP error: 403 Forbidden"
       }
     },
@@ -1633,10 +2004,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:45.677922900Z",
+        "last_checked": "2026-05-02T09:15:05.986512379Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "IO error: 不知道这样的主机。 (os error 11001)"
+        "consecutive_failures": 2,
+        "last_error": "IO error: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -1652,10 +2023,24 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:55.388235Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.761491078Z",
+        "last_success": "2026-05-02T09:15:06.761491078Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 870,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4-2-gc15be27"
       }
     },
     {
@@ -1674,10 +2059,24 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:55.449180700Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.573824349Z",
+        "last_success": "2026-05-02T09:15:06.573824349Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 648,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
       }
     },
     {
@@ -1695,10 +2094,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:48.214862300Z",
-        "last_success": "2026-05-02T09:07:48.214862300Z",
+        "last_checked": "2026-05-02T09:15:06.982190272Z",
+        "last_success": "2026-05-02T09:15:06.982190272Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2762,
+        "rtt_ms": 1020,
         "supported_nips": [
           1,
           2,
@@ -1728,9 +2127,9 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:47.644741100Z",
+        "last_checked": "2026-05-02T09:15:06.148658491Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "IO error: received fatal alert: InternalError"
       }
     },
@@ -1747,10 +2146,19 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:55.510705800Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.390128781Z",
+        "last_success": "2026-05-02T09:15:06.390128781Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 403,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86
+        ],
+        "nip11_software": "https://github.com/fiatjaf/khatru",
+        "nip11_version": "n/a"
       }
     },
     {
@@ -1763,10 +2171,24 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:55.694916100Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:07.420617485Z",
+        "last_success": "2026-05-02T09:15:07.420617485Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1415,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
       }
     },
     {
@@ -1779,10 +2201,22 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:55.863676300Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:11.108012727Z",
+        "last_success": "2026-05-02T09:15:11.108012727Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 5081,
+        "supported_nips": [
+          1,
+          2,
+          9,
+          11,
+          12,
+          16,
+          20,
+          33
+        ],
+        "nip11_software": "https://github.com/monty888/monstr",
+        "nip11_version": "0.1.2"
       }
     },
     {
@@ -1800,9 +2234,9 @@
         "gaming"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:47.819536900Z",
+        "last_checked": "2026-05-02T09:15:06.218239384Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "IO error: invalid peer certificate: certificate not valid for name \"nostr.zebedee.cloud\"; certificate is only valid for DnsName(\"names-hub.com\") or DnsName(\"www.names-hub.com\")"
       }
     },
@@ -1821,10 +2255,24 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:56.035690600Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:06.521513826Z",
+        "last_success": "2026-05-02T09:15:06.521513826Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 335,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-beta5"
       }
     },
     {
@@ -1841,10 +2289,18 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:56.207315700Z",
-        "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "last_checked": "2026-05-02T09:15:07.335064609Z",
+        "last_success": "2026-05-02T09:15:07.335064609Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 1116,
+        "supported_nips": [
+          1,
+          2,
+          18,
+          25,
+          53,
+          73
+        ]
       }
     },
     {
@@ -1857,10 +2313,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:47.579487200Z",
+        "last_checked": "2026-05-02T09:15:06.300664652Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "IO error: 不知道这样的主机。 (os error 11001)"
+        "consecutive_failures": 2,
+        "last_error": "IO error: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -1872,10 +2328,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:54.879106400Z",
+        "last_checked": "2026-05-02T09:15:16.258322466Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "IO error: 这是在主机名解析时通常出现的暂时错误，它意味着本地服务器没有从权威服务器上收到响应。 (os error 11002)"
+        "consecutive_failures": 2,
+        "last_error": "IO error: failed to lookup address information: Temporary failure in name resolution"
       }
     },
     {
@@ -1891,10 +2347,10 @@
         "photo"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:51.272000100Z",
-        "last_success": "2026-05-02T09:07:51.272000100Z",
+        "last_checked": "2026-05-02T09:15:07.180302245Z",
+        "last_success": "2026-05-02T09:15:07.180302245Z",
         "consecutive_failures": 0,
-        "rtt_ms": 3676
+        "rtt_ms": 898
       }
     },
     {
@@ -1913,9 +2369,9 @@
         "chat"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:57.624679Z",
+        "last_checked": "2026-05-02T09:15:36.301141512Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -1931,10 +2387,10 @@
         "algorithm"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:57.656522700Z",
+        "last_checked": "2026-05-02T09:15:06.454889040Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "probe timeout"
+        "consecutive_failures": 2,
+        "last_error": "HTTP error: 530 <unknown status code>"
       }
     },
     {
@@ -1951,10 +2407,10 @@
         "rss"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:48.461217400Z",
+        "last_checked": "2026-05-02T09:15:06.554815209Z",
         "last_success": null,
-        "consecutive_failures": 1,
-        "last_error": "IO error: 不知道这样的主机。 (os error 11001)"
+        "consecutive_failures": 2,
+        "last_error": "IO error: failed to lookup address information: Name or service not known"
       }
     },
     {
@@ -1970,9 +2426,9 @@
         "rss"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:58.025771Z",
+        "last_checked": "2026-05-02T09:15:36.436312744Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "probe timeout"
       }
     },
@@ -1987,10 +2443,10 @@
         "arabic"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.131078100Z",
-        "last_success": "2026-05-02T09:07:50.131078100Z",
+        "last_checked": "2026-05-02T09:15:07.311971693Z",
+        "last_success": "2026-05-02T09:15:07.311971693Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2119,
+        "rtt_ms": 857,
         "supported_nips": [
           1,
           11,
@@ -2017,10 +2473,10 @@
         "german"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.689840300Z",
-        "last_success": "2026-05-02T09:07:50.689840300Z",
+        "last_checked": "2026-05-02T09:15:07.338129139Z",
+        "last_success": "2026-05-02T09:15:07.338129139Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2474,
+        "rtt_ms": 862,
         "supported_nips": [
           1,
           11,
@@ -2046,9 +2502,9 @@
         "english"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:49.707635800Z",
+        "last_checked": "2026-05-02T09:15:07.190764826Z",
         "last_success": null,
-        "consecutive_failures": 1,
+        "consecutive_failures": 2,
         "last_error": "HTTP error: 200 OK"
       }
     },
@@ -2063,10 +2519,10 @@
         "spanish"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.846562500Z",
-        "last_success": "2026-05-02T09:07:50.846562500Z",
+        "last_checked": "2026-05-02T09:15:07.321456957Z",
+        "last_success": "2026-05-02T09:15:07.321456957Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1420,
+        "rtt_ms": 766,
         "supported_nips": [
           1,
           11,
@@ -2093,10 +2549,10 @@
         "french"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:51.107715Z",
-        "last_success": "2026-05-02T09:07:51.107715Z",
+        "last_checked": "2026-05-02T09:15:07.314688873Z",
+        "last_success": "2026-05-02T09:15:07.314688873Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1399,
+        "rtt_ms": 740,
         "supported_nips": [
           1,
           11,
@@ -2123,10 +2579,10 @@
         "italian"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:51.587883500Z",
-        "last_success": "2026-05-02T09:07:51.587883500Z",
+        "last_checked": "2026-05-02T09:15:07.306758786Z",
+        "last_success": "2026-05-02T09:15:07.306758786Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1456,
+        "rtt_ms": 721,
         "supported_nips": [
           1,
           11,
@@ -2153,10 +2609,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:52.084322300Z",
-        "last_success": "2026-05-02T09:07:52.084322300Z",
+        "last_checked": "2026-05-02T09:15:07.309549354Z",
+        "last_success": "2026-05-02T09:15:07.309549354Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1394,
+        "rtt_ms": 708,
         "supported_nips": [
           1,
           11,
@@ -2183,10 +2639,10 @@
         "korean"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:52.450389200Z",
-        "last_success": "2026-05-02T09:07:52.450389200Z",
+        "last_checked": "2026-05-02T09:15:07.337385138Z",
+        "last_success": "2026-05-02T09:15:07.337385138Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1603,
+        "rtt_ms": 729,
         "supported_nips": [
           1,
           11,
@@ -2212,10 +2668,10 @@
         "portuguese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:53.590874400Z",
-        "last_success": "2026-05-02T09:07:53.590874400Z",
+        "last_checked": "2026-05-02T09:15:07.399556427Z",
+        "last_success": "2026-05-02T09:15:07.399556427Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2719,
+        "rtt_ms": 729,
         "supported_nips": [
           1,
           11,
@@ -2241,10 +2697,10 @@
         "russian"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:52.255848900Z",
-        "last_success": "2026-05-02T09:07:52.255848900Z",
+        "last_checked": "2026-05-02T09:15:07.361231202Z",
+        "last_success": "2026-05-02T09:15:07.361231202Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1384,
+        "rtt_ms": 689,
         "supported_nips": [
           1,
           11,
@@ -2270,10 +2726,10 @@
         "turkish"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:52.448532700Z",
-        "last_success": "2026-05-02T09:07:52.448532700Z",
+        "last_checked": "2026-05-02T09:15:07.402250164Z",
+        "last_success": "2026-05-02T09:15:07.402250164Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1577,
+        "rtt_ms": 725,
         "supported_nips": [
           1,
           11,
@@ -2300,10 +2756,10 @@
         "vietnamese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:53.405697100Z",
-        "last_success": "2026-05-02T09:07:53.405697100Z",
+        "last_checked": "2026-05-02T09:15:07.422949795Z",
+        "last_success": "2026-05-02T09:15:07.422949795Z",
         "consecutive_failures": 0,
-        "rtt_ms": 2533,
+        "rtt_ms": 728,
         "supported_nips": [
           1,
           11,
@@ -2330,10 +2786,10 @@
         "chinese"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:52.695779500Z",
-        "last_success": "2026-05-02T09:07:52.695779500Z",
+        "last_checked": "2026-05-02T09:15:07.413032193Z",
+        "last_success": "2026-05-02T09:15:07.413032193Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1823,
+        "rtt_ms": 718,
         "supported_nips": [
           1,
           11,
@@ -2360,8 +2816,8 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.872109200Z",
-        "last_success": "2026-05-02T09:07:50.872109200Z",
+        "last_checked": "2026-05-02T09:15:06.699567210Z",
+        "last_success": "2026-05-02T09:15:06.699567210Z",
         "consecutive_failures": 0,
         "rtt_ms": 0
       }
@@ -2378,8 +2834,8 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.872274100Z",
-        "last_success": "2026-05-02T09:07:50.872274100Z",
+        "last_checked": "2026-05-02T09:15:06.699568502Z",
+        "last_success": "2026-05-02T09:15:06.699568502Z",
         "consecutive_failures": 0,
         "rtt_ms": 0
       }
@@ -2397,8 +2853,8 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.872498700Z",
-        "last_success": "2026-05-02T09:07:50.872498700Z",
+        "last_checked": "2026-05-02T09:15:06.699569123Z",
+        "last_success": "2026-05-02T09:15:06.699569123Z",
         "consecutive_failures": 0,
         "rtt_ms": 0
       }
@@ -2416,8 +2872,8 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.873295600Z",
-        "last_success": "2026-05-02T09:07:50.873295600Z",
+        "last_checked": "2026-05-02T09:15:06.699569725Z",
+        "last_success": "2026-05-02T09:15:06.699569725Z",
         "consecutive_failures": 0,
         "rtt_ms": 0
       }
@@ -2436,8 +2892,8 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-02T09:07:50.873506900Z",
-        "last_success": "2026-05-02T09:07:50.873506900Z",
+        "last_checked": "2026-05-02T09:15:06.699570165Z",
+        "last_success": "2026-05-02T09:15:06.699570165Z",
         "consecutive_failures": 0,
         "rtt_ms": 0
       }
