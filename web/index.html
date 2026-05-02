@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Curated Nostr relay catalog with CI-driven JSON API and hourly health probes."
+    />
+    <title>Awesome Nostr Relays — static JSON API</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #ffffff;
+        --fg: #1a1a1a;
+        --muted: #5b5b5b;
+        --accent: #6a00ff;
+        --code-bg: #f4f4f5;
+        --border: #e5e5e5;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0f0f11;
+          --fg: #e8e8ea;
+          --muted: #9a9aa0;
+          --accent: #a87dff;
+          --code-bg: #1d1d21;
+          --border: #2a2a2f;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem 4rem;
+        background: var(--bg);
+        color: var(--fg);
+      }
+      h1 {
+        font-size: 1.75rem;
+        margin: 0 0 0.5rem;
+        letter-spacing: -0.01em;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin: 2rem 0 0.75rem;
+        color: var(--muted);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      p {
+        margin: 0.5rem 0 1rem;
+        color: var(--muted);
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      ul.endpoints {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+      ul.endpoints li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.85rem 1rem;
+        border-top: 1px solid var(--border);
+      }
+      ul.endpoints li:first-child {
+        border-top: none;
+      }
+      ul.endpoints a {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-weight: 600;
+      }
+      ul.endpoints small {
+        color: var(--muted);
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        background: var(--code-bg);
+        padding: 0.1em 0.4em;
+        border-radius: 0.3rem;
+        font-size: 0.92em;
+      }
+      footer {
+        margin-top: 3rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+        padding-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Awesome Nostr Relays</h1>
+    <p>
+      Curated Nostr relay catalog. This domain serves a static JSON API generated from
+      <a href="https://github.com/qntx/awesome-nostr-relays"><code>qntx/awesome-nostr-relays</code></a>
+      and refreshed hourly by CI.
+    </p>
+
+    <h2>Endpoints</h2>
+    <ul class="endpoints">
+      <li>
+        <a href="relays.json">relays.json</a>
+        <small>Full dataset with curator metadata and CI-measured health status.</small>
+      </li>
+      <li>
+        <a href="urls.json">urls.json</a>
+        <small>Flat list of relay URLs — lightest format, ideal for client-side relay rotation.</small>
+      </li>
+      <li>
+        <a href="collections.json">collections.json</a>
+        <small>Relays grouped by collection id (<code>featured</code>, <code>global</code>, …).</small>
+      </li>
+    </ul>
+
+    <h2>Usage</h2>
+    <p>Proper <code>Content-Type: application/json</code>, permissive CORS, no rate limit.</p>
+    <p>
+      <code>curl -sL https://relays.qntx.fun/urls.json | jq .urls</code>
+    </p>
+
+    <footer>
+      <a href="https://github.com/qntx/awesome-nostr-relays">Source</a> ·
+      <a href="https://github.com/qntx/awesome-nostr-relays/blob/main/CONTRIBUTING.md">Contribute</a> ·
+      <a href="https://qntx.fun">QNTX</a>
+    </footer>
+  </body>
+</html>

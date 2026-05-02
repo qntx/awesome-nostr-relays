@@ -37,16 +37,12 @@ jobs:
         run: ./target/release/anr build
 
       - name: Commit and push if changed
-        run: |
-          git config user.name  'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add api/ README.md
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-          git commit -m "chore(data): regenerate api/*.json and README [skip ci]"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v7.1.0
+        with:
+          commit_message: "chore(data): regenerate api/*.json and README [skip ci]"
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          file_pattern: "api/ README.md"
 
       - name: Upload artefacts
         uses: actions/upload-artifact@v4

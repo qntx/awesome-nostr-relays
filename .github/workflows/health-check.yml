@@ -1,9 +1,15 @@
 name: Health Check
 
+# Probes every catalogued relay hourly (at minute 0) and commits the updated
+# `health.json` + regenerated `api/` + README back to `main`. Downstream
+# clients see probe data that is at most ~1h stale.
+#
+# Trade-off: hourly probes mean ~24 hits/day per relay. Small community relays
+# may treat this as abusive — switch to `0 */6 * * *` (every 6h) or
+# `0 */3 * * *` (every 3h) if operators push back.
 on:
   schedule:
-    # Every day at 06:00 UTC.
-    - cron: "0 6 * * *"
+    - cron: "0 * * * *"
   workflow_dispatch:
     inputs:
       concurrency:
@@ -47,16 +53,12 @@ jobs:
             --timeout     "${{ github.event.inputs.timeout     || '10' }}"
 
       - name: Commit and push if changed
-        run: |
-          git config user.name  'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add health.json api/ README.md
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-          git commit -m "chore(health): update health.json and regenerate artefacts [skip ci]"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v7.1.0
+        with:
+          commit_message: "chore(health): update health.json and regenerate artefacts [skip ci]"
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          file_pattern: "health.json api/ README.md"
 
       - name: Upload health artefacts
         uses: actions/upload-artifact@v4

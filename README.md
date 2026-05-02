@@ -1,53 +1,46 @@
-# awesome-nostr-relays
+# Awesome Nostr Relays
 
-> A curated catalogue of Nostr relays from around the world, organised into
-> discovery collections and continuously health-checked.
+> A curated catalogue of Nostr relays from around the world, organised into discovery collections and continuously health-checked.
 
 [![CI](https://github.com/qntx/awesome-nostr-relays/actions/workflows/ci.yml/badge.svg)](https://github.com/qntx/awesome-nostr-relays/actions/workflows/ci.yml)
 [![Build](https://github.com/qntx/awesome-nostr-relays/actions/workflows/build.yml/badge.svg)](https://github.com/qntx/awesome-nostr-relays/actions/workflows/build.yml)
 [![Health Check](https://github.com/qntx/awesome-nostr-relays/actions/workflows/health-check.yml/badge.svg)](https://github.com/qntx/awesome-nostr-relays/actions/workflows/health-check.yml)
-[![Pages](https://github.com/qntx/awesome-nostr-relays/actions/workflows/pages.yml/badge.svg)](https://qntx.github.io/awesome-nostr-relays/)
+[![Pages](https://github.com/qntx/awesome-nostr-relays/actions/workflows/pages.yml/badge.svg)](https://relays.qntx.fun/)
 
-## ✨ What is this?
+## What is this?
 
-A single TOML file (`relays.toml`) is the source of truth for every relay in
-the catalogue. A Rust CLI regenerates:
+A single TOML file (`relays.toml`) is the source of truth for every relay in the catalogue. A Rust CLI regenerates:
 
 - `api/relays.json`       — full dataset with health metadata
 - `api/urls.json`         — flat list of URLs (lightest format)
 - `api/collections.json`  — relays grouped by collection id
 - the `<!-- RELAYS:* -->` section of this README (below)
 
-The `api/` directory is published to GitHub Pages so downstream apps can fetch
-the data with proper `Content-Type: application/json`, permissive CORS, and
-without the 60 req/hour limit of `raw.githubusercontent.com`.
+The `api/` directory is published to GitHub Pages so downstream apps can fetch the data with proper `Content-Type: application/json`, permissive CORS, and without the 60 req/hour limit of `raw.githubusercontent.com`.
 
-CI runs five jobs:
+CI runs four workflows:
 
-| Workflow           | Trigger                                   | Purpose                                        |
-|--------------------|-------------------------------------------|------------------------------------------------|
-| `ci.yml`           | push / PR                                 | `cargo fmt` + `clippy` + `test`                |
-| `pr-lint.yml`      | PR                                        | markdown-lint + `anr validate`                 |
-| `build.yml`        | push to `main` that touches `relays.toml` | regenerate `api/*.json` + README, auto-commit  |
-| `health-check.yml` | daily cron + manual dispatch              | NIP-11 + WebSocket probe, update `health.json` |
-| `pages.yml`        | after `build.yml` / `health-check.yml`    | publish `api/` to GitHub Pages                 |
+| Workflow           | Trigger                                   | Purpose                                               |
+|--------------------|-------------------------------------------|-------------------------------------------------------|
+| `ci.yml`           | push / PR                                 | `cargo fmt` + `clippy` + `test` + `anr validate`      |
+| `build.yml`        | push to `main` that touches `relays.toml` | regenerate `api/*.json` + README, auto-commit         |
+| `health-check.yml` | hourly cron + manual dispatch             | NIP-11 + WebSocket probe, update `health.json`        |
+| `pages.yml`        | after `build.yml` / `health-check.yml`    | publish `web/` + `api/` to GitHub Pages               |
 
-## 🚀 Consume the JSON (from GitHub Pages)
+## Consume the JSON (from GitHub Pages)
 
 ```bash
 # Flat URL list (smallest payload, ideal for relay rotation)
-curl -sL https://qntx.github.io/awesome-nostr-relays/urls.json
+curl -sL https://relays.qntx.fun/urls.json
 
 # Full dataset with health status + NIP-11 metadata
-curl -sL https://qntx.github.io/awesome-nostr-relays/relays.json
+curl -sL https://relays.qntx.fun/relays.json
 
 # Grouped by collection id
-curl -sL https://qntx.github.io/awesome-nostr-relays/collections.json
+curl -sL https://relays.qntx.fun/collections.json
 ```
 
-> **Tip:** prefer the Pages URLs above over `raw.githubusercontent.com/...`.
-> The raw endpoint rate-limits unauthenticated clients to 60 req/hour/IP and
-> returns `Content-Type: text/plain`, which many JSON clients reject.
+> **Tip:** prefer the Pages URLs above over `raw.githubusercontent.com/...`. The raw endpoint rate-limits unauthenticated clients to 60 req/hour/IP and returns `Content-Type: text/plain`, which many JSON clients reject.
 
 Each relay entry in `relays.json` looks like:
 
@@ -71,7 +64,7 @@ Each relay entry in `relays.json` looks like:
 }
 ```
 
-## 🛠 Local development
+## Local development
 
 ```bash
 # Validate the TOML catalogue
@@ -84,24 +77,21 @@ cargo run --release -- build
 cargo run --release -- check --limit 10 --timeout 8
 ```
 
-## 🤝 Contributing
+## Contributing
 
-PRs that add / update / remove relays should only touch `relays.toml`. Please
-read [`CONTRIBUTING.md`](./CONTRIBUTING.md) first. CI will automatically:
+PRs that add / update / remove relays should only touch `relays.toml`. Please read [`CONTRIBUTING.md`](./CONTRIBUTING.md) first. CI will automatically:
 
 1. lint Markdown and YAML style
-2. validate the TOML schema, URL normalisation, duplicate URLs, and unknown
-   collection ids
+2. validate the TOML schema, URL normalisation, duplicate URLs, and unknown collection ids
 3. probe any *newly added* relay URLs so reviewers can see they work
 
-## 📊 Catalogue
+## Catalogue
 
 <!-- RELAYS:START -->
 <!-- The content between RELAYS:START and RELAYS:END is
      auto-generated by `anr build`. Do not edit by hand. -->
 
-> Catalog last generated at **2026-05-02 07:36:38 UTC**
-> — **107** relays tracked, **0** currently healthy.
+> Catalog last generated at **2026-05-02 07:56:36 UTC** — **107** relays tracked, **0** currently healthy.
 
 **Legend**: ✅ healthy · ❔ never probed · ⚠️ 3 consecutive failures · 💀 ≥ 14 consecutive failures (candidate for removal)
 
@@ -364,6 +354,26 @@ Relays reachable via Tor hidden services (.onion).
 
 <!-- RELAYS:END -->
 
-## 📝 License
+## License
 
-[MIT](./LICENSE)
+Licensed under either of:
+
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or <https://www.apache.org/licenses/LICENSE-2.0>)
+- MIT License ([LICENSE-MIT](LICENSE-MIT) or <https://opensource.org/licenses/MIT>)
+
+at your option.
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in this project shall be dual-licensed as above, without any additional terms or conditions.
+
+---
+
+<div align="center">
+
+A **[QNTX](https://qntx.fun)** open-source project.
+
+<a href="https://qntx.fun"><img alt="QNTX" width="369" src="https://raw.githubusercontent.com/qntx/.github/main/profile/qntx-banner.svg" /></a>
+
+<!--prettier-ignore-->
+Code is law. We write both.
+
+</div>

@@ -1,0 +1,36 @@
+# Lefthook config — https://lefthook.dev
+#
+# Run `lefthook install` once after cloning. Hooks then run automatically on
+# `git commit`. Install lefthook with `cargo install lefthook` or download a
+# release binary from https://github.com/evilmartians/lefthook/releases.
+
+pre-commit:
+  # Serial so `build` sees an up-to-date `relays.toml` and the Cargo cache
+  # stays warm across steps.
+  parallel: false
+  commands:
+    fmt:
+      glob: "*.rs"
+      run: cargo fmt --all -- --check
+    clippy:
+      glob: "*.rs"
+      run: cargo clippy --workspace --all-targets -- -D warnings
+    validate:
+      glob: "relays.toml"
+      run: cargo run --quiet -- validate
+    # Regenerate api/*.json + README whenever the catalog changes so local
+    # commits mirror what CI would produce. `stage_fixed: true` auto-adds the
+    # regenerated files to the same commit.
+    build:
+      glob: "relays.toml"
+      run: cargo run --quiet -- build
+      stage_fixed: true
+
+commit-msg:
+  commands:
+    # Enforce Conventional Commits. Plain regex keeps the dependency surface
+    # minimal; swap in commitlint if the policy grows.
+    conventional:
+      run: |
+        grep -qE '^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\([a-z0-9-]+\))?!?: .+' {1} \
+          || { echo "ERROR: commit message must follow Conventional Commits (e.g. 'feat(scope): subject')"; exit 1; }

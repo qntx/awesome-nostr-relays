@@ -11,3 +11,13 @@ jobs:
     uses: qntx/workflows/.github/workflows/ci-rust.yml@main
     with:
       submodules: true
+
+  validate:
+    name: Validate relay catalog
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Run anr validate
+        run: cargo run --quiet -- validate
