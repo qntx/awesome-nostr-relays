@@ -19,7 +19,7 @@ on:
       timeout:
         description: "Per-relay timeout in seconds"
         required: false
-        default: "10"
+        default: "30"
 
 permissions:
   contents: write
@@ -50,7 +50,7 @@ jobs:
         run: |
           ./target/release/relays check \
             --concurrency "${{ github.event.inputs.concurrency || '32' }}" \
-            --timeout     "${{ github.event.inputs.timeout     || '10' }}"
+            --timeout     "${{ github.event.inputs.timeout     || '30' }}"
 
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
