@@ -1,0 +1,69 @@
+name: Health Check
+
+on:
+  schedule:
+    # Every day at 06:00 UTC.
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      concurrency:
+        description: "Max concurrent probes"
+        required: false
+        default: "32"
+      timeout:
+        description: "Per-relay timeout in seconds"
+        required: false
+        default: "10"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: health-check
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    name: Probe relays and update health.json
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build binary
+        run: cargo build --release --quiet --bin anrelays
+
+      - name: Run probe
+        env:
+          RUST_LOG: info
+        run: |
+          ./target/release/anrelays check \
+            --concurrency "${{ github.event.inputs.concurrency || '32' }}" \
+            --timeout     "${{ github.event.inputs.timeout     || '10' }}"
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add health.json dist/ README.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(health): update health.json and regenerate artefacts [skip ci]"
+          git push
+
+      - name: Upload health artefacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: health-${{ github.run_number }}
+          path: |
+            health.json
+            dist/
+          retention-days: 30

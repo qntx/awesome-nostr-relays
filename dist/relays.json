@@ -1,0 +1,1425 @@
+{
+  "schema_version": "1",
+  "generated_at": "2026-05-02T07:11:11.337517700Z",
+  "total": 107,
+  "healthy": 0,
+  "collections": [
+    {
+      "id": "featured",
+      "name": "Featured",
+      "description": "Hand-picked, widely adopted relays with strong operational track record."
+    },
+    {
+      "id": "global",
+      "name": "Global Feeds",
+      "description": "General-purpose relays that accept events from any pubkey."
+    },
+    {
+      "id": "community",
+      "name": "Curated Communities",
+      "description": "Relays that focus on community-driven content and curation."
+    },
+    {
+      "id": "special",
+      "name": "Special Purpose",
+      "description": "Relays with unique filtering rules, display mechanisms, or event constraints."
+    },
+    {
+      "id": "topic",
+      "name": "Interest Groups",
+      "description": "Single-topic relays for focused discussions."
+    },
+    {
+      "id": "bot",
+      "name": "Automated Feeds",
+      "description": "Relays that primarily serve bot / algorithm / news feeds."
+    },
+    {
+      "id": "search",
+      "name": "Search & Index",
+      "description": "Relays exposing NIP-50 search or acting as indexers."
+    },
+    {
+      "id": "paid",
+      "name": "Paid Relays",
+      "description": "Relays that require payment (admission, subscription, or per-event) to post."
+    },
+    {
+      "id": "wot",
+      "name": "Web of Trust",
+      "description": "Relays filtering content by web-of-trust policies."
+    },
+    {
+      "id": "bridge",
+      "name": "Bridges & Aggregators",
+      "description": "Relays that bridge other networks (ActivityPub, RSS, etc.) or aggregate content."
+    },
+    {
+      "id": "regional-americas",
+      "name": "Regional — Americas",
+      "description": "Relays operated in North & South America."
+    },
+    {
+      "id": "regional-europe",
+      "name": "Regional — Europe",
+      "description": "Relays operated in Europe."
+    },
+    {
+      "id": "regional-asia",
+      "name": "Regional — Asia / Pacific",
+      "description": "Relays operated in Asia and the Pacific."
+    },
+    {
+      "id": "language",
+      "name": "Language Communities",
+      "description": "Relays scoped by spoken language."
+    },
+    {
+      "id": "tor",
+      "name": "Tor / Onion",
+      "description": "Relays reachable via Tor hidden services (.onion)."
+    }
+  ],
+  "relays": [
+    {
+      "url": "wss://140.f7z.io/",
+      "name": "140",
+      "description": "Short-form relay limiting content to 140 characters.",
+      "country": "US",
+      "software": "khatru",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "short-form"
+      ]
+    },
+    {
+      "url": "wss://atlas.nostr.land/",
+      "name": "Atlas (nostr.land)",
+      "operator": "nostr.land",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "tags": [
+        "premium"
+      ]
+    },
+    {
+      "url": "wss://bitcoiner.social/",
+      "name": "Bitcoiner Social",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "tags": [
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://bookmarks.relays.land/",
+      "name": "Bookmarks",
+      "description": "Relay scoped to bookmark-style events.",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "bookmarks"
+      ]
+    },
+    {
+      "url": "wss://bucket.coracle.social/",
+      "name": "Coracle Bucket",
+      "operator": "coracle.social",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "personal"
+      ]
+    },
+    {
+      "url": "wss://christpill.nostr1.com/",
+      "name": "Christpill",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": [
+        "christian"
+      ]
+    },
+    {
+      "url": "wss://ditto.pub/relay",
+      "name": "Ditto",
+      "operator": "Ditto",
+      "country": "US",
+      "software": "ditto",
+      "paid": false,
+      "collections": [
+        "global",
+        "bridge"
+      ],
+      "tags": [
+        "fediverse"
+      ]
+    },
+    {
+      "url": "wss://eden.nostr.land/",
+      "name": "Eden (nostr.land)",
+      "operator": "nostr.land",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "tags": [
+        "premium"
+      ]
+    },
+    {
+      "url": "wss://feedback.relays.land/",
+      "name": "Feedback",
+      "description": "Feedback-scoped relay on the relays.land network.",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "feedback"
+      ]
+    },
+    {
+      "url": "wss://filter.nostr.wine/",
+      "name": "filter.nostr.wine",
+      "operator": "nostr.wine",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "bridge",
+        "regional-americas"
+      ],
+      "tags": [
+        "filter",
+        "aggregator"
+      ]
+    },
+    {
+      "url": "wss://groups.0xchat.com/",
+      "name": "0xchat Groups",
+      "operator": "0xchat",
+      "paid": false,
+      "collections": [
+        "community",
+        "special"
+      ],
+      "tags": [
+        "groups",
+        "nip29"
+      ]
+    },
+    {
+      "url": "wss://haven.girino.org/outbox",
+      "name": "Girino Haven Outbox",
+      "operator": "girino",
+      "paid": false,
+      "collections": [
+        "wot",
+        "special"
+      ],
+      "tags": [
+        "haven",
+        "outbox"
+      ]
+    },
+    {
+      "url": "wss://impromptu.relays.land/",
+      "name": "Impromptu",
+      "description": "Ephemeral impromptu events.",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "ephemeral"
+      ]
+    },
+    {
+      "url": "wss://inbox.nostr.wine/",
+      "name": "inbox.nostr.wine",
+      "operator": "nostr.wine",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "special",
+        "regional-americas"
+      ],
+      "tags": [
+        "inbox",
+        "nip17"
+      ]
+    },
+    {
+      "url": "wss://lockbox.relays.land/",
+      "name": "Lockbox",
+      "description": "Events are write-only and hidden from general reads.",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "write-only"
+      ]
+    },
+    {
+      "url": "wss://news.utxo.one/",
+      "name": "UTXO News",
+      "operator": "utxo.one",
+      "paid": false,
+      "collections": [
+        "bot"
+      ],
+      "tags": [
+        "news"
+      ]
+    },
+    {
+      "url": "wss://nfrelay.app/",
+      "name": "nfrelay (nostr-filter-relay)",
+      "description": "Aggregator relay with content filtering (SFW/NSFW, language, topic).",
+      "software": "nostr-filter-relay",
+      "paid": false,
+      "collections": [
+        "bridge",
+        "search"
+      ],
+      "tags": [
+        "aggregator"
+      ]
+    },
+    {
+      "url": "wss://njump.me/",
+      "name": "njump",
+      "description": "Companion relay to njump.me content previews.",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "preview"
+      ]
+    },
+    {
+      "url": "wss://noornode.nostr1.com/",
+      "name": "Noor Node",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://nos.lol/",
+      "name": "nos.lol",
+      "country": "US",
+      "software": "strfry",
+      "paid": false,
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "tags": [
+        "popular"
+      ]
+    },
+    {
+      "url": "wss://nostr-01.yakihonne.com/",
+      "name": "YakiHonne",
+      "operator": "YakiHonne",
+      "country": "SG",
+      "paid": false,
+      "collections": [
+        "global",
+        "regional-asia"
+      ],
+      "tags": [
+        "yakihonne"
+      ]
+    },
+    {
+      "url": "wss://nostr.bitcoiner.social/",
+      "name": "nostr.bitcoiner.social",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "tags": [
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://nostr.einundzwanzig.space/",
+      "name": "Einundzwanzig",
+      "description": "Relay for the German bitcoin podcast community.",
+      "country": "DE",
+      "paid": false,
+      "collections": [
+        "community",
+        "language",
+        "regional-europe"
+      ],
+      "tags": [
+        "german",
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://nostr.land/",
+      "name": "nostr.land",
+      "operator": "nostr.land",
+      "country": "US",
+      "software": "NFDB",
+      "paid": true,
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "tags": [
+        "premium"
+      ]
+    },
+    {
+      "url": "wss://nostr.lopp.social/",
+      "name": "lopp.social",
+      "operator": "Jameson Lopp",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "tags": [
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://nostr.mom/",
+      "name": "nostr.mom",
+      "country": "US",
+      "software": "strfry",
+      "paid": false,
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://nostr.mutinywallet.com/",
+      "name": "Mutiny Wallet",
+      "operator": "Mutiny Wallet",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "tags": [
+        "bitcoin",
+        "lightning"
+      ]
+    },
+    {
+      "url": "wss://nostr.oxtr.dev/",
+      "name": "oxtr",
+      "operator": "0xtr",
+      "paid": false,
+      "collections": [
+        "global"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://nostr.plebchain.org/",
+      "name": "Plebchain",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "tags": [
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://nostr.superfriends.online/",
+      "name": "Superfriends",
+      "paid": false,
+      "collections": [
+        "global"
+      ],
+      "tags": [
+        "community"
+      ]
+    },
+    {
+      "url": "wss://nostr.wine/",
+      "name": "nostr.wine",
+      "description": "Paid relay for wine enthusiasts and everyone else.",
+      "operator": "nostr.wine",
+      "country": "US",
+      "software": "strfry",
+      "paid": true,
+      "collections": [
+        "paid",
+        "featured",
+        "regional-americas"
+      ],
+      "tags": [
+        "premium",
+        "popular"
+      ]
+    },
+    {
+      "url": "wss://offchain.pub/",
+      "name": "offchain.pub",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "global",
+        "regional-americas"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://pareto.space/",
+      "name": "Pareto",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://personal.relays.land/",
+      "name": "Personal",
+      "description": "Relay scoped to personal events only.",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "personal"
+      ]
+    },
+    {
+      "url": "wss://pow.relays.land/",
+      "name": "PoW",
+      "description": "Events must include Proof-of-Work (NIP-13).",
+      "paid": false,
+      "collections": [
+        "special"
+      ],
+      "tags": [
+        "pow",
+        "nip13"
+      ]
+    },
+    {
+      "url": "wss://premium.primal.net/",
+      "name": "Primal Premium",
+      "operator": "Primal",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "tags": [
+        "premium"
+      ]
+    },
+    {
+      "url": "wss://primus.nostr1.com/",
+      "name": "Primus",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://purplepag.es/",
+      "name": "Purple Pages",
+      "description": "Indexing relay for public metadata (kind 0 / 3 / 10002).",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "search",
+        "special",
+        "regional-americas"
+      ],
+      "tags": [
+        "metadata",
+        "index"
+      ]
+    },
+    {
+      "url": "wss://puravida.nostr.land/",
+      "name": "Pura Vida (nostr.land)",
+      "operator": "nostr.land",
+      "country": "US",
+      "paid": true,
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "tags": [
+        "premium"
+      ]
+    },
+    {
+      "url": "wss://pyramid.fiatjaf.com/",
+      "name": "Pyramid",
+      "description": "Invite-only relay with a WoT invitation tree.",
+      "operator": "fiatjaf",
+      "software": "khatru-pyramid",
+      "paid": false,
+      "collections": [
+        "featured",
+        "wot",
+        "special"
+      ],
+      "tags": [
+        "invite-only"
+      ]
+    },
+    {
+      "url": "wss://relay.0xchat.com/",
+      "name": "0xchat",
+      "operator": "0xchat",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.44billion.net/",
+      "name": "44billion",
+      "description": "Relay with built-in ranking and language-aware search.",
+      "paid": false,
+      "collections": [
+        "community",
+        "search"
+      ],
+      "tags": [
+        "curation"
+      ]
+    },
+    {
+      "url": "wss://relay.damus.io/",
+      "name": "Damus",
+      "operator": "Damus Team",
+      "country": "US",
+      "software": "strfry",
+      "paid": false,
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "tags": [
+        "popular",
+        "ios"
+      ]
+    },
+    {
+      "url": "wss://relay.divine.video/",
+      "name": "Divine Video",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "global",
+        "regional-americas"
+      ],
+      "tags": [
+        "video"
+      ]
+    },
+    {
+      "url": "wss://relay.getalby.com/",
+      "name": "Alby",
+      "operator": "Alby",
+      "country": "AT",
+      "paid": false,
+      "collections": [
+        "global",
+        "regional-europe"
+      ],
+      "tags": [
+        "lightning"
+      ]
+    },
+    {
+      "url": "wss://relay.mostr.pub/",
+      "name": "Mostr",
+      "description": "Bridge relay to the fediverse (ActivityPub).",
+      "paid": false,
+      "collections": [
+        "bridge"
+      ],
+      "tags": [
+        "fediverse",
+        "activitypub"
+      ]
+    },
+    {
+      "url": "wss://relay.nos.social/",
+      "name": "nos.social",
+      "operator": "Nos",
+      "paid": false,
+      "collections": [
+        "global"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.nostr.band/",
+      "name": "Nostr.Band",
+      "description": "Indexing and full-text search relay (NIP-50).",
+      "operator": "nostr.band",
+      "paid": false,
+      "collections": [
+        "featured",
+        "search",
+        "global"
+      ],
+      "tags": [
+        "search",
+        "nip50"
+      ]
+    },
+    {
+      "url": "wss://relay.noswhere.com/",
+      "name": "noswhere",
+      "operator": "noswhere",
+      "paid": false,
+      "collections": [
+        "global"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.nostr.moe/",
+      "name": "nostr.moe",
+      "description": "Anime / otaku community relay.",
+      "country": "JP",
+      "paid": false,
+      "collections": [
+        "community",
+        "regional-asia"
+      ],
+      "tags": [
+        "anime"
+      ]
+    },
+    {
+      "url": "wss://relay.nostr.net/",
+      "name": "nostr.net",
+      "operator": "nostr.net",
+      "paid": false,
+      "collections": [
+        "global"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.nostrzh.org/",
+      "name": "nostrzh",
+      "description": "Pyramid-style Chinese-language relay.",
+      "country": "XX",
+      "paid": false,
+      "collections": [
+        "language",
+        "community"
+      ],
+      "tags": [
+        "chinese"
+      ]
+    },
+    {
+      "url": "wss://relay.primal.net/",
+      "name": "Primal",
+      "operator": "Primal",
+      "country": "US",
+      "software": "primal-caching-service",
+      "paid": false,
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "tags": [
+        "popular",
+        "caching"
+      ]
+    },
+    {
+      "url": "wss://relay.snort.social/",
+      "name": "Snort",
+      "operator": "Snort",
+      "paid": false,
+      "collections": [
+        "global"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.wikifreedia.xyz/",
+      "name": "Wikifreedia",
+      "description": "Relay backing the Wikifreedia long-form wiki.",
+      "paid": false,
+      "collections": [
+        "topic",
+        "special"
+      ],
+      "tags": [
+        "wiki",
+        "long-form"
+      ]
+    },
+    {
+      "url": "wss://relays.land/spatianostra",
+      "name": "Spatia Nostra",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": [
+        "spatianostra"
+      ]
+    },
+    {
+      "url": "wss://theforest.nostr1.com/",
+      "name": "The Forest",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://thecitadel.nostr1.com/",
+      "name": "The Citadel",
+      "paid": false,
+      "collections": [
+        "community"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://topic.relays.land/ask",
+      "name": "Topic: Ask",
+      "description": "Questions addressed to the community.",
+      "paid": false,
+      "collections": [
+        "topic"
+      ],
+      "tags": [
+        "qna"
+      ]
+    },
+    {
+      "url": "wss://topic.relays.land/complaint",
+      "name": "Topic: Complaint",
+      "paid": false,
+      "collections": [
+        "topic"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://topic.relays.land/left",
+      "name": "Topic: Left",
+      "paid": false,
+      "collections": [
+        "topic"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://topic.relays.land/praise",
+      "name": "Topic: Praise",
+      "paid": false,
+      "collections": [
+        "topic"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://topic.relays.land/uncommon",
+      "name": "Topic: Uncommon",
+      "paid": false,
+      "collections": [
+        "topic"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://topic.relays.land/whales",
+      "name": "Topic: Whales",
+      "paid": false,
+      "collections": [
+        "topic"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://trending.relays.land/",
+      "name": "Trending",
+      "description": "Relay showcasing trending Nostr content.",
+      "paid": false,
+      "collections": [
+        "featured",
+        "special"
+      ],
+      "tags": [
+        "trending"
+      ]
+    },
+    {
+      "url": "wss://wot.dergigi.com/",
+      "name": "Gigi WoT",
+      "operator": "dergigi",
+      "paid": false,
+      "collections": [
+        "wot"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://wot.girino.org/",
+      "name": "Girino WoT",
+      "operator": "girino",
+      "paid": false,
+      "collections": [
+        "wot"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://wot.nostr.net/",
+      "name": "nostr.net WoT",
+      "operator": "nostr.net",
+      "paid": false,
+      "collections": [
+        "wot"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://wot.utxo.one/",
+      "name": "UTXO WoT",
+      "operator": "utxo.one",
+      "paid": false,
+      "collections": [
+        "wot"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://nrelay-jp.c-stellar.net/",
+      "name": "c-stellar JP",
+      "country": "JP",
+      "paid": false,
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "tags": [
+        "japanese"
+      ]
+    },
+    {
+      "url": "wss://relay-jp.nostr.wirednet.jp/",
+      "name": "WiredNet JP",
+      "country": "JP",
+      "paid": false,
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "tags": [
+        "japanese"
+      ]
+    },
+    {
+      "url": "wss://relay.nostr.or.jp/",
+      "name": "nostr.or.jp",
+      "country": "JP",
+      "paid": false,
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "tags": [
+        "japanese"
+      ]
+    },
+    {
+      "url": "wss://relay.nostr.wirednet.jp/",
+      "name": "WiredNet",
+      "country": "JP",
+      "paid": false,
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "tags": [
+        "japanese"
+      ]
+    },
+    {
+      "url": "wss://yabu.me/",
+      "name": "yabu.me",
+      "description": "Japanese-language aggregator relay.",
+      "country": "JP",
+      "paid": false,
+      "collections": [
+        "regional-asia",
+        "language",
+        "community"
+      ],
+      "tags": [
+        "japanese",
+        "aggregator"
+      ]
+    },
+    {
+      "url": "wss://nostr.bitcoinplebs.de/",
+      "name": "Bitcoin Plebs DE",
+      "country": "DE",
+      "paid": false,
+      "collections": [
+        "regional-europe",
+        "language",
+        "topic"
+      ],
+      "tags": [
+        "german",
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://relay.mleku.dev/",
+      "name": "mleku",
+      "country": "DE",
+      "paid": false,
+      "collections": [
+        "regional-europe"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.bitcoinpark.com/",
+      "name": "Bitcoin Park",
+      "country": "DE",
+      "paid": false,
+      "collections": [
+        "regional-europe",
+        "topic"
+      ],
+      "tags": [
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://relay.tchncs.de/",
+      "name": "tchncs",
+      "country": "DE",
+      "paid": false,
+      "collections": [
+        "regional-europe"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://nos.xmark.cc/",
+      "name": "xmark",
+      "country": "GB",
+      "paid": false,
+      "collections": [
+        "regional-europe"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://nostr.zebedee.cloud/",
+      "name": "Zebedee",
+      "operator": "Zebedee",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "tags": [
+        "lightning",
+        "gaming"
+      ]
+    },
+    {
+      "url": "wss://relay.coinos.io/",
+      "name": "Coinos",
+      "operator": "Coinos",
+      "country": "CA",
+      "paid": false,
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "tags": [
+        "lightning",
+        "bitcoin"
+      ]
+    },
+    {
+      "url": "wss://relay.fountain.fm/",
+      "name": "Fountain",
+      "operator": "Fountain.fm",
+      "paid": false,
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "tags": [
+        "podcast",
+        "lightning"
+      ]
+    },
+    {
+      "url": "wss://relay.nostr.ai/",
+      "name": "nostr.ai",
+      "country": "US",
+      "paid": false,
+      "collections": [
+        "regional-americas"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.npub.bar/",
+      "name": "npub.bar",
+      "paid": false,
+      "collections": [
+        "regional-americas"
+      ],
+      "tags": []
+    },
+    {
+      "url": "wss://relay.olas.app/",
+      "name": "Olas",
+      "operator": "Olas",
+      "paid": false,
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "tags": [
+        "photo"
+      ]
+    },
+    {
+      "url": "wss://relay.groups.nip29.com/",
+      "name": "NIP-29 Groups",
+      "description": "Group-chat relay built on khatru + relay29.",
+      "software": "groups-relay",
+      "paid": false,
+      "collections": [
+        "special",
+        "community"
+      ],
+      "tags": [
+        "groups",
+        "nip29",
+        "chat"
+      ]
+    },
+    {
+      "url": "wss://algo.utxo.one/",
+      "name": "UTXO Algo",
+      "operator": "utxo.one",
+      "paid": false,
+      "collections": [
+        "bot"
+      ],
+      "tags": [
+        "algorithm"
+      ]
+    },
+    {
+      "url": "wss://rsslay.fiatjaf.com/",
+      "name": "rsslay",
+      "description": "RSS-to-Nostr bridge.",
+      "operator": "fiatjaf",
+      "paid": false,
+      "collections": [
+        "bot",
+        "bridge"
+      ],
+      "tags": [
+        "rss"
+      ]
+    },
+    {
+      "url": "wss://rss.nos.social/",
+      "name": "Nos RSS",
+      "operator": "Nos",
+      "paid": false,
+      "collections": [
+        "bot",
+        "bridge"
+      ],
+      "tags": [
+        "rss"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/ar",
+      "name": "lang: Arabic",
+      "paid": false,
+      "collections": [
+        "language"
+      ],
+      "tags": [
+        "arabic"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/de",
+      "name": "lang: German",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-europe"
+      ],
+      "tags": [
+        "german"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/en",
+      "name": "lang: English",
+      "paid": false,
+      "collections": [
+        "language"
+      ],
+      "tags": [
+        "english"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/es",
+      "name": "lang: Spanish",
+      "paid": false,
+      "collections": [
+        "language"
+      ],
+      "tags": [
+        "spanish"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/fr",
+      "name": "lang: French",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-europe"
+      ],
+      "tags": [
+        "french"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/it",
+      "name": "lang: Italian",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-europe"
+      ],
+      "tags": [
+        "italian"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/ja",
+      "name": "lang: Japanese",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "tags": [
+        "japanese"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/ko",
+      "name": "lang: Korean",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "tags": [
+        "korean"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/pt",
+      "name": "lang: Portuguese",
+      "paid": false,
+      "collections": [
+        "language"
+      ],
+      "tags": [
+        "portuguese"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/ru",
+      "name": "lang: Russian",
+      "paid": false,
+      "collections": [
+        "language"
+      ],
+      "tags": [
+        "russian"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/tr",
+      "name": "lang: Turkish",
+      "paid": false,
+      "collections": [
+        "language"
+      ],
+      "tags": [
+        "turkish"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/vi",
+      "name": "lang: Vietnamese",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "tags": [
+        "vietnamese"
+      ]
+    },
+    {
+      "url": "wss://lang.relays.land/zh",
+      "name": "lang: Chinese",
+      "paid": false,
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "tags": [
+        "chinese"
+      ]
+    },
+    {
+      "url": "ws://oxtrdevav64z64yb7x6rjg4ntzqjhedm5b5zjqulugknhzr46ny2qbad.onion/",
+      "name": "oxtr.dev (onion)",
+      "description": "Tor mirror of wss://nostr.oxtr.dev/.",
+      "operator": "0xtr",
+      "country": "T1",
+      "paid": false,
+      "collections": [
+        "tor"
+      ],
+      "tags": []
+    },
+    {
+      "url": "ws://skzzn6cimfdv5e2phjc4yr5v7ikbxtn5f7dkwn5c7v47tduzlbosqmqd.onion/",
+      "name": "Snort (onion)",
+      "description": "Tor mirror of wss://relay.snort.social/.",
+      "operator": "Snort",
+      "country": "T1",
+      "paid": false,
+      "collections": [
+        "tor"
+      ],
+      "tags": []
+    },
+    {
+      "url": "ws://nostrland2gdw7g3y77ctftovvil76vquipymo7tsctlxpiwknevzfid.onion/",
+      "name": "nostr.land (onion)",
+      "description": "Tor mirror of the paid wss://nostr.land/ relay.",
+      "operator": "nostr.land",
+      "country": "T1",
+      "paid": true,
+      "collections": [
+        "tor",
+        "paid"
+      ],
+      "tags": []
+    },
+    {
+      "url": "ws://nostrwinemdptvqukjttinajfeedhf46hfd5bz2aj2q5uwp7zros3nad.onion/",
+      "name": "nostr.wine (onion)",
+      "description": "Tor mirror of the paid wss://nostr.wine/ relay.",
+      "operator": "nostr.wine",
+      "country": "T1",
+      "paid": true,
+      "collections": [
+        "tor",
+        "paid"
+      ],
+      "tags": []
+    },
+    {
+      "url": "ws://bitcoinr6de5lkvx4tpwdmzrdfdpla5sya2afwpcabjup2xpi5dulbad.onion/",
+      "name": "bitcoiner.social (onion)",
+      "operator": "bitcoiner.social",
+      "country": "T1",
+      "paid": false,
+      "collections": [
+        "tor",
+        "topic"
+      ],
+      "tags": [
+        "bitcoin"
+      ]
+    }
+  ]
+}

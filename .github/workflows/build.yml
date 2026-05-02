@@ -1,0 +1,56 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "relays.toml"
+      - "src/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Regenerate dist/*.json and README
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build binary
+        run: cargo build --release --quiet --bin anrelays
+
+      - name: Regenerate artefacts
+        run: ./target/release/anrelays build
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add dist/ README.md
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(data): regenerate dist/*.json and README [skip ci]"
+          git push
+
+      - name: Upload artefacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: relays-dist
+          path: dist/
+          retention-days: 14
