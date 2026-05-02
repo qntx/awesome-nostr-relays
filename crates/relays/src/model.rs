@@ -12,7 +12,10 @@ use serde::{Deserialize, Serialize};
 use url::Url;
 
 /// Root document parsed from `relays.toml`.
-#[derive(Debug, Clone, Deserialize, Serialize)]
+///
+/// Deserialised from TOML; never serialised back, so it intentionally
+/// implements only [`Deserialize`].
+#[derive(Debug, Clone, Deserialize)]
 #[non_exhaustive]
 pub struct Dataset {
     /// Layout version; bumped when incompatible schema changes land.
@@ -98,6 +101,11 @@ pub struct HealthEntry {
     /// Number of consecutive failed probes; reset to 0 on success.
     #[serde(default)]
     pub consecutive_failures: u32,
+    /// `true` when the last probe attempt was deliberately skipped (e.g. an
+    /// onion target with no Tor proxy). Skipped probes neither increment
+    /// `consecutive_failures` nor mark the relay as online.
+    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+    pub skipped: bool,
     /// Round-trip time of the latest successful WebSocket handshake.
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub rtt_ms: Option<u64>,
@@ -117,10 +125,10 @@ pub struct HealthEntry {
 
 impl HealthEntry {
     /// `true` when the most recent probe succeeded and no consecutive failures
-    /// are recorded.
+    /// are recorded. Skipped relays are not considered online.
     #[must_use]
     pub const fn is_online(&self) -> bool {
-        self.consecutive_failures == 0 && self.last_success.is_some()
+        !self.skipped && self.consecutive_failures == 0 && self.last_success.is_some()
     }
 }
 
@@ -134,4 +142,67 @@ pub struct HealthReport {
     /// Per-URL entries keyed by the relay URL string.
     #[serde(default)]
     pub entries: BTreeMap<String, HealthEntry>,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    fn relay(url: &str, name: Option<&str>) -> Relay {
+        Relay {
+            url: Url::parse(url).expect("valid url"),
+            name: name.map(str::to_owned),
+            description: None,
+            operator: None,
+            country: None,
+            software: None,
+            paid: None,
+            collections: Vec::new(),
+            tags: Vec::new(),
+            added_at: None,
+        }
+    }
+
+    #[test]
+    fn display_name_prefers_curator_label() {
+        let r = relay("wss://example.com/", Some("Example"));
+        assert_eq!(r.display_name(), "Example");
+    }
+
+    #[test]
+    fn display_name_falls_back_to_host() {
+        let r = relay("wss://example.com/", None);
+        assert_eq!(r.display_name(), "example.com");
+    }
+
+    #[test]
+    fn display_name_ignores_empty_label() {
+        let r = relay("wss://example.com/", Some(""));
+        assert_eq!(r.display_name(), "example.com");
+    }
+
+    #[test]
+    fn health_entry_is_online_requires_success() {
+        let mut entry = HealthEntry::default();
+        assert!(!entry.is_online());
+
+        entry.last_success = Some(Utc::now());
+        assert!(entry.is_online());
+
+        entry.consecutive_failures = 1;
+        assert!(!entry.is_online());
+    }
+
+    #[test]
+    fn health_entry_skipped_is_not_online() {
+        let mut entry = HealthEntry {
+            last_success: Some(Utc::now()),
+            skipped: true,
+            ..HealthEntry::default()
+        };
+        assert!(!entry.is_online());
+
+        entry.skipped = false;
+        assert!(entry.is_online());
+    }
 }

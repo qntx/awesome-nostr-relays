@@ -24,7 +24,7 @@ use futures::stream::{self, StreamExt};
 use indicatif::{ProgressBar, ProgressStyle};
 use relays::{
     health,
-    probe::{self, ProbeConfig},
+    probe::{self, ProbeConfig, ProbeOutcome},
     render,
     source::{
         self, default_api_dir, default_health_path, default_readme_path, default_relays_path,
@@ -90,9 +90,9 @@ enum Command {
         /// Stop after this many relays (useful for smoke tests).
         #[arg(long)]
         limit: Option<usize>,
-        /// Do not rewrite README / api/ after the check.
+        /// Skip rewriting README / api/ artefacts after the check.
         #[arg(long)]
-        no_build: bool,
+        skip_build: bool,
     },
 }
 
@@ -121,7 +121,7 @@ async fn main() -> Result<()> {
             timeout,
             concurrency,
             limit,
-            no_build,
+            skip_build,
         } => {
             run_check(
                 &relays_path,
@@ -129,7 +129,7 @@ async fn main() -> Result<()> {
                 Duration::from_secs(timeout),
                 concurrency,
                 limit,
-                no_build,
+                skip_build,
             )
             .await
         }
@@ -189,7 +189,7 @@ async fn run_check(
     timeout: Duration,
     concurrency: usize,
     limit: Option<usize>,
-    no_build: bool,
+    skip_build: bool,
 ) -> Result<()> {
     let dataset = source::load_dataset(relays_path)?;
     validate::validate(&dataset).map_err(anyhow::Error::from)?;
@@ -220,10 +220,7 @@ async fn run_check(
         .build()
         .context("build reqwest client")?;
 
-    let config = ProbeConfig {
-        timeout,
-        http_timeout: timeout.min(Duration::from_secs(8)),
-    };
+    let config = ProbeConfig::from_timeout(timeout);
 
     let total = u64::try_from(targets.len()).unwrap_or(u64::MAX);
     let progress = build_progress_bar(total);
@@ -239,7 +236,13 @@ async fn run_check(
             let outcome = probe::probe(&http, &url, config).await;
             let mut guard = report.lock().await;
             match outcome {
-                Ok(ok) => health::record_success(&mut guard, url.as_str(), &ok),
+                Ok(ProbeOutcome::Success(ok)) => {
+                    health::record_success(&mut guard, url.as_str(), &ok);
+                }
+                Ok(ProbeOutcome::Skipped(reason)) => {
+                    info!(%url, reason = reason.as_str(), "probe skipped");
+                    health::record_skipped(&mut guard, url.as_str());
+                }
                 Err(e) => {
                     let msg = e.to_string();
                     warn!(%url, error = %msg, "probe failed");
@@ -262,7 +265,7 @@ async fn run_check(
     source::save_health(health_path, &report)?;
     info!(path = %health_path.display(), "wrote health snapshot");
 
-    if !no_build {
+    if !skip_build {
         run_build(relays_path, health_path, None, None, false)?;
     }
 

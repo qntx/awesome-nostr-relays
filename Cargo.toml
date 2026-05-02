@@ -45,10 +45,6 @@ opt-level = 0
 [profile.test]
 opt-level = 2
 
-[profile.ci]
-debug = false
-inherits = "dev"
-
 [profile.bench]
 debug = true
 inherits = "release"

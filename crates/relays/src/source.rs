@@ -95,3 +95,76 @@ pub fn default_api_dir() -> PathBuf {
 pub fn default_readme_path() -> PathBuf {
     PathBuf::from(README_FILE)
 }
+
+#[cfg(test)]
+mod tests {
+    use std::{
+        env, process,
+        sync::atomic::{AtomicU64, Ordering},
+    };
+
+    use super::*;
+    use crate::model::{HealthEntry, HealthReport};
+
+    /// Monotonic counter ensuring each test gets a unique temp filename even
+    /// under parallel execution.
+    static TEST_SEQ: AtomicU64 = AtomicU64::new(0);
+
+    fn unique_tempfile(suffix: &str) -> PathBuf {
+        let seq = TEST_SEQ.fetch_add(1, Ordering::Relaxed);
+        env::temp_dir().join(format!("relays-{}-{}-{}", process::id(), seq, suffix))
+    }
+
+    /// Best-effort cleanup; ignore any error (e.g. already-absent file).
+    fn cleanup(path: &PathBuf) {
+        drop(fs::remove_file(path));
+    }
+
+    #[test]
+    fn load_dataset_parses_minimal_toml() {
+        let toml = r#"
+schema_version = "1"
+
+[[collections]]
+id = "featured"
+name = "Featured"
+description = "Hand-picked"
+
+[[relays]]
+url = "wss://example.com/"
+name = "Example"
+collections = ["featured"]
+"#;
+        let tmp = unique_tempfile("dataset.toml");
+        fs::write(&tmp, toml).expect("write fixture");
+        let dataset = load_dataset(&tmp).expect("load dataset");
+        assert_eq!(dataset.schema_version, "1");
+        assert_eq!(dataset.collections.len(), 1);
+        assert_eq!(dataset.relays.len(), 1);
+        let first = dataset.relays.first().expect("one relay present");
+        assert_eq!(first.name.as_deref(), Some("Example"));
+        cleanup(&tmp);
+    }
+
+    #[test]
+    fn load_health_returns_default_for_missing_file() {
+        let tmp = unique_tempfile("missing.json");
+        cleanup(&tmp);
+        let report = load_health(&tmp).expect("load health");
+        assert!(report.entries.is_empty());
+        assert!(report.last_run.is_none());
+    }
+
+    #[test]
+    fn save_and_load_health_roundtrips() {
+        let tmp = unique_tempfile("roundtrip.json");
+        let mut report = HealthReport::default();
+        report
+            .entries
+            .insert("wss://a.example/".to_owned(), HealthEntry::default());
+        save_health(&tmp, &report).expect("save health");
+        let loaded = load_health(&tmp).expect("load health");
+        assert!(loaded.entries.contains_key("wss://a.example/"));
+        cleanup(&tmp);
+    }
+}

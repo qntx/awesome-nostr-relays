@@ -11,6 +11,11 @@
 //!
 //! A single probe always runs under a hard timeout so one misbehaving relay
 //! cannot stall the entire CI job.
+//!
+//! Tor / onion relays are reported as [`ProbeOutcome::Skipped`] because the
+//! CI runners do not carry a Tor proxy. The downstream renderer shows them
+//! with a dedicated icon so operators are not misled into thinking the probe
+//! actually verified the relay.
 
 use std::time::{Duration, Instant};
 
@@ -23,6 +28,44 @@ use tokio_tungstenite::{
     tungstenite::{Message, client::IntoClientRequest},
 };
 use url::Url;
+
+/// Terminal outcome of a single probe attempt.
+///
+/// A [`Self::Skipped`] result is **not** a failure: it signals that the probe
+/// could not meaningfully run (e.g. the target is an onion host and the CI
+/// runner has no Tor route), and the health tracker must not penalise the
+/// relay's failure counter.
+///
+/// Intentionally exhaustive: every probe either succeeds or is skipped; any
+/// runtime error is returned via [`Result::Err`]. Callers may therefore
+/// match this enum without a wildcard arm.
+#[derive(Debug, Clone)]
+pub enum ProbeOutcome {
+    /// The WebSocket handshake completed and the relay replied with a valid
+    /// Nostr frame.
+    Success(ProbeSuccess),
+    /// The probe deliberately did not run; the caller should record the
+    /// skip without altering liveness statistics.
+    Skipped(SkipReason),
+}
+
+/// Reason why a probe was skipped rather than executed.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum SkipReason {
+    /// The target is a `.onion` host and the runner has no Tor proxy.
+    OnionUnreachable,
+}
+
+impl SkipReason {
+    /// Short machine-readable label suitable for structured logs.
+    #[must_use]
+    pub const fn as_str(self) -> &'static str {
+        match self {
+            Self::OnionUnreachable => "onion-unreachable",
+        }
+    }
+}
 
 /// Outcome of a successful probe.
 #[derive(Debug, Clone, Serialize)]
@@ -52,12 +95,16 @@ pub struct Nip11 {
     pub supported_nips: Option<Vec<u16>>,
 }
 
+/// Maximum per-request timeout for the NIP-11 HTTP fetch, regardless of the
+/// caller-supplied overall probe timeout.
+const DEFAULT_HTTP_TIMEOUT: Duration = Duration::from_secs(8);
+
+/// Default overall probe timeout when no caller override is provided.
+const DEFAULT_PROBE_TIMEOUT: Duration = Duration::from_secs(10);
+
 /// Per-relay probe configuration.
-///
-/// Intentionally **not** `#[non_exhaustive]`: callers (including the binary
-/// target) construct it as a struct literal, which would require a builder
-/// otherwise.
 #[derive(Debug, Clone, Copy)]
+#[non_exhaustive]
 pub struct ProbeConfig {
     /// Hard timeout for the entire probe (HTTP + WebSocket combined).
     pub timeout: Duration,
@@ -65,17 +112,30 @@ pub struct ProbeConfig {
     pub http_timeout: Duration,
 }
 
-impl Default for ProbeConfig {
-    fn default() -> Self {
+impl ProbeConfig {
+    /// Build a config from a single overall timeout. The NIP-11 HTTP request
+    /// is capped at [`DEFAULT_HTTP_TIMEOUT`] so a flaky information document
+    /// cannot consume the whole probe budget.
+    #[must_use]
+    pub fn from_timeout(timeout: Duration) -> Self {
         Self {
-            timeout: Duration::from_secs(10),
-            http_timeout: Duration::from_secs(8),
+            timeout,
+            http_timeout: timeout.min(DEFAULT_HTTP_TIMEOUT),
         }
     }
 }
 
-/// Probe a single relay. Returns either timing / NIP-11 metadata or a
-/// human-readable error describing the failure.
+impl Default for ProbeConfig {
+    fn default() -> Self {
+        Self::from_timeout(DEFAULT_PROBE_TIMEOUT)
+    }
+}
+
+/// Probe a single relay.
+///
+/// Returns [`ProbeOutcome::Skipped`] for onion hosts without attempting any
+/// connectivity, or [`ProbeOutcome::Success`] after a WebSocket handshake
+/// and Nostr-protocol frame exchange.
 ///
 /// # Errors
 ///
@@ -86,15 +146,9 @@ pub async fn probe(
     client: &reqwest::Client,
     relay_url: &Url,
     config: ProbeConfig,
-) -> Result<ProbeSuccess> {
-    // Onion relays cannot be reached without a Tor proxy; skip connectivity
-    // probing and optimistically report success without metadata so they are
-    // not flagged dead in CI.
+) -> Result<ProbeOutcome> {
     if relay_url.host_str().is_some_and(is_onion_host) {
-        return Ok(ProbeSuccess {
-            rtt_ms: 0,
-            nip11: None,
-        });
+        return Ok(ProbeOutcome::Skipped(SkipReason::OnionUnreachable));
     }
 
     let http_url = ws_to_http(relay_url)?;
@@ -104,14 +158,14 @@ pub async fn probe(
     let (nip11_result, ws_result) = tokio::join!(nip11_future, ws_future);
     let rtt_ms = ws_result?;
     let nip11 = nip11_result.ok().flatten();
-    Ok(ProbeSuccess { rtt_ms, nip11 })
+    Ok(ProbeOutcome::Success(ProbeSuccess { rtt_ms, nip11 }))
 }
 
 fn is_onion_host(host: &str) -> bool {
-    host.len() >= ".onion".len()
-        && host
-            .get(host.len() - ".onion".len()..)
-            .is_some_and(|tail| tail.eq_ignore_ascii_case(".onion"))
+    matches!(
+        host.rsplit_once('.'),
+        Some((_, tld)) if tld.eq_ignore_ascii_case("onion")
+    )
 }
 
 async fn fetch_nip11(
@@ -209,4 +263,85 @@ fn ws_to_http(url: &Url) -> Result<Url> {
 
 fn millis_saturating(millis: u128) -> u64 {
     u64::try_from(millis).unwrap_or(u64::MAX)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn probe_config_from_timeout_caps_http_budget() {
+        let config = ProbeConfig::from_timeout(Duration::from_secs(30));
+        assert_eq!(config.timeout, Duration::from_secs(30));
+        assert_eq!(config.http_timeout, DEFAULT_HTTP_TIMEOUT);
+    }
+
+    #[test]
+    fn probe_config_from_timeout_shrinks_below_cap() {
+        let config = ProbeConfig::from_timeout(Duration::from_secs(3));
+        assert_eq!(config.timeout, Duration::from_secs(3));
+        assert_eq!(config.http_timeout, Duration::from_secs(3));
+    }
+
+    #[test]
+    fn is_onion_host_detects_tld() {
+        assert!(is_onion_host("abc.onion"));
+        assert!(is_onion_host("ABC.ONION"));
+        assert!(is_onion_host("sub.abc.onion"));
+    }
+
+    #[test]
+    fn is_onion_host_rejects_non_tor() {
+        assert!(!is_onion_host("example.com"));
+        assert!(!is_onion_host("onion.example.com"));
+        assert!(!is_onion_host(""));
+        assert!(!is_onion_host("onion"));
+    }
+
+    #[test]
+    fn ws_to_http_rewrites_scheme() {
+        let ws = Url::parse("ws://example.com/").expect("valid ws url");
+        let wss = Url::parse("wss://example.com/").expect("valid wss url");
+        assert_eq!(ws_to_http(&ws).expect("rewrite ws").scheme(), "http");
+        assert_eq!(ws_to_http(&wss).expect("rewrite wss").scheme(), "https");
+    }
+
+    #[test]
+    fn ws_to_http_rejects_unsupported_scheme() {
+        let url = Url::parse("https://example.com/").expect("valid https url");
+        assert!(ws_to_http(&url).is_err());
+    }
+
+    #[test]
+    fn is_protocol_frame_accepts_nostr_replies() {
+        assert!(is_protocol_frame(r#"["EVENT","sub",{}]"#));
+        assert!(is_protocol_frame(r#"["EOSE","sub"]"#));
+        assert!(is_protocol_frame(r#"["NOTICE","hi"]"#));
+    }
+
+    #[test]
+    fn is_protocol_frame_rejects_other_frames() {
+        assert!(!is_protocol_frame(r#"["OK","id",true,""]"#));
+        assert!(!is_protocol_frame(r#"["CLOSED","sub",""]"#));
+        assert!(!is_protocol_frame("not json"));
+        assert!(!is_protocol_frame("{}"));
+    }
+
+    #[test]
+    fn skip_reason_label_is_stable() {
+        assert_eq!(SkipReason::OnionUnreachable.as_str(), "onion-unreachable");
+    }
+
+    #[tokio::test]
+    async fn probe_skips_onion_hosts() {
+        let client = reqwest::Client::new();
+        let url = Url::parse("ws://abc.onion/").expect("valid onion url");
+        let outcome = probe(&client, &url, ProbeConfig::default())
+            .await
+            .expect("onion skip is not an error");
+        assert!(matches!(
+            outcome,
+            ProbeOutcome::Skipped(SkipReason::OnionUnreachable)
+        ));
+    }
 }

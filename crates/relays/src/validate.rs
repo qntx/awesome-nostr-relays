@@ -167,3 +167,142 @@ fn is_kebab_case(identifier: &str) -> bool {
         && !identifier.starts_with('-')
         && !identifier.ends_with('-')
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::model::{Collection, Relay};
+
+    fn dataset(collections: Vec<Collection>, relays: Vec<Relay>) -> Dataset {
+        Dataset {
+            schema_version: "1".to_owned(),
+            collections,
+            relays,
+        }
+    }
+
+    fn collection(id: &str) -> Collection {
+        Collection {
+            id: id.to_owned(),
+            name: format!("Label {id}"),
+            description: format!("Description for {id}"),
+        }
+    }
+
+    fn relay(url: &str, collections: &[&str]) -> Relay {
+        Relay {
+            url: url::Url::parse(url).expect("valid url"),
+            name: None,
+            description: None,
+            operator: None,
+            country: None,
+            software: None,
+            paid: None,
+            collections: collections.iter().copied().map(str::to_owned).collect(),
+            tags: Vec::new(),
+            added_at: None,
+        }
+    }
+
+    #[test]
+    fn kebab_case_rules() {
+        assert!(is_kebab_case("featured"));
+        assert!(is_kebab_case("regional-americas"));
+        assert!(is_kebab_case("bot-01"));
+        assert!(!is_kebab_case(""));
+        assert!(!is_kebab_case("-leading"));
+        assert!(!is_kebab_case("trailing-"));
+        assert!(!is_kebab_case("Upper"));
+        assert!(!is_kebab_case("has_underscore"));
+        assert!(!is_kebab_case("has space"));
+    }
+
+    #[test]
+    fn accepts_minimal_valid_dataset() {
+        let ds = dataset(
+            vec![collection("featured")],
+            vec![relay("wss://a.example/", &["featured"])],
+        );
+        let summary = validate(&ds).expect("valid");
+        assert_eq!(summary.relay_count, 1);
+        assert_eq!(summary.collection_count, 1);
+        assert_eq!(summary.relays_per_collection.get("featured"), Some(&1));
+    }
+
+    #[test]
+    fn rejects_wrong_schema_version() {
+        let mut ds = dataset(vec![], vec![]);
+        ds.schema_version = "2".to_owned();
+        let err = validate(&ds).expect_err("must reject");
+        assert!(matches!(err, ValidationError::Failed { .. }));
+    }
+
+    #[test]
+    fn collects_multiple_violations_in_one_pass() {
+        let ds = dataset(
+            vec![
+                collection("Featured"),
+                collection("Featured"),
+                Collection {
+                    id: "global".to_owned(),
+                    name: String::new(),
+                    description: String::new(),
+                },
+            ],
+            vec![
+                relay("https://wrong-scheme/", &["global"]),
+                relay("wss://a.example/", &["missing-collection"]),
+                relay("wss://a.example/", &["global"]),
+            ],
+        );
+        let err = validate(&ds).expect_err("must reject");
+        let ValidationError::Failed { count, .. } = err;
+        assert!(count >= 5, "expected many violations, got {count}");
+    }
+
+    #[test]
+    fn rejects_relay_without_collection() {
+        let ds = dataset(
+            vec![collection("featured")],
+            vec![relay("wss://a.example/", &[])],
+        );
+        assert!(validate(&ds).is_err());
+    }
+
+    #[test]
+    fn rejects_duplicate_collection_on_relay() {
+        let ds = dataset(
+            vec![collection("featured")],
+            vec![relay("wss://a.example/", &["featured", "featured"])],
+        );
+        assert!(validate(&ds).is_err());
+    }
+
+    #[test]
+    fn country_code_rules() {
+        let build = |country: &str| {
+            let mut r = relay("wss://a.example/", &["featured"]);
+            r.country = Some(country.to_owned());
+            dataset(vec![collection("featured")], vec![r])
+        };
+        assert!(validate(&build("US")).is_ok());
+        assert!(validate(&build("JP")).is_ok());
+        assert!(validate(&build("XX")).is_ok());
+        assert!(validate(&build("T1")).is_ok());
+        assert!(validate(&build("us")).is_err());
+        assert!(validate(&build("USA")).is_err());
+        assert!(validate(&build("U")).is_err());
+    }
+
+    #[test]
+    fn rejects_duplicate_relay_url_case_insensitive() {
+        let ds = dataset(
+            vec![collection("featured")],
+            vec![
+                relay("wss://a.example/", &["featured"]),
+                relay("wss://A.EXAMPLE/", &["featured"]),
+            ],
+        );
+        assert!(validate(&ds).is_err());
+    }
+}
