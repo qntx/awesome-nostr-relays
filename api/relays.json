@@ -1,8 +1,8 @@
 {
   "schema_version": "1",
-  "generated_at": "2026-05-12T20:27:45.951331941Z",
+  "generated_at": "2026-05-12T22:06:10.782655371Z",
   "total": 107,
-  "healthy": 58,
+  "healthy": 84,
   "collections": [
     {
       "id": "featured",
@@ -95,10 +95,10 @@
         "short-form"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.400645022Z",
-        "last_success": "2026-05-12T20:26:42.400645022Z",
+        "last_checked": "2026-05-12T22:05:07.038592565Z",
+        "last_success": "2026-05-12T22:05:07.038592565Z",
         "consecutive_failures": 0,
-        "rtt_ms": 769
+        "rtt_ms": 554
       }
     },
     {
@@ -115,10 +115,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.295650598Z",
-        "last_success": "2026-05-12T20:26:42.295650598Z",
+        "last_checked": "2026-05-12T22:05:07.093409553Z",
+        "last_success": "2026-05-12T22:05:07.093409553Z",
         "consecutive_failures": 0,
-        "rtt_ms": 868,
+        "rtt_ms": 713,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -138,10 +138,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.716796165Z",
-        "last_success": "2026-05-12T20:26:41.716796165Z",
+        "last_checked": "2026-05-12T22:05:06.949492482Z",
+        "last_success": "2026-05-12T22:05:06.949492482Z",
         "consecutive_failures": 0,
-        "rtt_ms": 672,
+        "rtt_ms": 607,
         "supported_nips": [
           1,
           2,
@@ -171,10 +171,10 @@
         "bookmarks"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.578392553Z",
-        "last_success": "2026-05-09T23:38:30.213410135Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:06.815198941Z",
+        "last_success": "2026-05-12T22:05:06.815198941Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 483,
         "supported_nips": [
           1,
           11,
@@ -199,10 +199,10 @@
         "personal"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:47.144354817Z",
-        "last_success": "2026-05-12T20:26:47.144354817Z",
+        "last_checked": "2026-05-12T22:05:06.985859699Z",
+        "last_success": "2026-05-12T22:05:06.985859699Z",
         "consecutive_failures": 0,
-        "rtt_ms": 6077,
+        "rtt_ms": 758,
         "supported_nips": [
           1,
           11
@@ -221,10 +221,10 @@
         "christian"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.347574591Z",
-        "last_success": "2026-05-12T20:26:41.347574591Z",
+        "last_checked": "2026-05-12T22:05:06.431766031Z",
+        "last_success": "2026-05-12T22:05:06.431766031Z",
         "consecutive_failures": 0,
-        "rtt_ms": 215,
+        "rtt_ms": 204,
         "supported_nips": [
           1,
           2,
@@ -261,9 +261,9 @@
         "fediverse"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.238037887Z",
+        "last_checked": "2026-05-12T22:05:06.333140072Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "unexpected HTTP status 302 during WebSocket handshake"
       }
     },
@@ -281,10 +281,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.421415158Z",
-        "last_success": "2026-05-12T20:26:42.421415158Z",
+        "last_checked": "2026-05-12T22:05:07.248973978Z",
+        "last_success": "2026-05-12T22:05:07.248973978Z",
         "consecutive_failures": 0,
-        "rtt_ms": 898,
+        "rtt_ms": 860,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -302,10 +302,10 @@
         "feedback"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.581094716Z",
-        "last_success": "2026-05-09T23:38:30.334062274Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:06.872984301Z",
+        "last_success": "2026-05-12T22:05:06.872984301Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 487,
         "supported_nips": [
           1,
           11,
@@ -336,10 +336,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.455042112Z",
-        "last_success": "2026-05-12T20:26:41.455042112Z",
+        "last_checked": "2026-05-12T22:05:06.580527405Z",
+        "last_success": "2026-05-12T22:05:06.580527405Z",
         "consecutive_failures": 0,
-        "rtt_ms": 466,
+        "rtt_ms": 332,
         "supported_nips": [
           1,
           2,
@@ -371,10 +371,10 @@
         "nip29"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.206343653Z",
-        "last_success": "2026-05-12T20:26:41.206343653Z",
+        "last_checked": "2026-05-12T22:05:06.821231419Z",
+        "last_success": "2026-05-12T22:05:06.821231419Z",
         "consecutive_failures": 0,
-        "rtt_ms": 187,
+        "rtt_ms": 489,
         "supported_nips": [
           1,
           11,
@@ -403,10 +403,10 @@
         "outbox"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.370490693Z",
-        "last_success": "2026-05-12T20:26:42.370490693Z",
+        "last_checked": "2026-05-12T22:05:07.138968566Z",
+        "last_success": "2026-05-12T22:05:07.138968566Z",
         "consecutive_failures": 0,
-        "rtt_ms": 672,
+        "rtt_ms": 610,
         "supported_nips": [
           1,
           11,
@@ -433,10 +433,10 @@
         "ephemeral"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.728810115Z",
-        "last_success": "2026-05-09T23:38:30.213161732Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:06.842766047Z",
+        "last_success": "2026-05-12T22:05:06.842766047Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 555,
         "supported_nips": [
           1,
           11,
@@ -467,10 +467,10 @@
         "nip17"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.534535023Z",
-        "last_success": "2026-05-12T20:26:41.534535023Z",
+        "last_checked": "2026-05-12T22:05:06.779617687Z",
+        "last_success": "2026-05-12T22:05:06.779617687Z",
         "consecutive_failures": 0,
-        "rtt_ms": 527,
+        "rtt_ms": 412,
         "supported_nips": [
           1,
           2,
@@ -496,10 +496,10 @@
         "write-only"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.722981098Z",
-        "last_success": "2026-05-09T23:38:30.218336462Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:06.809888230Z",
+        "last_success": "2026-05-12T22:05:06.809888230Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 479,
         "supported_nips": [
           1,
           11,
@@ -526,10 +526,10 @@
         "news"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.585632040Z",
-        "last_success": "2026-05-12T20:26:41.585632040Z",
+        "last_checked": "2026-05-12T22:05:06.332563641Z",
+        "last_success": "2026-05-12T22:05:06.332563641Z",
         "consecutive_failures": 0,
-        "rtt_ms": 339,
+        "rtt_ms": 168,
         "supported_nips": [
           1,
           9,
@@ -557,10 +557,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.705142319Z",
-        "last_success": "2026-05-12T20:26:42.705142319Z",
+        "last_checked": "2026-05-12T22:05:08.416232136Z",
+        "last_success": "2026-05-12T22:05:08.416232136Z",
         "consecutive_failures": 0,
-        "rtt_ms": 872,
+        "rtt_ms": 1010,
         "supported_nips": [
           1,
           2,
@@ -588,10 +588,10 @@
         "preview"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.806928789Z",
-        "last_success": "2026-05-12T20:26:41.806928789Z",
+        "last_checked": "2026-05-12T22:05:06.650821276Z",
+        "last_success": "2026-05-12T22:05:06.650821276Z",
         "consecutive_failures": 0,
-        "rtt_ms": 405,
+        "rtt_ms": 309,
         "supported_nips": [
           1,
           11,
@@ -615,10 +615,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.369434926Z",
-        "last_success": "2026-05-12T20:26:41.369434926Z",
+        "last_checked": "2026-05-12T22:05:06.512585949Z",
+        "last_success": "2026-05-12T22:05:06.512585949Z",
         "consecutive_failures": 0,
-        "rtt_ms": 226,
+        "rtt_ms": 254,
         "supported_nips": [
           1,
           2,
@@ -655,10 +655,10 @@
         "popular"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.774847242Z",
-        "last_success": "2026-05-12T20:26:42.774847242Z",
+        "last_checked": "2026-05-12T22:05:07.023992452Z",
+        "last_success": "2026-05-12T22:05:07.023992452Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1000,
+        "rtt_ms": 579,
         "supported_nips": [
           1,
           2,
@@ -688,10 +688,10 @@
         "yakihonne"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.448776813Z",
-        "last_success": "2026-05-12T20:26:42.448776813Z",
+        "last_checked": "2026-05-12T22:05:08.057895352Z",
+        "last_success": "2026-05-12T22:05:08.057895352Z",
         "consecutive_failures": 0,
-        "rtt_ms": 750,
+        "rtt_ms": 1002,
         "supported_nips": [
           1,
           2,
@@ -724,10 +724,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.199862732Z",
-        "last_success": "2026-05-12T20:26:41.199862732Z",
+        "last_checked": "2026-05-12T22:05:06.963506850Z",
+        "last_success": "2026-05-12T22:05:06.963506850Z",
         "consecutive_failures": 0,
-        "rtt_ms": 175,
+        "rtt_ms": 647,
         "supported_nips": [
           1,
           2,
@@ -760,10 +760,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.385292867Z",
-        "last_success": "2026-05-12T20:26:42.385292867Z",
+        "last_checked": "2026-05-12T22:05:07.246926730Z",
+        "last_success": "2026-05-12T22:05:07.246926730Z",
         "consecutive_failures": 0,
-        "rtt_ms": 845,
+        "rtt_ms": 646,
         "supported_nips": [
           1,
           2,
@@ -796,10 +796,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.314847354Z",
-        "last_success": "2026-05-12T20:26:42.314847354Z",
+        "last_checked": "2026-05-12T22:05:06.897850114Z",
+        "last_success": "2026-05-12T22:05:06.897850114Z",
         "consecutive_failures": 0,
-        "rtt_ms": 857,
+        "rtt_ms": 532,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -820,10 +820,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.297844705Z",
-        "last_success": "2026-05-12T20:26:42.297844705Z",
+        "last_checked": "2026-05-12T22:05:06.911218057Z",
+        "last_success": "2026-05-12T22:05:06.911218057Z",
         "consecutive_failures": 0,
-        "rtt_ms": 766,
+        "rtt_ms": 462,
         "supported_nips": [
           1,
           2,
@@ -855,10 +855,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.529545541Z",
-        "last_success": "2026-05-12T20:26:42.529545541Z",
+        "last_checked": "2026-05-12T22:05:07.167826920Z",
+        "last_success": "2026-05-12T22:05:07.167826920Z",
         "consecutive_failures": 0,
-        "rtt_ms": 814,
+        "rtt_ms": 584,
         "supported_nips": [
           1,
           2,
@@ -890,7 +890,7 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:40.954737857Z",
+        "last_checked": "2026-05-12T22:05:06.121894949Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "dns lookup failed: failed to lookup address information: No address associated with hostname"
@@ -906,10 +906,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.719226234Z",
-        "last_success": "2026-05-12T20:26:43.719226234Z",
+        "last_checked": "2026-05-12T22:05:07.364490399Z",
+        "last_success": "2026-05-12T22:05:07.364490399Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1895,
+        "rtt_ms": 853,
         "supported_nips": [
           1,
           2,
@@ -940,7 +940,7 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:40.933717236Z",
+        "last_checked": "2026-05-12T22:05:06.200789343Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
@@ -957,10 +957,10 @@
         "community"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.012637414Z",
-        "last_success": "2026-05-12T20:26:42.012637414Z",
+        "last_checked": "2026-05-12T22:05:06.709300022Z",
+        "last_success": "2026-05-12T22:05:06.709300022Z",
         "consecutive_failures": 0,
-        "rtt_ms": 521,
+        "rtt_ms": 355,
         "supported_nips": [
           1,
           2,
@@ -995,10 +995,10 @@
         "popular"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.492543970Z",
-        "last_success": "2026-05-12T20:26:41.492543970Z",
+        "last_checked": "2026-05-12T22:05:06.349294976Z",
+        "last_success": "2026-05-12T22:05:06.349294976Z",
         "consecutive_failures": 0,
-        "rtt_ms": 529,
+        "rtt_ms": 243,
         "supported_nips": [
           1,
           2,
@@ -1025,10 +1025,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.432049022Z",
-        "last_success": "2026-05-12T20:26:41.432049022Z",
+        "last_checked": "2026-05-12T22:05:06.427625738Z",
+        "last_success": "2026-05-12T22:05:06.427625738Z",
         "consecutive_failures": 0,
-        "rtt_ms": 329,
+        "rtt_ms": 239,
         "supported_nips": [
           1,
           2,
@@ -1054,9 +1054,9 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.653665700Z",
+        "last_checked": "2026-05-12T22:05:06.638964020Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "unexpected HTTP status 302 during WebSocket handshake"
       }
     },
@@ -1072,10 +1072,10 @@
         "personal"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.670486531Z",
-        "last_success": "2026-05-09T23:38:30.348938616Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.175890152Z",
+        "last_success": "2026-05-12T22:05:07.175890152Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 700,
         "supported_nips": [
           1,
           11,
@@ -1103,10 +1103,10 @@
         "nip13"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.828213224Z",
-        "last_success": "2026-05-09T23:38:30.455567744Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.175837573Z",
+        "last_success": "2026-05-12T22:05:07.175837573Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 472,
         "supported_nips": [
           1,
           11,
@@ -1135,10 +1135,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.553885329Z",
-        "last_success": "2026-05-12T20:26:42.553885329Z",
+        "last_checked": "2026-05-12T22:05:07.249598621Z",
+        "last_success": "2026-05-12T22:05:07.249598621Z",
         "consecutive_failures": 0,
-        "rtt_ms": 637,
+        "rtt_ms": 455,
         "supported_nips": [
           1,
           2,
@@ -1164,10 +1164,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.716999804Z",
-        "last_success": "2026-05-12T20:26:41.716999804Z",
+        "last_checked": "2026-05-12T22:05:06.773500963Z",
+        "last_success": "2026-05-12T22:05:06.773500963Z",
         "consecutive_failures": 0,
-        "rtt_ms": 211,
+        "rtt_ms": 239,
         "supported_nips": [
           1,
           2,
@@ -1205,10 +1205,10 @@
         "index"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.809328107Z",
-        "last_success": "2026-05-12T20:26:42.809328107Z",
+        "last_checked": "2026-05-12T22:05:07.506261386Z",
+        "last_success": "2026-05-12T22:05:07.506261386Z",
         "consecutive_failures": 0,
-        "rtt_ms": 744,
+        "rtt_ms": 568,
         "supported_nips": [
           1,
           11,
@@ -1237,10 +1237,10 @@
         "premium"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.908010616Z",
-        "last_success": "2026-05-12T20:26:42.908010616Z",
+        "last_checked": "2026-05-12T22:05:07.408182784Z",
+        "last_success": "2026-05-12T22:05:07.408182784Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1014,
+        "rtt_ms": 571,
         "supported_nips": [],
         "nip11_software": "NFDB",
         "nip11_version": "2.0 γ5"
@@ -1262,10 +1262,10 @@
         "invite-only"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.511342366Z",
-        "last_success": "2026-05-12T20:26:42.511342366Z",
+        "last_checked": "2026-05-12T22:05:07.222647855Z",
+        "last_success": "2026-05-12T22:05:07.222647855Z",
         "consecutive_failures": 0,
-        "rtt_ms": 614,
+        "rtt_ms": 437,
         "supported_nips": [
           1,
           11,
@@ -1297,10 +1297,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.219980895Z",
-        "last_success": "2026-05-12T20:26:43.219980895Z",
+        "last_checked": "2026-05-12T22:05:08.804312667Z",
+        "last_success": "2026-05-12T22:05:08.804312667Z",
         "consecutive_failures": 0,
-        "rtt_ms": 808,
+        "rtt_ms": 1041,
         "supported_nips": [
           1,
           4,
@@ -1331,10 +1331,10 @@
         "curation"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.091491206Z",
-        "last_success": "2026-05-12T20:26:42.091491206Z",
+        "last_checked": "2026-05-12T22:05:06.906163638Z",
+        "last_success": "2026-05-12T22:05:06.906163638Z",
         "consecutive_failures": 0,
-        "rtt_ms": 250
+        "rtt_ms": 179
       }
     },
     {
@@ -1354,10 +1354,10 @@
         "ios"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:41.636060145Z",
-        "last_success": "2026-05-12T20:26:41.636060145Z",
+        "last_checked": "2026-05-12T22:05:07.026917140Z",
+        "last_success": "2026-05-12T22:05:07.026917140Z",
         "consecutive_failures": 0,
-        "rtt_ms": 84,
+        "rtt_ms": 195,
         "supported_nips": [
           1,
           2,
@@ -1387,10 +1387,10 @@
         "video"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.270831830Z",
-        "last_success": "2026-05-12T20:26:43.270831830Z",
+        "last_checked": "2026-05-12T22:05:07.224549955Z",
+        "last_success": "2026-05-12T22:05:07.224549955Z",
         "consecutive_failures": 0,
-        "rtt_ms": 569,
+        "rtt_ms": 138,
         "supported_nips": [
           1,
           4,
@@ -1433,10 +1433,10 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.315989431Z",
-        "last_success": "2026-05-12T20:26:42.315989431Z",
+        "last_checked": "2026-05-12T22:05:07.234364521Z",
+        "last_success": "2026-05-12T22:05:07.234364521Z",
         "consecutive_failures": 0,
-        "rtt_ms": 397,
+        "rtt_ms": 231,
         "supported_nips": [
           1,
           11,
@@ -1460,10 +1460,10 @@
         "activitypub"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.193421274Z",
-        "last_success": "2026-05-12T20:26:42.193421274Z",
+        "last_checked": "2026-05-12T22:05:07.246508015Z",
+        "last_success": "2026-05-12T22:05:07.246508015Z",
         "consecutive_failures": 0,
-        "rtt_ms": 341,
+        "rtt_ms": 327,
         "supported_nips": [
           1,
           2,
@@ -1490,10 +1490,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.354758673Z",
-        "last_success": "2026-05-12T20:26:42.354758673Z",
+        "last_checked": "2026-05-12T22:05:06.981565537Z",
+        "last_success": "2026-05-12T22:05:06.981565537Z",
         "consecutive_failures": 0,
-        "rtt_ms": 372,
+        "rtt_ms": 117,
         "supported_nips": [
           1,
           2,
@@ -1529,9 +1529,9 @@
         "nip50"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:27:44.657313416Z",
+        "last_checked": "2026-05-12T22:06:09.818410410Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "probe timed out after 30s"
       }
     },
@@ -1545,10 +1545,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.379294162Z",
-        "last_success": "2026-05-12T20:26:43.379294162Z",
+        "last_checked": "2026-05-12T22:05:08.024581553Z",
+        "last_success": "2026-05-12T22:05:08.024581553Z",
         "consecutive_failures": 0,
-        "rtt_ms": 995,
+        "rtt_ms": 726,
         "supported_nips": [
           1,
           11,
@@ -1572,10 +1572,10 @@
         "anime"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.528463886Z",
-        "last_success": "2026-05-12T20:26:43.528463886Z",
+        "last_checked": "2026-05-12T22:05:08.882513836Z",
+        "last_success": "2026-05-12T22:05:08.882513836Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1235,
+        "rtt_ms": 1215,
         "supported_nips": [
           1,
           2,
@@ -1611,10 +1611,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.265709269Z",
-        "last_success": "2026-05-12T20:26:43.265709269Z",
+        "last_checked": "2026-05-12T22:05:07.973344602Z",
+        "last_success": "2026-05-12T22:05:07.973344602Z",
         "consecutive_failures": 0,
-        "rtt_ms": 734,
+        "rtt_ms": 551,
         "supported_nips": [
           1,
           2,
@@ -1645,10 +1645,10 @@
         "chinese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.148632811Z",
-        "last_success": "2026-05-12T20:26:43.148632811Z",
+        "last_checked": "2026-05-12T22:05:08.308227702Z",
+        "last_success": "2026-05-12T22:05:08.308227702Z",
         "consecutive_failures": 0,
-        "rtt_ms": 691,
+        "rtt_ms": 727,
         "supported_nips": [
           1,
           11,
@@ -1683,10 +1683,10 @@
         "caching"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.679130379Z",
-        "last_success": "2026-05-12T20:26:42.679130379Z",
+        "last_checked": "2026-05-12T22:05:07.863299682Z",
+        "last_success": "2026-05-12T22:05:07.863299682Z",
         "consecutive_failures": 0,
-        "rtt_ms": 595,
+        "rtt_ms": 497,
         "supported_nips": [
           1,
           2,
@@ -1713,9 +1713,9 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:57.440188182Z",
+        "last_checked": "2026-05-12T22:05:22.461627256Z",
         "last_success": "2026-05-10T02:00:52.408807457Z",
-        "consecutive_failures": 34,
+        "consecutive_failures": 35,
         "last_error": "unexpected HTTP status 504 during WebSocket handshake",
         "supported_nips": [
           1,
@@ -1739,10 +1739,10 @@
         "long-form"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.288258970Z",
-        "last_success": "2026-05-12T20:26:43.288258970Z",
+        "last_checked": "2026-05-12T22:05:07.949445253Z",
+        "last_success": "2026-05-12T22:05:07.949445253Z",
         "consecutive_failures": 0,
-        "rtt_ms": 756,
+        "rtt_ms": 529,
         "supported_nips": [
           1,
           11,
@@ -1769,10 +1769,10 @@
         "spatianostra"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.640155887Z",
-        "last_success": "2026-05-09T23:38:31.386589535Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.728971729Z",
+        "last_success": "2026-05-12T22:05:07.728971729Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 400,
         "supported_nips": [
           1,
           11,
@@ -1793,10 +1793,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.522489027Z",
-        "last_success": "2026-05-12T20:26:42.522489027Z",
+        "last_checked": "2026-05-12T22:05:07.408792405Z",
+        "last_success": "2026-05-12T22:05:07.408792405Z",
         "consecutive_failures": 0,
-        "rtt_ms": 192,
+        "rtt_ms": 176,
         "supported_nips": [
           1,
           2,
@@ -1827,10 +1827,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.602980332Z",
-        "last_success": "2026-05-12T20:26:42.602980332Z",
+        "last_checked": "2026-05-12T22:05:07.286197313Z",
+        "last_success": "2026-05-12T22:05:07.286197313Z",
         "consecutive_failures": 0,
-        "rtt_ms": 205,
+        "rtt_ms": 159,
         "supported_nips": [
           1,
           2,
@@ -1864,10 +1864,10 @@
         "qna"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.935134275Z",
-        "last_success": "2026-05-09T23:38:31.094967208Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.777087570Z",
+        "last_success": "2026-05-12T22:05:07.777087570Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 396,
         "supported_nips": [
           1,
           11,
@@ -1891,10 +1891,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.911789525Z",
-        "last_success": "2026-05-09T23:38:31.106435864Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.777145016Z",
+        "last_success": "2026-05-12T22:05:07.777145016Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 388,
         "supported_nips": [
           1,
           11,
@@ -1918,10 +1918,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.913219288Z",
-        "last_success": "2026-05-09T23:38:31.145266571Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.770307897Z",
+        "last_success": "2026-05-12T22:05:07.770307897Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 369,
         "supported_nips": [
           1,
           11,
@@ -1945,10 +1945,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.927538918Z",
-        "last_success": "2026-05-09T23:38:31.166274017Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.777971480Z",
+        "last_success": "2026-05-12T22:05:07.777971480Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 360,
         "supported_nips": [
           1,
           11,
@@ -1972,10 +1972,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.946008820Z",
-        "last_success": "2026-05-09T23:38:31.180187449Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.794123800Z",
+        "last_success": "2026-05-12T22:05:07.794123800Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 370,
         "supported_nips": [
           1,
           11,
@@ -1999,10 +1999,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.997053416Z",
-        "last_success": "2026-05-09T23:38:31.183412217Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.828947072Z",
+        "last_success": "2026-05-12T22:05:07.828947072Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 355,
         "supported_nips": [
           1,
           11,
@@ -2030,10 +2030,10 @@
         "trending"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.020441339Z",
-        "last_success": "2026-05-09T23:38:31.577288320Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:07.913669629Z",
+        "last_success": "2026-05-12T22:05:07.913669629Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 375,
         "supported_nips": [
           1,
           11,
@@ -2055,10 +2055,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.698559480Z",
-        "last_success": "2026-05-12T20:26:43.698559480Z",
+        "last_checked": "2026-05-12T22:05:08.092837790Z",
+        "last_success": "2026-05-12T22:05:08.092837790Z",
         "consecutive_failures": 0,
-        "rtt_ms": 653,
+        "rtt_ms": 495,
         "supported_nips": [
           1,
           11,
@@ -2081,10 +2081,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.889942159Z",
-        "last_success": "2026-05-12T20:26:42.889942159Z",
+        "last_checked": "2026-05-12T22:05:07.651754641Z",
+        "last_success": "2026-05-12T22:05:07.651754641Z",
         "consecutive_failures": 0,
-        "rtt_ms": 245,
+        "rtt_ms": 309,
         "supported_nips": [
           1,
           11,
@@ -2108,10 +2108,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.934344657Z",
-        "last_success": "2026-05-12T20:26:43.934344657Z",
+        "last_checked": "2026-05-12T22:05:08.207099348Z",
+        "last_success": "2026-05-12T22:05:08.207099348Z",
         "consecutive_failures": 0,
-        "rtt_ms": 739,
+        "rtt_ms": 457,
         "supported_nips": [
           1,
           11,
@@ -2134,9 +2134,9 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.593829610Z",
+        "last_checked": "2026-05-12T22:05:07.327007715Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "unexpected HTTP status 530 during WebSocket handshake"
       }
     },
@@ -2153,7 +2153,7 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.608649561Z",
+        "last_checked": "2026-05-12T22:05:07.414759335Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "forbidden by upstream (HTTP 403)"
@@ -2172,7 +2172,7 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.660317088Z",
+        "last_checked": "2026-05-12T22:05:07.351089507Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "forbidden by upstream (HTTP 403)"
@@ -2191,7 +2191,7 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.572611899Z",
+        "last_checked": "2026-05-12T22:05:07.264267166Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
@@ -2210,10 +2210,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.917759655Z",
-        "last_success": "2026-05-12T20:26:43.917759655Z",
+        "last_checked": "2026-05-12T22:05:09.209251733Z",
+        "last_success": "2026-05-12T22:05:09.209251733Z",
         "consecutive_failures": 0,
-        "rtt_ms": 665,
+        "rtt_ms": 1080,
         "supported_nips": [
           1,
           2,
@@ -2246,10 +2246,10 @@
         "aggregator"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.526202955Z",
-        "last_success": "2026-05-12T20:26:43.526202955Z",
+        "last_checked": "2026-05-12T22:05:08.741212698Z",
+        "last_success": "2026-05-12T22:05:08.741212698Z",
         "consecutive_failures": 0,
-        "rtt_ms": 480,
+        "rtt_ms": 781,
         "supported_nips": [
           1,
           2,
@@ -2281,10 +2281,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:44.516161432Z",
-        "last_success": "2026-05-12T20:26:44.516161432Z",
+        "last_checked": "2026-05-12T22:05:08.444373919Z",
+        "last_success": "2026-05-12T22:05:08.444373919Z",
         "consecutive_failures": 0,
-        "rtt_ms": 906,
+        "rtt_ms": 609,
         "supported_nips": [
           1,
           2,
@@ -2314,9 +2314,9 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:45.912035194Z",
+        "last_checked": "2026-05-12T22:05:10.508060383Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "tls error: received fatal alert: InternalError"
       }
     },
@@ -2333,10 +2333,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.159716877Z",
-        "last_success": "2026-05-12T20:26:43.159716877Z",
+        "last_checked": "2026-05-12T22:05:07.594005274Z",
+        "last_success": "2026-05-12T22:05:07.594005274Z",
         "consecutive_failures": 0,
-        "rtt_ms": 256,
+        "rtt_ms": 138,
         "supported_nips": [
           1,
           11,
@@ -2358,10 +2358,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:44.689540252Z",
-        "last_success": "2026-05-12T20:26:44.689540252Z",
+        "last_checked": "2026-05-12T22:05:08.821418161Z",
+        "last_success": "2026-05-12T22:05:08.821418161Z",
         "consecutive_failures": 0,
-        "rtt_ms": 1148,
+        "rtt_ms": 885,
         "supported_nips": [
           1,
           2,
@@ -2388,10 +2388,10 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:48.186343071Z",
-        "last_success": "2026-05-12T20:26:48.186343071Z",
+        "last_checked": "2026-05-12T22:05:08.424741382Z",
+        "last_success": "2026-05-12T22:05:08.424741382Z",
         "consecutive_failures": 0,
-        "rtt_ms": 4864,
+        "rtt_ms": 618,
         "supported_nips": [
           1,
           2,
@@ -2421,9 +2421,9 @@
         "gaming"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:45.744227383Z",
+        "last_checked": "2026-05-12T22:05:10.740147297Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "tls error: invalid peer certificate: certificate not valid for name \"nostr.zebedee.cloud\"; certificate is only valid for DnsName(\"names-hub.com\") or DnsName(\"www.names-hub.com\")"
       }
     },
@@ -2442,10 +2442,10 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.039900235Z",
-        "last_success": "2026-05-12T20:26:43.039900235Z",
+        "last_checked": "2026-05-12T22:05:07.994066556Z",
+        "last_success": "2026-05-12T22:05:07.994066556Z",
         "consecutive_failures": 0,
-        "rtt_ms": 201,
+        "rtt_ms": 466,
         "supported_nips": [
           1,
           2,
@@ -2476,10 +2476,10 @@
         "lightning"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:44.594456448Z",
-        "last_success": "2026-05-12T20:26:44.594456448Z",
+        "last_checked": "2026-05-12T22:05:08.338208794Z",
+        "last_success": "2026-05-12T22:05:08.338208794Z",
         "consecutive_failures": 0,
-        "rtt_ms": 592,
+        "rtt_ms": 422,
         "supported_nips": [
           1,
           2,
@@ -2500,7 +2500,7 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:42.976969437Z",
+        "last_checked": "2026-05-12T22:05:07.643904719Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
@@ -2515,7 +2515,7 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:52.921642451Z",
+        "last_checked": "2026-05-12T22:05:17.658325470Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "dns lookup failed: failed to lookup address information: Temporary failure in name resolution"
@@ -2534,10 +2534,10 @@
         "photo"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:44.500681649Z",
-        "last_success": "2026-05-12T20:26:44.500681649Z",
+        "last_checked": "2026-05-12T22:05:08.793620500Z",
+        "last_success": "2026-05-12T22:05:08.793620500Z",
         "consecutive_failures": 0,
-        "rtt_ms": 813
+        "rtt_ms": 608
       }
     },
     {
@@ -2556,10 +2556,10 @@
         "chat"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:44.067770875Z",
-        "last_success": "2026-05-12T20:26:44.067770875Z",
+        "last_checked": "2026-05-12T22:05:08.463904635Z",
+        "last_success": "2026-05-12T22:05:08.463904635Z",
         "consecutive_failures": 0,
-        "rtt_ms": 664,
+        "rtt_ms": 409,
         "supported_nips": [
           1,
           11,
@@ -2586,9 +2586,9 @@
         "algorithm"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.064827716Z",
+        "last_checked": "2026-05-12T22:05:07.857572890Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "unexpected HTTP status 530 during WebSocket handshake"
       }
     },
@@ -2606,7 +2606,7 @@
         "rss"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.016230115Z",
+        "last_checked": "2026-05-12T22:05:07.793232900Z",
         "last_success": null,
         "consecutive_failures": 2,
         "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
@@ -2625,9 +2625,9 @@
         "rss"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:27:45.949772035Z",
+        "last_checked": "2026-05-12T22:06:10.781399216Z",
         "last_success": null,
-        "consecutive_failures": 144,
+        "consecutive_failures": 145,
         "last_error": "probe timed out after 30s"
       }
     },
@@ -2642,10 +2642,10 @@
         "arabic"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.588192240Z",
-        "last_success": "2026-05-09T23:38:31.822924511Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.505511476Z",
+        "last_success": "2026-05-12T22:05:08.505511476Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 455,
         "supported_nips": [
           1,
           11,
@@ -2672,10 +2672,10 @@
         "german"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.584126086Z",
-        "last_success": "2026-05-09T23:38:31.843081390Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.498636109Z",
+        "last_success": "2026-05-12T22:05:08.498636109Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 429,
         "supported_nips": [
           1,
           11,
@@ -2701,10 +2701,10 @@
         "english"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.607949049Z",
+        "last_checked": "2026-05-12T22:05:08.237252606Z",
         "last_success": null,
-        "consecutive_failures": 144,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake"
+        "consecutive_failures": 145,
+        "last_error": "unexpected HTTP status 200 during WebSocket handshake"
       }
     },
     {
@@ -2718,10 +2718,10 @@
         "spanish"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.639361949Z",
-        "last_success": "2026-05-09T23:38:31.904811591Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.505799317Z",
+        "last_success": "2026-05-12T22:05:08.505799317Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 401,
         "supported_nips": [
           1,
           11,
@@ -2748,10 +2748,10 @@
         "french"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.632980994Z",
-        "last_success": "2026-05-09T23:38:31.891912323Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.504173989Z",
+        "last_success": "2026-05-12T22:05:08.504173989Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 371,
         "supported_nips": [
           1,
           11,
@@ -2778,10 +2778,10 @@
         "italian"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.689642611Z",
-        "last_success": "2026-05-09T23:38:31.924820830Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.511231369Z",
+        "last_success": "2026-05-12T22:05:08.511231369Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 371,
         "supported_nips": [
           1,
           11,
@@ -2808,10 +2808,10 @@
         "japanese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.764808878Z",
-        "last_success": "2026-05-09T23:38:31.926157039Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.560174625Z",
+        "last_success": "2026-05-12T22:05:08.560174625Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 368,
         "supported_nips": [
           1,
           11,
@@ -2838,10 +2838,10 @@
         "korean"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.749793870Z",
-        "last_success": "2026-05-09T23:38:31.927441162Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.589600808Z",
+        "last_success": "2026-05-12T22:05:08.589600808Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 385,
         "supported_nips": [
           1,
           11,
@@ -2867,10 +2867,10 @@
         "portuguese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.812044398Z",
-        "last_success": "2026-05-09T23:38:31.929700030Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.593533841Z",
+        "last_success": "2026-05-12T22:05:08.593533841Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 373,
         "supported_nips": [
           1,
           11,
@@ -2896,10 +2896,10 @@
         "russian"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.892434073Z",
-        "last_success": "2026-05-09T23:38:31.996125027Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.594625731Z",
+        "last_success": "2026-05-12T22:05:08.594625731Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 364,
         "supported_nips": [
           1,
           11,
@@ -2925,10 +2925,10 @@
         "turkish"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.868485786Z",
-        "last_success": "2026-05-09T23:38:31.950265440Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.595174841Z",
+        "last_success": "2026-05-12T22:05:08.595174841Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 358,
         "supported_nips": [
           1,
           11,
@@ -2955,10 +2955,10 @@
         "vietnamese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.903579773Z",
-        "last_success": "2026-05-09T23:38:31.996407222Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.602587670Z",
+        "last_success": "2026-05-12T22:05:08.602587670Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 374,
         "supported_nips": [
           1,
           11,
@@ -2985,10 +2985,10 @@
         "chinese"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.997673570Z",
-        "last_success": "2026-05-09T23:38:32.011505931Z",
-        "consecutive_failures": 35,
-        "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+        "last_checked": "2026-05-12T22:05:08.600691298Z",
+        "last_success": "2026-05-12T22:05:08.600691298Z",
+        "consecutive_failures": 0,
+        "rtt_ms": 359,
         "supported_nips": [
           1,
           11,
@@ -3015,7 +3015,7 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.526234293Z",
+        "last_checked": "2026-05-12T22:05:08.207127360Z",
         "last_success": "2026-05-02T09:15:06.699567210Z",
         "consecutive_failures": 0,
         "skipped": true
@@ -3033,7 +3033,7 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.526241617Z",
+        "last_checked": "2026-05-12T22:05:08.207133529Z",
         "last_success": "2026-05-02T09:15:06.699568502Z",
         "consecutive_failures": 0,
         "skipped": true
@@ -3052,7 +3052,7 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.526247398Z",
+        "last_checked": "2026-05-12T22:05:08.207137255Z",
         "last_success": "2026-05-02T09:15:06.699569123Z",
         "consecutive_failures": 0,
         "skipped": true
@@ -3071,7 +3071,7 @@
       ],
       "tags": [],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.526253229Z",
+        "last_checked": "2026-05-12T22:05:08.207140620Z",
         "last_success": "2026-05-02T09:15:06.699569725Z",
         "consecutive_failures": 0,
         "skipped": true
@@ -3091,7 +3091,7 @@
         "bitcoin"
       ],
       "status": {
-        "last_checked": "2026-05-12T20:26:43.526257196Z",
+        "last_checked": "2026-05-12T22:05:08.207143464Z",
         "last_success": "2026-05-02T09:15:06.699570165Z",
         "consecutive_failures": 0,
         "skipped": true
