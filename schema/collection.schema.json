@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Collection",
+  "description": "A discoverability bucket referenced by one or more relays.",
+  "type": "object",
+  "required": [
+    "description",
+    "id",
+    "name"
+  ],
+  "properties": {
+    "description": {
+      "description": "One-paragraph description of what belongs in this collection.",
+      "type": "string"
+    },
+    "id": {
+      "description": "Unique, lowercase kebab-case identifier.",
+      "type": "string"
+    },
+    "name": {
+      "description": "Human-friendly title displayed in the README and JSON outputs.",
+      "type": "string"
+    }
+  }
+}

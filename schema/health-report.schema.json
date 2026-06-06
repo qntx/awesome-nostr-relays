@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "HealthReport",
+  "description": "Top-level health snapshot persisted at `health.json`.",
+  "type": "object",
+  "properties": {
+    "entries": {
+      "description": "Per-URL entries keyed by the relay URL string.",
+      "default": {},
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/HealthEntry"
+      }
+    },
+    "last_run": {
+      "description": "Timestamp of the most recent [`crate::probe`] run across the entire catalog.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  },
+  "definitions": {
+    "HealthEntry": {
+      "description": "Runtime health aggregate for a single relay URL, persisted across CI runs.",
+      "type": "object",
+      "properties": {
+        "consecutive_failures": {
+          "description": "Number of consecutive hard failures; reset to 0 on success.",
+          "default": 0,
+          "type": "integer",
+          "format": "uint32",
+          "minimum": 0.0
+        },
+        "last_checked": {
+          "description": "Timestamp of the most recent probe attempt, regardless of outcome.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "last_error": {
+          "description": "Short, truncated error message from the latest failed probe.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "last_outcome": {
+          "description": "Disposition of the most recent probe attempt.",
+          "default": "unknown",
+          "allOf": [
+            {
+              "$ref": "#/definitions/Outcome"
+            }
+          ]
+        },
+        "last_success": {
+          "description": "Timestamp of the most recent successful probe.",
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "nip11_software": {
+          "description": "`software` string from the NIP-11 document, if any.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nip11_version": {
+          "description": "`version` string from the NIP-11 document, if any.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rtt_open_ms": {
+          "description": "Open round-trip time of the latest successful handshake (NIP-66 `rtt-open`), in milliseconds.",
+          "type": [
+            "integer",
+            "null"
+          ],
+          "format": "uint64",
+          "minimum": 0.0
+        },
+        "supported_nips": {
+          "description": "Supported NIP numbers as reported by the relay's NIP-11 document.",
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "integer",
+            "format": "uint16",
+            "minimum": 0.0
+          }
+        }
+      }
+    },
+    "Outcome": {
+      "description": "Disposition of the most recent probe attempt, persisted to drive [`HealthEntry::state`].",
+      "oneOf": [
+        {
+          "description": "No probe has been recorded yet.",
+          "type": "string",
+          "enum": [
+            "unknown"
+          ]
+        },
+        {
+          "description": "The WebSocket handshake succeeded.",
+          "type": "string",
+          "enum": [
+            "success"
+          ]
+        },
+        {
+          "description": "A hard failure attributable to the relay (timeout, TLS, protocol, 5xx).",
+          "type": "string",
+          "enum": [
+            "failure"
+          ]
+        },
+        {
+          "description": "An environmental block outside the relay's control (WAF 4xx, DNS).",
+          "type": "string",
+          "enum": [
+            "blocked"
+          ]
+        },
+        {
+          "description": "The probe was deliberately skipped (e.g. onion without a Tor proxy).",
+          "type": "string",
+          "enum": [
+            "skipped"
+          ]
+        }
+      ]
+    }
+  }
+}

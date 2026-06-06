@@ -1,0 +1,3352 @@
+{
+  "schema_version": "2",
+  "generated_at": "2026-06-06T07:32:56Z",
+  "monitor": {
+    "frequency_seconds": 10800,
+    "timeout_ms": 30000,
+    "checks": [
+      "open",
+      "nip11",
+      "dns",
+      "ssl"
+    ]
+  },
+  "summary": {
+    "total": 107,
+    "healthy": 84,
+    "flaky": 10,
+    "warn": 0,
+    "dead": 0,
+    "stale": 0,
+    "blocked": 8,
+    "skipped": 5,
+    "unknown": 0
+  },
+  "collections": [
+    {
+      "id": "featured",
+      "name": "Featured",
+      "description": "Hand-picked, widely adopted relays with strong operational track record."
+    },
+    {
+      "id": "global",
+      "name": "Global Feeds",
+      "description": "General-purpose relays that accept events from any pubkey."
+    },
+    {
+      "id": "community",
+      "name": "Curated Communities",
+      "description": "Relays that focus on community-driven content and curation."
+    },
+    {
+      "id": "special",
+      "name": "Special Purpose",
+      "description": "Relays with unique filtering rules, display mechanisms, or event constraints."
+    },
+    {
+      "id": "topic",
+      "name": "Interest Groups",
+      "description": "Single-topic relays for focused discussions."
+    },
+    {
+      "id": "bot",
+      "name": "Automated Feeds",
+      "description": "Relays that primarily serve bot / algorithm / news feeds."
+    },
+    {
+      "id": "search",
+      "name": "Search & Index",
+      "description": "Relays exposing NIP-50 search or acting as indexers."
+    },
+    {
+      "id": "paid",
+      "name": "Paid Relays",
+      "description": "Relays that require payment (admission, subscription, or per-event) to post."
+    },
+    {
+      "id": "wot",
+      "name": "Web of Trust",
+      "description": "Relays filtering content by web-of-trust policies."
+    },
+    {
+      "id": "bridge",
+      "name": "Bridges & Aggregators",
+      "description": "Relays that bridge other networks (ActivityPub, RSS, etc.) or aggregate content."
+    },
+    {
+      "id": "regional-americas",
+      "name": "Regional — Americas",
+      "description": "Relays operated in North & South America."
+    },
+    {
+      "id": "regional-europe",
+      "name": "Regional — Europe",
+      "description": "Relays operated in Europe."
+    },
+    {
+      "id": "regional-asia",
+      "name": "Regional — Asia / Pacific",
+      "description": "Relays operated in Asia and the Pacific."
+    },
+    {
+      "id": "language",
+      "name": "Language Communities",
+      "description": "Relays scoped by spoken language."
+    },
+    {
+      "id": "tor",
+      "name": "Tor / Onion",
+      "description": "Relays reachable via Tor hidden services (.onion)."
+    }
+  ],
+  "relays": [
+    {
+      "url": "wss://140.f7z.io/",
+      "name": "140",
+      "description": "Short-form relay limiting content to 140 characters.",
+      "country": "US",
+      "software": "khatru",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "short-form"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 631
+      }
+    },
+    {
+      "url": "wss://atlas.nostr.land/",
+      "name": "Atlas (nostr.land)",
+      "operator": "nostr.land",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "topics": [
+        "premium"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 656,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
+      }
+    },
+    {
+      "url": "wss://bitcoiner.social/",
+      "name": "Bitcoiner Social",
+      "country": "US",
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "topics": [
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 575,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
+      }
+    },
+    {
+      "url": "wss://bookmarks.relays.land/",
+      "name": "Bookmarks",
+      "description": "Relay scoped to bookmark-style events.",
+      "country": "US",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "bookmarks"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 681,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86
+        ],
+        "nip11_software": "bookmarks/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://bucket.coracle.social/",
+      "name": "Coracle Bucket",
+      "operator": "coracle.social",
+      "country": "US",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "personal"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 552,
+        "supported_nips": [
+          1,
+          11
+        ],
+        "nip11_software": "https://github.com/coracle-social/bucket"
+      }
+    },
+    {
+      "url": "wss://christpill.nostr1.com/",
+      "name": "Christpill",
+      "collections": [
+        "community"
+      ],
+      "topics": [
+        "christian"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": "2026-06-06T07:31:51Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 203,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
+      }
+    },
+    {
+      "url": "wss://ditto.pub/relay",
+      "name": "Ditto",
+      "operator": "Ditto",
+      "country": "US",
+      "software": "ditto",
+      "collections": [
+        "global",
+        "bridge"
+      ],
+      "topics": [
+        "fediverse"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "unexpected HTTP status 302 during WebSocket handshake"
+      }
+    },
+    {
+      "url": "wss://eden.nostr.land/",
+      "name": "Eden (nostr.land)",
+      "operator": "nostr.land",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "topics": [
+        "premium"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 660,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
+      }
+    },
+    {
+      "url": "wss://feedback.relays.land/",
+      "name": "Feedback",
+      "description": "Feedback-scoped relay on the relays.land network.",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "feedback"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 671,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "feedback/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://filter.nostr.wine/",
+      "name": "filter.nostr.wine",
+      "operator": "nostr.wine",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "bridge",
+        "regional-americas"
+      ],
+      "topics": [
+        "filter",
+        "aggregator"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 339,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          40,
+          42,
+          50,
+          59,
+          65,
+          94
+        ],
+        "nip11_software": "https://filter.nostr.wine",
+        "nip11_version": "1.6"
+      }
+    },
+    {
+      "url": "wss://groups.0xchat.com/",
+      "name": "0xchat Groups",
+      "operator": "0xchat",
+      "collections": [
+        "community",
+        "special"
+      ],
+      "topics": [
+        "groups",
+        "nip29"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 516,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          29,
+          9
+        ],
+        "nip11_software": "https://github.com/fiatjaf/khatru",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://haven.girino.org/outbox",
+      "name": "Girino Haven Outbox",
+      "operator": "girino",
+      "collections": [
+        "wot",
+        "special"
+      ],
+      "topics": [
+        "haven",
+        "outbox"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 614,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          9,
+          45
+        ],
+        "nip11_software": "https://github.com/barrydeen/haven",
+        "nip11_version": "v1.2.2+dirty"
+      }
+    },
+    {
+      "url": "wss://impromptu.relays.land/",
+      "name": "Impromptu",
+      "description": "Ephemeral impromptu events.",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "ephemeral"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 591,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "impromptu/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://inbox.nostr.wine/",
+      "name": "inbox.nostr.wine",
+      "operator": "nostr.wine",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "special",
+        "regional-americas"
+      ],
+      "topics": [
+        "inbox",
+        "nip17"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 367,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          40,
+          42
+        ],
+        "nip11_software": "https://inbox.nostr.wine",
+        "nip11_version": "0.1.4"
+      }
+    },
+    {
+      "url": "wss://lockbox.relays.land/",
+      "name": "Lockbox",
+      "description": "Events are write-only and hidden from general reads.",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "write-only"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 593,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lockbox/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://news.utxo.one/",
+      "name": "UTXO News",
+      "operator": "utxo.one",
+      "collections": [
+        "bot"
+      ],
+      "topics": [
+        "news"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": "2026-06-06T07:31:51Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 204,
+        "supported_nips": [
+          1,
+          9,
+          11,
+          42,
+          45,
+          70,
+          86
+        ],
+        "nip11_software": "https://github.com/bitvora/sw2",
+        "nip11_version": "0.1.0"
+      }
+    },
+    {
+      "url": "wss://nfrelay.app/",
+      "name": "nfrelay (nostr-filter-relay)",
+      "description": "Aggregator relay with content filtering (SFW/NSFW, language, topic).",
+      "software": "nostr-filter-relay",
+      "collections": [
+        "bridge",
+        "search"
+      ],
+      "topics": [
+        "aggregator"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 1289,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.1"
+      }
+    },
+    {
+      "url": "wss://njump.me/",
+      "name": "njump",
+      "description": "Companion relay to njump.me content previews.",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "preview"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 309,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "https://pkg.go.dev/fiatjaf.com/nostr/khatru",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://noornode.nostr1.com/",
+      "name": "Noor Node",
+      "collections": [
+        "community"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": "2026-06-06T07:31:51Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 226,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
+      }
+    },
+    {
+      "url": "wss://nos.lol/",
+      "name": "nos.lol",
+      "country": "US",
+      "software": "strfry",
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "topics": [
+        "popular"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 412,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-4-ge53d8de"
+      }
+    },
+    {
+      "url": "wss://nostr-01.yakihonne.com/",
+      "name": "YakiHonne",
+      "operator": "YakiHonne",
+      "country": "SG",
+      "collections": [
+        "global",
+        "regional-asia"
+      ],
+      "topics": [
+        "yakihonne"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 1040,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "0.9.6-8-g013d611"
+      }
+    },
+    {
+      "url": "wss://nostr.bitcoiner.social/",
+      "name": "nostr.bitcoiner.social",
+      "country": "US",
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "topics": [
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 690,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
+      }
+    },
+    {
+      "url": "wss://nostr.einundzwanzig.space/",
+      "name": "Einundzwanzig",
+      "description": "Relay for the German bitcoin podcast community.",
+      "country": "DE",
+      "collections": [
+        "community",
+        "language",
+        "regional-europe"
+      ],
+      "topics": [
+        "german",
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 541,
+        "supported_nips": [
+          1,
+          2,
+          9,
+          11,
+          12,
+          15,
+          16,
+          20,
+          22,
+          33,
+          40
+        ],
+        "nip11_software": "https://git.sr.ht/~gheartsfield/nostr-rs-relay",
+        "nip11_version": "0.10.0"
+      }
+    },
+    {
+      "url": "wss://nostr.land/",
+      "name": "nostr.land",
+      "operator": "nostr.land",
+      "country": "US",
+      "software": "NFDB",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "topics": [
+        "premium"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 794,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
+      }
+    },
+    {
+      "url": "wss://nostr.lopp.social/",
+      "name": "lopp.social",
+      "operator": "Jameson Lopp",
+      "country": "US",
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "topics": [
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 827,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "0.9.6"
+      }
+    },
+    {
+      "url": "wss://nostr.mom/",
+      "name": "nostr.mom",
+      "country": "US",
+      "software": "strfry",
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 612,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
+      }
+    },
+    {
+      "url": "wss://nostr.mutinywallet.com/",
+      "name": "Mutiny Wallet",
+      "operator": "Mutiny Wallet",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "topics": [
+        "bitcoin",
+        "lightning"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "dns lookup failed: failed to lookup address information: No address associated with hostname"
+      }
+    },
+    {
+      "url": "wss://nostr.oxtr.dev/",
+      "name": "oxtr",
+      "operator": "0xtr",
+      "collections": [
+        "global"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 460,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
+      }
+    },
+    {
+      "url": "wss://nostr.plebchain.org/",
+      "name": "Plebchain",
+      "country": "US",
+      "collections": [
+        "community",
+        "topic",
+        "regional-americas"
+      ],
+      "topics": [
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
+      }
+    },
+    {
+      "url": "wss://nostr.superfriends.online/",
+      "name": "Superfriends",
+      "collections": [
+        "global"
+      ],
+      "topics": [
+        "community"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 372,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-4-ge53d8de"
+      }
+    },
+    {
+      "url": "wss://nostr.wine/",
+      "name": "nostr.wine",
+      "description": "Paid relay for wine enthusiasts and everyone else.",
+      "operator": "nostr.wine",
+      "country": "US",
+      "software": "strfry",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "featured",
+        "regional-americas"
+      ],
+      "topics": [
+        "premium",
+        "popular"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": "2026-06-06T07:31:51Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 376,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          40,
+          42,
+          50,
+          70
+        ],
+        "nip11_software": "https://nostr.wine",
+        "nip11_version": "0.3.3"
+      }
+    },
+    {
+      "url": "wss://offchain.pub/",
+      "name": "offchain.pub",
+      "country": "US",
+      "collections": [
+        "global",
+        "regional-americas"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": "2026-06-06T07:31:51Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 233,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0"
+      }
+    },
+    {
+      "url": "wss://pareto.space/",
+      "name": "Pareto",
+      "collections": [
+        "community"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:31:51Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "unexpected HTTP status 302 during WebSocket handshake"
+      }
+    },
+    {
+      "url": "wss://personal.relays.land/",
+      "name": "Personal",
+      "description": "Relay scoped to personal events only.",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "personal"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 487,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "personal/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://pow.relays.land/",
+      "name": "PoW",
+      "description": "Events must include Proof-of-Work (NIP-13).",
+      "collections": [
+        "special"
+      ],
+      "topics": [
+        "pow",
+        "nip13"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 442,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "pow/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://premium.primal.net/",
+      "name": "Primal Premium",
+      "operator": "Primal",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "topics": [
+        "premium"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 426,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.3-1-g60d35a6"
+      }
+    },
+    {
+      "url": "wss://primus.nostr1.com/",
+      "name": "Primus",
+      "collections": [
+        "community"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 183,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
+      }
+    },
+    {
+      "url": "wss://purplepag.es/",
+      "name": "Purple Pages",
+      "description": "Indexing relay for public metadata (kind 0 / 3 / 10002).",
+      "country": "US",
+      "collections": [
+        "search",
+        "special",
+        "regional-americas"
+      ],
+      "topics": [
+        "metadata",
+        "index"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 544,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          51,
+          77,
+          9
+        ],
+        "nip11_software": "https://github.com/pablof7z/purplepag.es",
+        "nip11_version": "0.2.0"
+      }
+    },
+    {
+      "url": "wss://puravida.nostr.land/",
+      "name": "Pura Vida (nostr.land)",
+      "operator": "nostr.land",
+      "country": "US",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "paid",
+        "regional-americas"
+      ],
+      "topics": [
+        "premium"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 570,
+        "supported_nips": [],
+        "nip11_software": "NFDB",
+        "nip11_version": "2.0 γ5"
+      }
+    },
+    {
+      "url": "wss://pyramid.fiatjaf.com/",
+      "name": "Pyramid",
+      "description": "Invite-only relay with a WoT invitation tree.",
+      "operator": "fiatjaf",
+      "software": "khatru-pyramid",
+      "collections": [
+        "featured",
+        "wot",
+        "special"
+      ],
+      "topics": [
+        "invite-only"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 426,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          34,
+          40,
+          9,
+          45,
+          77,
+          43,
+          50,
+          29,
+          16,
+          63
+        ],
+        "nip11_software": "https://github.com/fiatjaf/pyramid",
+        "nip11_version": "v1.2.12"
+      }
+    },
+    {
+      "url": "wss://relay.0xchat.com/",
+      "name": "0xchat",
+      "operator": "0xchat",
+      "collections": [
+        "community"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 1115,
+        "supported_nips": [
+          1,
+          4,
+          5,
+          9,
+          17,
+          25,
+          28,
+          40,
+          57,
+          58,
+          96
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "0.9.6-39-g32a3677"
+      }
+    },
+    {
+      "url": "wss://relay.44billion.net/",
+      "name": "44billion",
+      "description": "Relay with built-in ranking and language-aware search.",
+      "collections": [
+        "community",
+        "search"
+      ],
+      "topics": [
+        "curation"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 207
+      }
+    },
+    {
+      "url": "wss://relay.damus.io/",
+      "name": "Damus",
+      "operator": "Damus Team",
+      "country": "US",
+      "software": "strfry",
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "topics": [
+        "popular",
+        "ios"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 342,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-1-g691a533f11eb"
+      }
+    },
+    {
+      "url": "wss://relay.divine.video/",
+      "name": "Divine Video",
+      "country": "US",
+      "collections": [
+        "global",
+        "regional-americas"
+      ],
+      "topics": [
+        "video"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 424,
+        "supported_nips": [
+          1,
+          4,
+          9,
+          11,
+          16,
+          18,
+          22,
+          23,
+          25,
+          32,
+          33,
+          40,
+          45,
+          50,
+          51,
+          52,
+          56,
+          62,
+          71,
+          86,
+          94,
+          98
+        ],
+        "nip11_software": "divine-funnelcake",
+        "nip11_version": "0.1.0"
+      }
+    },
+    {
+      "url": "wss://relay.getalby.com/",
+      "name": "Alby",
+      "operator": "Alby",
+      "country": "AT",
+      "collections": [
+        "global",
+        "regional-europe"
+      ],
+      "topics": [
+        "lightning"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 244,
+        "supported_nips": [
+          1,
+          11,
+          47,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "alby-nwc-relay",
+        "nip11_version": "2.0.0"
+      }
+    },
+    {
+      "url": "wss://relay.mostr.pub/",
+      "name": "Mostr",
+      "description": "Bridge relay to the fediverse (ActivityPub).",
+      "collections": [
+        "bridge"
+      ],
+      "topics": [
+        "fediverse",
+        "activitypub"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 354,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
+      }
+    },
+    {
+      "url": "wss://relay.nos.social/",
+      "name": "nos.social",
+      "operator": "Nos",
+      "collections": [
+        "global"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 262,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          62
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.3"
+      }
+    },
+    {
+      "url": "wss://relay.nostr.band/",
+      "name": "Nostr.Band",
+      "description": "Indexing and full-text search relay (NIP-50).",
+      "operator": "nostr.band",
+      "collections": [
+        "featured",
+        "search",
+        "global"
+      ],
+      "topics": [
+        "search",
+        "nip50"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:32:55Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "probe timed out after 30s"
+      }
+    },
+    {
+      "url": "wss://relay.noswhere.com/",
+      "name": "noswhere",
+      "operator": "noswhere",
+      "collections": [
+        "global"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 977,
+        "supported_nips": [
+          1,
+          11,
+          50
+        ],
+        "nip11_software": "custom",
+        "nip11_version": "0.0.1"
+      }
+    },
+    {
+      "url": "wss://relay.nostr.moe/",
+      "name": "nostr.moe",
+      "description": "Anime / otaku community relay.",
+      "country": "JP",
+      "collections": [
+        "community",
+        "regional-asia"
+      ],
+      "topics": [
+        "anime"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 802,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          15,
+          16,
+          20,
+          22,
+          25,
+          26,
+          28,
+          33,
+          40,
+          42,
+          45,
+          50,
+          70
+        ],
+        "nip11_software": "https://github.com/rnostr/rnostr",
+        "nip11_version": "0.4.7"
+      }
+    },
+    {
+      "url": "wss://relay.nostr.net/",
+      "name": "nostr.net",
+      "operator": "nostr.net",
+      "collections": [
+        "global"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 575,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-beta5-4-gf31a1b9"
+      }
+    },
+    {
+      "url": "wss://relay.nostrzh.org/",
+      "name": "nostrzh",
+      "description": "Pyramid-style Chinese-language relay.",
+      "country": "XX",
+      "collections": [
+        "language",
+        "community"
+      ],
+      "topics": [
+        "chinese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 540,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45,
+          77,
+          43,
+          29,
+          16
+        ],
+        "nip11_software": "https://github.com/fiatjaf/pyramid"
+      }
+    },
+    {
+      "url": "wss://relay.primal.net/",
+      "name": "Primal",
+      "operator": "Primal",
+      "country": "US",
+      "software": "primal-caching-service",
+      "collections": [
+        "featured",
+        "global",
+        "regional-americas"
+      ],
+      "topics": [
+        "popular",
+        "caching"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 488,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.3-1-g60d35a6"
+      }
+    },
+    {
+      "url": "wss://relay.snort.social/",
+      "name": "Snort",
+      "operator": "Snort",
+      "collections": [
+        "global"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:32:55Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "probe timed out after 30s"
+      }
+    },
+    {
+      "url": "wss://relay.wikifreedia.xyz/",
+      "name": "Wikifreedia",
+      "description": "Relay backing the Wikifreedia long-form wiki.",
+      "collections": [
+        "topic",
+        "special"
+      ],
+      "topics": [
+        "wiki",
+        "long-form"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 543,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          9,
+          45,
+          77
+        ],
+        "nip11_software": "https://github.com/fiatjaf/khatru",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://relays.land/spatianostra",
+      "name": "Spatia Nostra",
+      "collections": [
+        "community"
+      ],
+      "topics": [
+        "spatianostra"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 391,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86
+        ],
+        "nip11_software": "https://git.fiatjaf.com/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://theforest.nostr1.com/",
+      "name": "The Forest",
+      "collections": [
+        "community"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 202,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
+      }
+    },
+    {
+      "url": "wss://thecitadel.nostr1.com/",
+      "name": "The Citadel",
+      "collections": [
+        "community"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": "2026-06-06T07:31:52Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 219,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40,
+          17,
+          86,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "strfry v315-3cff8c9"
+      }
+    },
+    {
+      "url": "wss://topic.relays.land/ask",
+      "name": "Topic: Ask",
+      "description": "Questions addressed to the community.",
+      "collections": [
+        "topic"
+      ],
+      "topics": [
+        "qna"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 490,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "topic/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://topic.relays.land/complaint",
+      "name": "Topic: Complaint",
+      "collections": [
+        "topic"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 488,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "topic/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://topic.relays.land/left",
+      "name": "Topic: Left",
+      "collections": [
+        "topic"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 489,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "topic/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://topic.relays.land/praise",
+      "name": "Topic: Praise",
+      "collections": [
+        "topic"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 428,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "topic/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://topic.relays.land/uncommon",
+      "name": "Topic: Uncommon",
+      "collections": [
+        "topic"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 397,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "topic/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://topic.relays.land/whales",
+      "name": "Topic: Whales",
+      "collections": [
+        "topic"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 401,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "topic/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://trending.relays.land/",
+      "name": "Trending",
+      "description": "Relay showcasing trending Nostr content.",
+      "collections": [
+        "featured",
+        "special"
+      ],
+      "topics": [
+        "trending"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 400,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86
+        ],
+        "nip11_software": "trending/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://wot.dergigi.com/",
+      "name": "Gigi WoT",
+      "operator": "dergigi",
+      "collections": [
+        "wot"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 542,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          9
+        ],
+        "nip11_software": "https://github.com/bitvora/wot-relay",
+        "nip11_version": "v0.1.18"
+      }
+    },
+    {
+      "url": "wss://wot.girino.org/",
+      "name": "Girino WoT",
+      "operator": "girino",
+      "collections": [
+        "wot"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 331,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          9
+        ],
+        "nip11_software": "https://github.com/girino/wot-relay",
+        "nip11_version": "dev"
+      }
+    },
+    {
+      "url": "wss://wot.nostr.net/",
+      "name": "nostr.net WoT",
+      "operator": "nostr.net",
+      "collections": [
+        "wot"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 503,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          9
+        ],
+        "nip11_software": "https://github.com/bitvora/wot-relay",
+        "nip11_version": ""
+      }
+    },
+    {
+      "url": "wss://wot.utxo.one/",
+      "name": "UTXO WoT",
+      "operator": "utxo.one",
+      "collections": [
+        "wot"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 206,
+        "supported_nips": [
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "https://github.com/barrydeen/wot-relay",
+        "nip11_version": "0.2.1"
+      }
+    },
+    {
+      "url": "wss://nrelay-jp.c-stellar.net/",
+      "name": "c-stellar JP",
+      "country": "JP",
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "topics": [
+        "japanese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "forbidden by upstream (HTTP 403)"
+      }
+    },
+    {
+      "url": "wss://relay-jp.nostr.wirednet.jp/",
+      "name": "WiredNet JP",
+      "country": "JP",
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "topics": [
+        "japanese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "forbidden by upstream (HTTP 403)"
+      }
+    },
+    {
+      "url": "wss://relay.nostr.or.jp/",
+      "name": "nostr.or.jp",
+      "country": "JP",
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "topics": [
+        "japanese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:52Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
+      }
+    },
+    {
+      "url": "wss://relay.nostr.wirednet.jp/",
+      "name": "WiredNet",
+      "country": "JP",
+      "collections": [
+        "regional-asia",
+        "language"
+      ],
+      "topics": [
+        "japanese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 835,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4-2-gc15be27"
+      }
+    },
+    {
+      "url": "wss://yabu.me/",
+      "name": "yabu.me",
+      "description": "Japanese-language aggregator relay.",
+      "country": "JP",
+      "collections": [
+        "regional-asia",
+        "language",
+        "community"
+      ],
+      "topics": [
+        "japanese",
+        "aggregator"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 713,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
+      }
+    },
+    {
+      "url": "wss://nostr.bitcoinplebs.de/",
+      "name": "Bitcoin Plebs DE",
+      "country": "DE",
+      "collections": [
+        "regional-europe",
+        "language",
+        "topic"
+      ],
+      "topics": [
+        "german",
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 655,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          12,
+          15,
+          16,
+          20,
+          22,
+          28,
+          33,
+          40
+        ],
+        "nip11_software": "git+https://github.com/Cameri/nostream.git",
+        "nip11_version": "2.0.0"
+      }
+    },
+    {
+      "url": "wss://relay.mleku.dev/",
+      "name": "mleku",
+      "country": "DE",
+      "collections": [
+        "regional-europe"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:31:56Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "tls error: received fatal alert: InternalError"
+      }
+    },
+    {
+      "url": "wss://relay.bitcoinpark.com/",
+      "name": "Bitcoin Park",
+      "country": "DE",
+      "collections": [
+        "regional-europe",
+        "topic"
+      ],
+      "topics": [
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:32:55Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "probe timed out after 30s"
+      }
+    },
+    {
+      "url": "wss://relay.tchncs.de/",
+      "name": "tchncs",
+      "country": "DE",
+      "collections": [
+        "regional-europe"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 787,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          22,
+          28,
+          40,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.0.4"
+      }
+    },
+    {
+      "url": "wss://nos.xmark.cc/",
+      "name": "xmark",
+      "country": "GB",
+      "collections": [
+        "regional-europe"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:58Z",
+        "last_success": "2026-06-06T07:31:58Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 1061,
+        "supported_nips": [
+          1,
+          2,
+          9,
+          11,
+          12,
+          16,
+          20,
+          33
+        ],
+        "nip11_software": "https://github.com/monty888/monstr",
+        "nip11_version": "0.1.2"
+      }
+    },
+    {
+      "url": "wss://nostr.zebedee.cloud/",
+      "name": "Zebedee",
+      "operator": "Zebedee",
+      "country": "US",
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "topics": [
+        "lightning",
+        "gaming"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:31:56Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "tls error: invalid peer certificate: certificate not valid for name \"nostr.zebedee.cloud\"; certificate is only valid for DnsName(\"names-hub.com\") or DnsName(\"www.names-hub.com\")"
+      }
+    },
+    {
+      "url": "wss://relay.coinos.io/",
+      "name": "Coinos",
+      "operator": "Coinos",
+      "country": "CA",
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "topics": [
+        "lightning",
+        "bitcoin"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 364,
+        "supported_nips": [
+          1,
+          2,
+          4,
+          9,
+          11,
+          28,
+          40,
+          45,
+          70,
+          77
+        ],
+        "nip11_software": "git+https://github.com/hoytech/strfry.git",
+        "nip11_version": "1.1.0-beta5"
+      }
+    },
+    {
+      "url": "wss://relay.fountain.fm/",
+      "name": "Fountain",
+      "operator": "Fountain.fm",
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "topics": [
+        "podcast",
+        "lightning"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 671,
+        "supported_nips": [
+          1,
+          2,
+          18,
+          25,
+          53,
+          73
+        ]
+      }
+    },
+    {
+      "url": "wss://relay.nostr.ai/",
+      "name": "nostr.ai",
+      "country": "US",
+      "collections": [
+        "regional-americas"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
+      }
+    },
+    {
+      "url": "wss://relay.npub.bar/",
+      "name": "npub.bar",
+      "collections": [
+        "regional-americas"
+      ],
+      "topics": [],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:32:03Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "dns lookup failed: failed to lookup address information: Temporary failure in name resolution"
+      }
+    },
+    {
+      "url": "wss://relay.olas.app/",
+      "name": "Olas",
+      "operator": "Olas",
+      "collections": [
+        "regional-americas",
+        "topic"
+      ],
+      "topics": [
+        "photo"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 640
+      }
+    },
+    {
+      "url": "wss://relay.groups.nip29.com/",
+      "name": "NIP-29 Groups",
+      "description": "Group-chat relay built on khatru + relay29.",
+      "software": "groups-relay",
+      "collections": [
+        "special",
+        "community"
+      ],
+      "topics": [
+        "groups",
+        "nip29",
+        "chat"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": "2026-06-06T07:31:53Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 406,
+        "supported_nips": [
+          1,
+          11,
+          40,
+          42,
+          70,
+          86,
+          29,
+          9
+        ],
+        "nip11_software": "https://github.com/fiatjaf/khatru",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://algo.utxo.one/",
+      "name": "UTXO Algo",
+      "operator": "utxo.one",
+      "collections": [
+        "bot"
+      ],
+      "topics": [
+        "algorithm"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "unexpected HTTP status 530 during WebSocket handshake"
+      }
+    },
+    {
+      "url": "wss://rsslay.fiatjaf.com/",
+      "name": "rsslay",
+      "description": "RSS-to-Nostr bridge.",
+      "operator": "fiatjaf",
+      "collections": [
+        "bot",
+        "bridge"
+      ],
+      "topics": [
+        "rss"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "blocked",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "blocked",
+        "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
+      }
+    },
+    {
+      "url": "wss://rss.nos.social/",
+      "name": "Nos RSS",
+      "operator": "Nos",
+      "collections": [
+        "bot",
+        "bridge"
+      ],
+      "topics": [
+        "rss"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:32:56Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "probe timed out after 30s"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/ar",
+      "name": "lang: Arabic",
+      "collections": [
+        "language"
+      ],
+      "topics": [
+        "arabic"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 454,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/de",
+      "name": "lang: German",
+      "collections": [
+        "language",
+        "regional-europe"
+      ],
+      "topics": [
+        "german"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 513,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/en",
+      "name": "lang: English",
+      "collections": [
+        "language"
+      ],
+      "topics": [
+        "english"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "flaky",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 1,
+        "last_outcome": "failure",
+        "last_error": "unexpected HTTP status 200 during WebSocket handshake"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/es",
+      "name": "lang: Spanish",
+      "collections": [
+        "language"
+      ],
+      "topics": [
+        "spanish"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 444,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/fr",
+      "name": "lang: French",
+      "collections": [
+        "language",
+        "regional-europe"
+      ],
+      "topics": [
+        "french"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 408,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/it",
+      "name": "lang: Italian",
+      "collections": [
+        "language",
+        "regional-europe"
+      ],
+      "topics": [
+        "italian"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 577,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/ja",
+      "name": "lang: Japanese",
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "topics": [
+        "japanese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 539,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/ko",
+      "name": "lang: Korean",
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "topics": [
+        "korean"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 521,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/pt",
+      "name": "lang: Portuguese",
+      "collections": [
+        "language"
+      ],
+      "topics": [
+        "portuguese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 473,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/ru",
+      "name": "lang: Russian",
+      "collections": [
+        "language"
+      ],
+      "topics": [
+        "russian"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 459,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/tr",
+      "name": "lang: Turkish",
+      "collections": [
+        "language"
+      ],
+      "topics": [
+        "turkish"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 468,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/vi",
+      "name": "lang: Vietnamese",
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "topics": [
+        "vietnamese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 543,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "wss://lang.relays.land/zh",
+      "name": "lang: Chinese",
+      "collections": [
+        "language",
+        "regional-asia"
+      ],
+      "topics": [
+        "chinese"
+      ],
+      "network": "clearnet",
+      "health": {
+        "state": "healthy",
+        "last_checked": "2026-06-06T07:31:54Z",
+        "last_success": "2026-06-06T07:31:54Z",
+        "consecutive_failures": 0,
+        "last_outcome": "success",
+        "rtt_open_ms": 507,
+        "supported_nips": [
+          1,
+          11,
+          42,
+          70,
+          86,
+          40,
+          9,
+          45
+        ],
+        "nip11_software": "lang/khatru/relays.land",
+        "nip11_version": "n/a"
+      }
+    },
+    {
+      "url": "ws://oxtrdevav64z64yb7x6rjg4ntzqjhedm5b5zjqulugknhzr46ny2qbad.onion/",
+      "name": "oxtr.dev (onion)",
+      "description": "Tor mirror of wss://nostr.oxtr.dev/.",
+      "operator": "0xtr",
+      "collections": [
+        "tor"
+      ],
+      "topics": [],
+      "network": "tor",
+      "health": {
+        "state": "skipped",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "skipped"
+      }
+    },
+    {
+      "url": "ws://skzzn6cimfdv5e2phjc4yr5v7ikbxtn5f7dkwn5c7v47tduzlbosqmqd.onion/",
+      "name": "Snort (onion)",
+      "description": "Tor mirror of wss://relay.snort.social/.",
+      "operator": "Snort",
+      "collections": [
+        "tor"
+      ],
+      "topics": [],
+      "network": "tor",
+      "health": {
+        "state": "skipped",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "skipped"
+      }
+    },
+    {
+      "url": "ws://nostrland2gdw7g3y77ctftovvil76vquipymo7tsctlxpiwknevzfid.onion/",
+      "name": "nostr.land (onion)",
+      "description": "Tor mirror of the paid wss://nostr.land/ relay.",
+      "operator": "nostr.land",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "tor",
+        "paid"
+      ],
+      "topics": [],
+      "network": "tor",
+      "health": {
+        "state": "skipped",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "skipped"
+      }
+    },
+    {
+      "url": "ws://nostrwinemdptvqukjttinajfeedhf46hfd5bz2aj2q5uwp7zros3nad.onion/",
+      "name": "nostr.wine (onion)",
+      "description": "Tor mirror of the paid wss://nostr.wine/ relay.",
+      "operator": "nostr.wine",
+      "requirements": {
+        "payment": true
+      },
+      "collections": [
+        "tor",
+        "paid"
+      ],
+      "topics": [],
+      "network": "tor",
+      "health": {
+        "state": "skipped",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "skipped"
+      }
+    },
+    {
+      "url": "ws://bitcoinr6de5lkvx4tpwdmzrdfdpla5sya2afwpcabjup2xpi5dulbad.onion/",
+      "name": "bitcoiner.social (onion)",
+      "operator": "bitcoiner.social",
+      "collections": [
+        "tor",
+        "topic"
+      ],
+      "topics": [
+        "bitcoin"
+      ],
+      "network": "tor",
+      "health": {
+        "state": "skipped",
+        "last_checked": "2026-06-06T07:31:53Z",
+        "last_success": null,
+        "consecutive_failures": 0,
+        "last_outcome": "skipped"
+      }
+    }
+  ]
+}

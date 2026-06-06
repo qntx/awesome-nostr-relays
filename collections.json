@@ -1,0 +1,292 @@
+{
+  "generated_at": "2026-06-06T07:32:56Z",
+  "collections": [
+    {
+      "id": "featured",
+      "name": "Featured",
+      "description": "Hand-picked, widely adopted relays with strong operational track record.",
+      "relays": [
+        "wss://nos.lol/",
+        "wss://nostr.mom/",
+        "wss://nostr.wine/",
+        "wss://pyramid.fiatjaf.com/",
+        "wss://relay.damus.io/",
+        "wss://relay.nostr.band/",
+        "wss://relay.primal.net/",
+        "wss://trending.relays.land/"
+      ]
+    },
+    {
+      "id": "global",
+      "name": "Global Feeds",
+      "description": "General-purpose relays that accept events from any pubkey.",
+      "relays": [
+        "wss://ditto.pub/relay",
+        "wss://nos.lol/",
+        "wss://nostr-01.yakihonne.com/",
+        "wss://nostr.mom/",
+        "wss://nostr.oxtr.dev/",
+        "wss://nostr.superfriends.online/",
+        "wss://offchain.pub/",
+        "wss://relay.damus.io/",
+        "wss://relay.divine.video/",
+        "wss://relay.getalby.com/",
+        "wss://relay.nos.social/",
+        "wss://relay.nostr.band/",
+        "wss://relay.noswhere.com/",
+        "wss://relay.nostr.net/",
+        "wss://relay.primal.net/",
+        "wss://relay.snort.social/"
+      ]
+    },
+    {
+      "id": "community",
+      "name": "Curated Communities",
+      "description": "Relays that focus on community-driven content and curation.",
+      "relays": [
+        "wss://bitcoiner.social/",
+        "wss://christpill.nostr1.com/",
+        "wss://groups.0xchat.com/",
+        "wss://noornode.nostr1.com/",
+        "wss://nostr.bitcoiner.social/",
+        "wss://nostr.einundzwanzig.space/",
+        "wss://nostr.lopp.social/",
+        "wss://nostr.plebchain.org/",
+        "wss://pareto.space/",
+        "wss://primus.nostr1.com/",
+        "wss://relay.0xchat.com/",
+        "wss://relay.44billion.net/",
+        "wss://relay.nostr.moe/",
+        "wss://relay.nostrzh.org/",
+        "wss://relays.land/spatianostra",
+        "wss://theforest.nostr1.com/",
+        "wss://thecitadel.nostr1.com/",
+        "wss://yabu.me/",
+        "wss://relay.groups.nip29.com/"
+      ]
+    },
+    {
+      "id": "special",
+      "name": "Special Purpose",
+      "description": "Relays with unique filtering rules, display mechanisms, or event constraints.",
+      "relays": [
+        "wss://140.f7z.io/",
+        "wss://bookmarks.relays.land/",
+        "wss://bucket.coracle.social/",
+        "wss://feedback.relays.land/",
+        "wss://groups.0xchat.com/",
+        "wss://haven.girino.org/outbox",
+        "wss://impromptu.relays.land/",
+        "wss://inbox.nostr.wine/",
+        "wss://lockbox.relays.land/",
+        "wss://njump.me/",
+        "wss://personal.relays.land/",
+        "wss://pow.relays.land/",
+        "wss://purplepag.es/",
+        "wss://pyramid.fiatjaf.com/",
+        "wss://relay.wikifreedia.xyz/",
+        "wss://trending.relays.land/",
+        "wss://relay.groups.nip29.com/"
+      ]
+    },
+    {
+      "id": "topic",
+      "name": "Interest Groups",
+      "description": "Single-topic relays for focused discussions.",
+      "relays": [
+        "wss://bitcoiner.social/",
+        "wss://nostr.bitcoiner.social/",
+        "wss://nostr.lopp.social/",
+        "wss://nostr.plebchain.org/",
+        "wss://relay.wikifreedia.xyz/",
+        "wss://topic.relays.land/ask",
+        "wss://topic.relays.land/complaint",
+        "wss://topic.relays.land/left",
+        "wss://topic.relays.land/praise",
+        "wss://topic.relays.land/uncommon",
+        "wss://topic.relays.land/whales",
+        "wss://nostr.bitcoinplebs.de/",
+        "wss://relay.bitcoinpark.com/",
+        "wss://nostr.zebedee.cloud/",
+        "wss://relay.coinos.io/",
+        "wss://relay.fountain.fm/",
+        "wss://relay.olas.app/",
+        "ws://bitcoinr6de5lkvx4tpwdmzrdfdpla5sya2afwpcabjup2xpi5dulbad.onion/"
+      ]
+    },
+    {
+      "id": "bot",
+      "name": "Automated Feeds",
+      "description": "Relays that primarily serve bot / algorithm / news feeds.",
+      "relays": [
+        "wss://news.utxo.one/",
+        "wss://algo.utxo.one/",
+        "wss://rsslay.fiatjaf.com/",
+        "wss://rss.nos.social/"
+      ]
+    },
+    {
+      "id": "search",
+      "name": "Search & Index",
+      "description": "Relays exposing NIP-50 search or acting as indexers.",
+      "relays": [
+        "wss://nfrelay.app/",
+        "wss://purplepag.es/",
+        "wss://relay.44billion.net/",
+        "wss://relay.nostr.band/"
+      ]
+    },
+    {
+      "id": "paid",
+      "name": "Paid Relays",
+      "description": "Relays that require payment (admission, subscription, or per-event) to post.",
+      "relays": [
+        "wss://atlas.nostr.land/",
+        "wss://eden.nostr.land/",
+        "wss://filter.nostr.wine/",
+        "wss://inbox.nostr.wine/",
+        "wss://nostr.land/",
+        "wss://nostr.mutinywallet.com/",
+        "wss://nostr.wine/",
+        "wss://premium.primal.net/",
+        "wss://puravida.nostr.land/",
+        "ws://nostrland2gdw7g3y77ctftovvil76vquipymo7tsctlxpiwknevzfid.onion/",
+        "ws://nostrwinemdptvqukjttinajfeedhf46hfd5bz2aj2q5uwp7zros3nad.onion/"
+      ]
+    },
+    {
+      "id": "wot",
+      "name": "Web of Trust",
+      "description": "Relays filtering content by web-of-trust policies.",
+      "relays": [
+        "wss://haven.girino.org/outbox",
+        "wss://pyramid.fiatjaf.com/",
+        "wss://wot.dergigi.com/",
+        "wss://wot.girino.org/",
+        "wss://wot.nostr.net/",
+        "wss://wot.utxo.one/"
+      ]
+    },
+    {
+      "id": "bridge",
+      "name": "Bridges & Aggregators",
+      "description": "Relays that bridge other networks (ActivityPub, RSS, etc.) or aggregate content.",
+      "relays": [
+        "wss://ditto.pub/relay",
+        "wss://filter.nostr.wine/",
+        "wss://nfrelay.app/",
+        "wss://relay.mostr.pub/",
+        "wss://rsslay.fiatjaf.com/",
+        "wss://rss.nos.social/"
+      ]
+    },
+    {
+      "id": "regional-americas",
+      "name": "Regional — Americas",
+      "description": "Relays operated in North & South America.",
+      "relays": [
+        "wss://atlas.nostr.land/",
+        "wss://bitcoiner.social/",
+        "wss://eden.nostr.land/",
+        "wss://filter.nostr.wine/",
+        "wss://inbox.nostr.wine/",
+        "wss://nos.lol/",
+        "wss://nostr.bitcoiner.social/",
+        "wss://nostr.land/",
+        "wss://nostr.lopp.social/",
+        "wss://nostr.mom/",
+        "wss://nostr.mutinywallet.com/",
+        "wss://nostr.plebchain.org/",
+        "wss://nostr.wine/",
+        "wss://offchain.pub/",
+        "wss://premium.primal.net/",
+        "wss://purplepag.es/",
+        "wss://puravida.nostr.land/",
+        "wss://relay.damus.io/",
+        "wss://relay.divine.video/",
+        "wss://relay.primal.net/",
+        "wss://nostr.zebedee.cloud/",
+        "wss://relay.coinos.io/",
+        "wss://relay.fountain.fm/",
+        "wss://relay.nostr.ai/",
+        "wss://relay.npub.bar/",
+        "wss://relay.olas.app/"
+      ]
+    },
+    {
+      "id": "regional-europe",
+      "name": "Regional — Europe",
+      "description": "Relays operated in Europe.",
+      "relays": [
+        "wss://nostr.einundzwanzig.space/",
+        "wss://relay.getalby.com/",
+        "wss://nostr.bitcoinplebs.de/",
+        "wss://relay.mleku.dev/",
+        "wss://relay.bitcoinpark.com/",
+        "wss://relay.tchncs.de/",
+        "wss://nos.xmark.cc/",
+        "wss://lang.relays.land/de",
+        "wss://lang.relays.land/fr",
+        "wss://lang.relays.land/it"
+      ]
+    },
+    {
+      "id": "regional-asia",
+      "name": "Regional — Asia / Pacific",
+      "description": "Relays operated in Asia and the Pacific.",
+      "relays": [
+        "wss://nostr-01.yakihonne.com/",
+        "wss://relay.nostr.moe/",
+        "wss://nrelay-jp.c-stellar.net/",
+        "wss://relay-jp.nostr.wirednet.jp/",
+        "wss://relay.nostr.or.jp/",
+        "wss://relay.nostr.wirednet.jp/",
+        "wss://yabu.me/",
+        "wss://lang.relays.land/ja",
+        "wss://lang.relays.land/ko",
+        "wss://lang.relays.land/vi",
+        "wss://lang.relays.land/zh"
+      ]
+    },
+    {
+      "id": "language",
+      "name": "Language Communities",
+      "description": "Relays scoped by spoken language.",
+      "relays": [
+        "wss://nostr.einundzwanzig.space/",
+        "wss://relay.nostrzh.org/",
+        "wss://nrelay-jp.c-stellar.net/",
+        "wss://relay-jp.nostr.wirednet.jp/",
+        "wss://relay.nostr.or.jp/",
+        "wss://relay.nostr.wirednet.jp/",
+        "wss://yabu.me/",
+        "wss://nostr.bitcoinplebs.de/",
+        "wss://lang.relays.land/ar",
+        "wss://lang.relays.land/de",
+        "wss://lang.relays.land/en",
+        "wss://lang.relays.land/es",
+        "wss://lang.relays.land/fr",
+        "wss://lang.relays.land/it",
+        "wss://lang.relays.land/ja",
+        "wss://lang.relays.land/ko",
+        "wss://lang.relays.land/pt",
+        "wss://lang.relays.land/ru",
+        "wss://lang.relays.land/tr",
+        "wss://lang.relays.land/vi",
+        "wss://lang.relays.land/zh"
+      ]
+    },
+    {
+      "id": "tor",
+      "name": "Tor / Onion",
+      "description": "Relays reachable via Tor hidden services (.onion).",
+      "relays": [
+        "ws://oxtrdevav64z64yb7x6rjg4ntzqjhedm5b5zjqulugknhzr46ny2qbad.onion/",
+        "ws://skzzn6cimfdv5e2phjc4yr5v7ikbxtn5f7dkwn5c7v47tduzlbosqmqd.onion/",
+        "ws://nostrland2gdw7g3y77ctftovvil76vquipymo7tsctlxpiwknevzfid.onion/",
+        "ws://nostrwinemdptvqukjttinajfeedhf46hfd5bz2aj2q5uwp7zros3nad.onion/",
+        "ws://bitcoinr6de5lkvx4tpwdmzrdfdpla5sya2afwpcabjup2xpi5dulbad.onion/"
+      ]
+    }
+  ]
+}

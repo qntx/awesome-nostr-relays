@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Relay",
+  "description": "A single relay entry as described by a curator.",
+  "type": "object",
+  "required": [
+    "url"
+  ],
+  "properties": {
+    "added_at": {
+      "description": "Date the relay was first added to the catalog.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "collections": {
+      "description": "IDs of the collections this relay belongs to.",
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "country": {
+      "description": "ISO-3166 alpha-2 uppercase country code, or `XX` if unknown.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "description": {
+      "description": "Optional one-sentence description.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "geohash": {
+      "description": "Optional NIP-52 geohash for finer-grained location (NIP-66 `g`).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Short human-friendly name; falls back to the URL host when absent.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "network": {
+      "description": "Optional curator override for the network transport (NIP-66 `n`). The public JSON instead exposes [`Relay::effective_network`], so this raw override is deserialize-only to avoid emitting a duplicate `network` key.",
+      "writeOnly": true,
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Network"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "operator": {
+      "description": "Operator name or pubkey; either an org label or a Nostr npub.",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requirements": {
+      "description": "Posting requirements declared by the curator (NIP-66 `R`).",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Requirements"
+        }
+      ]
+    },
+    "software": {
+      "description": "Relay software implementation (e.g. `strfry`, `khatru`, `nostream`).",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "topics": {
+      "description": "Free-form lowercase topics for fine-grained discovery (NIP-66 `t`).",
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "url": {
+      "description": "Normalised WebSocket URL (`wss://...` or `ws://...onion`).",
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "definitions": {
+    "Network": {
+      "description": "Network transport a relay is reachable over (NIP-66 `n` tag).",
+      "oneOf": [
+        {
+          "description": "Reachable over the public internet.",
+          "type": "string",
+          "enum": [
+            "clearnet"
+          ]
+        },
+        {
+          "description": "Tor hidden service (`.onion`).",
+          "type": "string",
+          "enum": [
+            "tor"
+          ]
+        },
+        {
+          "description": "I2P eepsite (`.i2p`).",
+          "type": "string",
+          "enum": [
+            "i2p"
+          ]
+        },
+        {
+          "description": "Lokinet service (`.loki`).",
+          "type": "string",
+          "enum": [
+            "loki"
+          ]
+        }
+      ]
+    },
+    "Requirements": {
+      "description": "Posting requirements a relay enforces, aligned with NIP-66's `R` tag.",
+      "type": "object",
+      "properties": {
+        "auth": {
+          "description": "Requires NIP-42 AUTH before serving reads/writes.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "payment": {
+          "description": "Requires payment (admission, subscription, or per-event) to post.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "pow": {
+          "description": "Requires Proof-of-Work (NIP-13) on submitted events.",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "writes": {
+          "description": "Accepts writes from the general public (`false` = read-only/restricted).",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}
