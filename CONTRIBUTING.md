@@ -2,7 +2,7 @@
 
 Thanks for taking the time to improve the catalogue. This repository has one golden rule:
 
-> `relays.toml` is the **single source of truth**. Every other file in the repo is either curator-written prose (README intro, this document) or generated output (`api/*.json`, the `<!-- RELAYS:* -->` block of the README).
+> `relays.toml` is the **single source of truth**. Everything else is either curator-written prose (README intro, this document) or generated output: the `<!-- RELAYS:* -->` block of the README (on `main`) and the JSON API + health snapshot (published to the orphan `data` branch by CI).
 
 If you only want to **add / fix / remove a relay**, you will almost certainly only need to edit `relays.toml`.
 
@@ -24,16 +24,18 @@ Required fields:
 
 Optional fields:
 
-| Field         | Notes                                                                               |
-|---------------|-------------------------------------------------------------------------------------|
-| `name`        | Short human-readable label.                                                         |
-| `description` | One-sentence pitch describing the relay's focus.                                    |
-| `operator`    | Organisation or pubkey running the relay.                                           |
-| `country`     | ISO-3166 alpha-2 uppercase (`US`, `JP`, …). Use `XX` if unknown, `T1` for tor-only. |
-| `software`    | Relay implementation (e.g. `strfry`, `khatru`, `nostream`).                         |
-| `paid`        | `true` if the relay requires payment to post.                                       |
-| `tags`        | Free-form strings, lower-case, for fine-grained discovery.                          |
-| `added_at`    | ISO date (`YYYY-MM-DD`) when the relay was first catalogued.                        |
+| Field          | Notes                                                                                  |
+|----------------|----------------------------------------------------------------------------------------|
+| `name`         | Short human-readable label.                                                            |
+| `description`  | One-sentence pitch describing the relay's focus.                                       |
+| `operator`     | Organisation or pubkey running the relay.                                              |
+| `country`      | ISO-3166 alpha-2 uppercase (`US`, `JP`, …). Use `XX` if unknown; omit for onion.       |
+| `network`      | `clearnet` / `tor` / `i2p` / `loki`. Auto-derived from the URL; set only to override.  |
+| `geohash`      | Optional NIP-52 geohash for finer-grained location (NIP-66 `g`).                       |
+| `software`     | Relay implementation (e.g. `strfry`, `khatru`, `nostream`).                            |
+| `requirements` | Inline table of posting policies (NIP-66 `R`), e.g. `{ payment = true, auth = true }`. |
+| `topics`       | Free-form lower-case strings for fine-grained discovery (NIP-66 `t`).                  |
+| `added_at`     | ISO date (`YYYY-MM-DD`) when the relay was first catalogued.                           |
 
 ## Relay acceptance criteria
 
@@ -56,8 +58,11 @@ If none of the existing collections fit, add a new `[[collections]]` entry at th
 # Lint
 cargo run -- validate
 
-# Regenerate artefacts
+# Regenerate artefacts (README on main; api/ locally, git-ignored)
 cargo run -- build
+
+# List relays in the Dead state (removal candidates)
+cargo run -- dead
 
 # Probe a small batch (good for smoke tests)
 cargo run -- check --limit 5 --timeout 8
@@ -68,7 +73,7 @@ cargo run -- check --concurrency 32 --timeout 10
 
 ## Removing a relay
 
-Relays are **not** removed on a single failure. CI attaches health state to each entry and only hints at removal (`💀`) after 14 consecutive failures. Once CI marks a relay as dead, open a PR to remove it (or revive it with new URL/metadata if the operator has migrated).
+Relays are **not** removed on a single failure. CI tracks health state per entry and classifies a relay as `dead` after 14 consecutive failures. A weekly **Dead Relay Report** workflow opens (or updates) a tracking issue listing removal candidates. Once a relay is dead, open a PR to remove it (or revive it with new URL/metadata if the operator has migrated).
 
 ## Code of conduct
 

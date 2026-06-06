@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Curated Nostr relay catalog — static JSON API refreshed hourly by CI."
+      content="Curated Nostr relay catalog — static JSON API refreshed regularly by CI."
     />
     <title>awesome-nostr-relays</title>
     <style>
@@ -72,15 +72,22 @@
     <h1>awesome-nostr-relays</h1>
     <p>
       A curated catalogue of Nostr relays, organised into discovery collections
-      and refreshed hourly by CI. Source on
+      and refreshed regularly by CI. Source on
       <a href="https://github.com/qntx/awesome-nostr-relays">GitHub</a>.
     </p>
+
+    <h2>Status</h2>
+    <p id="status"><small>Loading live status…</small></p>
 
     <h2>Endpoints</h2>
     <ul>
       <li><a href="urls.json"><code>urls.json</code></a> — flat URL list</li>
-      <li><a href="relays.json"><code>relays.json</code></a> — full dataset with health status</li>
+      <li><a href="relays.json"><code>relays.json</code></a> — full dataset with health, monitor &amp; summary</li>
       <li><a href="collections.json"><code>collections.json</code></a> — grouped by collection id</li>
+      <li><a href="nip66.json"><code>nip66.json</code></a> — NIP-66 kind 30166 discovery events</li>
+      <li><a href="health.json"><code>health.json</code></a> — raw health snapshot</li>
+      <li><a href="badge.json"><code>badge.json</code></a> — shields.io health badge endpoint</li>
+      <li><a href="schema/relay.schema.json"><code>schema/</code></a> — JSON Schema for catalog entries</li>
     </ul>
 
     <p>
@@ -98,5 +105,20 @@
         <a href="https://qntx.fun">QNTX</a>
       </small>
     </p>
+    <script>
+      fetch("relays.json")
+        .then((r) => r.json())
+        .then((d) => {
+          const s = d.summary || {};
+          const el = document.getElementById("status");
+          el.textContent =
+            `${s.healthy ?? "?"}/${s.total ?? "?"} relays healthy · ` +
+            `${s.dead ?? 0} dead · ${s.skipped ?? 0} skipped` +
+            (d.generated_at
+              ? ` · updated ${new Date(d.generated_at).toUTCString()}`
+              : "");
+        })
+        .catch(() => {});
+    </script>
   </body>
 </html>
