@@ -1,24 +1,26 @@
 name: Pages
 
-# Publishes the combined `web/` landing page and `api/` JSON directory to
-# GitHub Pages. Downstream apps get proper `Content-Type: application/json`,
-# permissive CORS, and no `raw.githubusercontent.com` rate-limit.
+# Publishes the static site to GitHub Pages: the `web/` landing shell from
+# `main`, combined with the JSON API + health snapshot + schemas from the
+# `data` branch. Downstream apps get `Content-Type: application/json`,
+# permissive CORS, and no `raw.githubusercontent.com` rate limit.
 #
-# Triggers:
-#   - Push to `main` that touches `web/`, `api/`, or `CNAME`.
-#   - Manual dispatch.
+# Triggers: web/CNAME changes on `main`; completion of a Health Check run
+# (which publishes fresh data); and manual dispatch.
 on:
   push:
     branches: [main]
     paths:
       - "web/**"
-      - "api/**"
       - "CNAME"
       - ".github/workflows/pages.yml"
+  workflow_run:
+    workflows: ["Health Check"]
+    types: [completed]
   workflow_dispatch:
 
-# Only one concurrent deployment; newer pushes supersede in-flight runs so
-# the latest data always wins.
+# Only one concurrent deployment; newer runs supersede in-flight ones so the
+# latest data always wins.
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -36,7 +38,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout main (site shell)
+        uses: actions/checkout@v4
+
+      - name: Checkout data branch (api + health + schema)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: data
+          path: _data
 
       - name: Assemble site
         shell: bash
@@ -44,8 +54,14 @@ jobs:
           set -euo pipefail
           mkdir -p _site
           cp -r web/. _site/
-          cp -r api/. _site/
           cp CNAME _site/CNAME
+          # The data branch holds relays.json, urls.json, collections.json,
+          # badge.json, nip66.json, health.json and schema/. It is absent only
+          # before the first Health Check run.
+          if [ -d _data ]; then
+            cp -r _data/. _site/
+          fi
+          rm -rf _site/.git
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

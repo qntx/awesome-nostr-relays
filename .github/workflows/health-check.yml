@@ -1,15 +1,15 @@
 name: Health Check
 
-# Probes every catalogued relay hourly (at minute 0) and commits the updated
-# `health.json` + regenerated `api/` + README back to `main`. Downstream
-# clients see probe data that is at most ~1h stale.
+# Probes every catalogued relay and publishes the refreshed health snapshot +
+# regenerated API artefacts to the orphan `data` branch — never to `main`.
+# GitHub Pages redeploys from `data` (see pages.yml), so downstream clients see
+# status that is at most ~3h stale without polluting the source history.
 #
-# Trade-off: hourly probes mean ~24 hits/day per relay. Small community relays
-# may treat this as abusive — switch to `0 */6 * * *` (every 6h) or
-# `0 */3 * * *` (every 3h) if operators push back.
+# Trade-off: every 3h means ~8 hits/day per relay. Tighten to `0 * * * *`
+# (hourly) or loosen to `0 */6 * * *` if operators ask.
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "0 */3 * * *"
   workflow_dispatch:
     inputs:
       concurrency:
@@ -24,19 +24,18 @@ on:
 permissions:
   contents: write
 
+# Single writer for the `data` branch; never cancel a publish midway.
 concurrency:
-  group: health-check
+  group: data-branch
   cancel-in-progress: false
 
 jobs:
   probe:
-    name: Probe relays and update health.json
+    name: Probe relays and publish to data branch
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
@@ -44,28 +43,49 @@ jobs:
       - name: Build binary
         run: cargo build --release --quiet --bin relays
 
-      - name: Run probe
+      - name: Seed health.json from data branch
+        run: |
+          git fetch origin data --depth=1 2>/dev/null || true
+          if git show origin/data:health.json > health.json 2>/dev/null; then
+            echo "seeded existing health.json"
+          else
+            rm -f health.json
+            echo "no existing health.json; starting fresh"
+          fi
+
+      - name: Probe relays
         env:
           RUST_LOG: info
         run: |
           ./target/release/relays check \
+            --skip-build \
             --concurrency "${{ github.event.inputs.concurrency || '32' }}" \
             --timeout     "${{ github.event.inputs.timeout     || '30' }}"
 
-      - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v7.1.0
+      - name: Regenerate API artefacts
+        run: |
+          ./target/release/relays build --output _publish --skip-readme
+          cp health.json _publish/health.json
+
+      - name: Validate health snapshot against schema
+        run: |
+          pipx run check-jsonschema \
+            --schemafile _publish/schema/health-report.schema.json \
+            _publish/health.json
+
+      - name: Publish to data branch
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          commit_message: "chore(health): update health.json and regenerate artefacts [skip ci]"
-          commit_user_name: github-actions[bot]
-          commit_user_email: github-actions[bot]@users.noreply.github.com
-          file_pattern: "health.json api/ README.md"
+          branch: data
+          folder: _publish
+          commit-message: "chore(data): refresh health snapshot and api artefacts"
+          git-config-name: github-actions[bot]
+          git-config-email: github-actions[bot]@users.noreply.github.com
 
       - name: Upload health artefacts
-        uses: actions/upload-artifact@v4
         if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: health-${{ github.run_number }}
-          path: |
-            health.json
-            api/
+          path: _publish
           retention-days: 30

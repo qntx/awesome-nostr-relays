@@ -1,5 +1,8 @@
 name: Build
 
+# Regenerates only the README catalog section on `main` when the curated
+# source changes. The machine-readable `api/` artefacts are NOT committed to
+# `main` — they live on the `data` branch and are refreshed by health-check.yml.
 on:
   push:
     branches: [main]
@@ -19,8 +22,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  generate:
-    name: Regenerate api/*.json and README
+  readme:
+    name: Regenerate README catalog section
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
@@ -33,20 +36,15 @@ jobs:
       - name: Build binary
         run: cargo build --release --quiet --bin relays
 
-      - name: Regenerate artefacts
+      - name: Regenerate README
+        # `build` also writes ./api (git-ignored on main); only README.md is
+        # committed below.
         run: ./target/release/relays build
 
-      - name: Commit and push if changed
+      - name: Commit README if changed
         uses: stefanzweifel/git-auto-commit-action@v7.1.0
         with:
-          commit_message: "chore(data): regenerate api/*.json and README [skip ci]"
+          commit_message: "chore(catalog): regenerate README section [skip ci]"
           commit_user_name: github-actions[bot]
           commit_user_email: github-actions[bot]@users.noreply.github.com
-          file_pattern: "api/ README.md"
-
-      - name: Upload artefacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: relays-api
-          path: api/
-          retention-days: 14
+          file_pattern: "README.md"

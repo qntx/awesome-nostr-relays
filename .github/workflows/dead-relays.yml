@@ -1,0 +1,61 @@
+name: Dead Relay Report
+
+# Weekly: surfaces relays stuck in the Dead state (removal candidates) by
+# opening or updating a single tracking issue. Read-only against the catalog —
+# relays are never removed automatically (curators decide via PR).
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: dead-relay-report
+  cancel-in-progress: true
+
+jobs:
+  report:
+    name: Report removal candidates
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Build binary
+        run: cargo build --release --quiet --bin relays
+
+      - name: Fetch health snapshot from data branch
+        run: |
+          git fetch origin data --depth=1 2>/dev/null || true
+          git show origin/data:health.json > health.json 2>/dev/null || true
+
+      - name: Generate dead-relay report
+        id: report
+        run: |
+          ./target/release/relays dead > dead.md
+          if [ -s dead.md ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open or update tracking issue
+        if: steps.report.outputs.found == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          title="Dead relays: removal candidates"
+          number=$(gh issue list --state open --search "$title in:title" --json number,title \
+            --jq "map(select(.title == \"$title\")) | .[0].number // empty")
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --body-file dead.md
+            echo "updated issue #$number"
+          else
+            gh issue create --title "$title" --body-file dead.md
+            echo "opened new issue"
+          fi
