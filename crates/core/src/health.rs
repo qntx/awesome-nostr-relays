@@ -2,25 +2,31 @@
 
 use std::collections::HashSet;
 
-use chrono::Utc;
+use chrono::{DateTime, SubsecRound, Utc};
 
 use crate::{
-    model::{HealthEntry, HealthReport},
-    probe::ProbeSuccess,
+    model::{HealthEntry, HealthReport, HealthState, Outcome},
+    probe_types::ProbeSuccess,
 };
 
 /// Maximum number of characters retained from a failure message.
 const MAX_ERROR_CHARS: usize = 200;
 
+/// Current time truncated to whole seconds, keeping persisted timestamps and
+/// their JSON diffs readable across CI runs.
+fn now_secs() -> DateTime<Utc> {
+    Utc::now().trunc_subsecs(0)
+}
+
 /// Apply a successful probe to the health entry identified by `url`.
 pub fn record_success(report: &mut HealthReport, url: &str, success: &ProbeSuccess) {
     let entry = report.entries.entry(url.to_owned()).or_default();
-    let now = Utc::now();
+    let now = now_secs();
     entry.last_checked = Some(now);
     entry.last_success = Some(now);
     entry.consecutive_failures = 0;
-    entry.skipped = false;
-    entry.rtt_ms = Some(success.rtt_ms);
+    entry.last_outcome = Outcome::Success;
+    entry.rtt_open_ms = Some(success.rtt_ms);
     entry.last_error = None;
     if let Some(nip11) = &success.nip11 {
         entry.supported_nips.clone_from(&nip11.supported_nips);
@@ -35,10 +41,10 @@ pub fn record_success(report: &mut HealthReport, url: &str, success: &ProbeSucce
 /// probe already classified as transient / environmental.
 pub fn record_failure(report: &mut HealthReport, url: &str, error: &str) {
     let entry = report.entries.entry(url.to_owned()).or_default();
-    entry.last_checked = Some(Utc::now());
+    entry.last_checked = Some(now_secs());
     entry.consecutive_failures = entry.consecutive_failures.saturating_add(1);
-    entry.skipped = false;
-    entry.rtt_ms = None;
+    entry.last_outcome = Outcome::Failure;
+    entry.rtt_open_ms = None;
     entry.last_error = Some(truncate(error, MAX_ERROR_CHARS));
 }
 
@@ -49,9 +55,9 @@ pub fn record_failure(report: &mut HealthReport, url: &str, error: &str) {
 /// without wrongly pushing the relay towards the dead threshold.
 pub fn record_soft_failure(report: &mut HealthReport, url: &str, error: &str) {
     let entry = report.entries.entry(url.to_owned()).or_default();
-    entry.last_checked = Some(Utc::now());
-    entry.skipped = false;
-    entry.rtt_ms = None;
+    entry.last_checked = Some(now_secs());
+    entry.last_outcome = Outcome::Blocked;
+    entry.rtt_open_ms = None;
     entry.last_error = Some(truncate(error, MAX_ERROR_CHARS));
 }
 
@@ -60,9 +66,9 @@ pub fn record_soft_failure(report: &mut HealthReport, url: &str, error: &str) {
 /// simply lies outside what the current runner can verify.
 pub fn record_skipped(report: &mut HealthReport, url: &str) {
     let entry = report.entries.entry(url.to_owned()).or_default();
-    entry.last_checked = Some(Utc::now());
-    entry.skipped = true;
-    entry.rtt_ms = None;
+    entry.last_checked = Some(now_secs());
+    entry.last_outcome = Outcome::Skipped;
+    entry.rtt_open_ms = None;
     entry.last_error = None;
 }
 
@@ -82,35 +88,19 @@ pub fn prune_orphans(report: &mut HealthReport, known_urls: &[String]) {
     report.entries.retain(|url, _| known.contains(url.as_str()));
 }
 
-/// Classify a relay for README rendering.
-///
-/// Returns one of: `❔` never probed, `🧅` skipped (e.g. onion), `✅` healthy,
-/// `⚠️` warn (>= [`WARN_FAILURE_THRESHOLD`](crate::WARN_FAILURE_THRESHOLD)
-/// consecutive failures), `💀` dead
-/// (>= [`DEAD_FAILURE_THRESHOLD`](crate::DEAD_FAILURE_THRESHOLD)).
+/// Emoji for a relay's current [`HealthState`], computed against the wall
+/// clock. `None` (no entry recorded) maps to [`HealthState::Unknown`].
 #[must_use]
-pub const fn status_icon(entry: Option<&HealthEntry>) -> &'static str {
-    let Some(entry) = entry else {
-        return "❔";
-    };
-    if entry.skipped {
-        return "🧅";
-    }
-    if entry.consecutive_failures >= crate::DEAD_FAILURE_THRESHOLD {
-        "💀"
-    } else if entry.consecutive_failures >= crate::WARN_FAILURE_THRESHOLD {
-        "⚠️"
-    } else if entry.is_online() {
-        "✅"
-    } else {
-        "❔"
-    }
+pub fn status_icon(entry: Option<&HealthEntry>) -> &'static str {
+    entry
+        .map_or(HealthState::Unknown, |entry| entry.state(Utc::now()))
+        .icon()
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::probe::ProbeSuccess;
+    use crate::probe_types::ProbeSuccess;
 
     const URL: &str = "wss://example.com/";
 
@@ -123,7 +113,7 @@ mod tests {
     }
 
     #[test]
-    fn success_resets_failure_counter_and_skipped() {
+    fn success_sets_outcome_and_resets_failures() {
         let mut report = HealthReport::default();
         record_failure(&mut report, URL, "boom");
         record_failure(&mut report, URL, "boom again");
@@ -131,44 +121,59 @@ mod tests {
 
         let entry = report.entries.get(URL).expect("entry exists");
         assert_eq!(entry.consecutive_failures, 0);
-        assert!(!entry.skipped);
-        assert_eq!(entry.rtt_ms, Some(42));
+        assert_eq!(entry.last_outcome, Outcome::Success);
+        assert_eq!(entry.rtt_open_ms, Some(42));
         assert!(entry.is_online());
     }
 
     #[test]
-    fn failure_increments_counter_and_clears_skipped() {
+    fn failure_increments_counter_and_sets_outcome() {
         let mut report = HealthReport::default();
         record_skipped(&mut report, URL);
         record_failure(&mut report, URL, "network down");
 
         let entry = report.entries.get(URL).expect("entry exists");
         assert_eq!(entry.consecutive_failures, 1);
-        assert!(!entry.skipped);
+        assert_eq!(entry.last_outcome, Outcome::Failure);
         assert_eq!(entry.last_error.as_deref(), Some("network down"));
     }
 
     #[test]
-    fn soft_failure_records_error_without_bumping_counter() {
+    fn soft_failure_blocks_without_bumping_counter() {
         let mut report = HealthReport::default();
         record_soft_failure(&mut report, URL, "dns lookup failed");
         record_soft_failure(&mut report, URL, "forbidden (HTTP 403)");
 
         let entry = report.entries.get(URL).expect("entry exists");
         assert_eq!(entry.consecutive_failures, 0);
-        assert!(!entry.skipped);
+        assert_eq!(entry.last_outcome, Outcome::Blocked);
         assert_eq!(entry.last_error.as_deref(), Some("forbidden (HTTP 403)"));
+        assert_eq!(entry.state(Utc::now()), HealthState::Blocked);
     }
 
     #[test]
-    fn skipped_marks_entry_without_failure_count() {
+    fn soft_failure_after_success_is_not_healthy() {
+        // Regression: a relay that succeeded once then gets WAF-blocked must
+        // not keep reporting healthy.
+        let mut report = HealthReport::default();
+        record_success(&mut report, URL, &success());
+        record_soft_failure(&mut report, URL, "forbidden (HTTP 403)");
+
+        let entry = report.entries.get(URL).expect("entry exists");
+        assert!(entry.last_success.is_some());
+        assert_eq!(entry.state(Utc::now()), HealthState::Blocked);
+        assert!(!entry.is_online());
+    }
+
+    #[test]
+    fn skipped_sets_skipped_outcome() {
         let mut report = HealthReport::default();
         record_skipped(&mut report, URL);
 
         let entry = report.entries.get(URL).expect("entry exists");
         assert_eq!(entry.consecutive_failures, 0);
-        assert!(entry.skipped);
-        assert!(!entry.is_online());
+        assert_eq!(entry.last_outcome, Outcome::Skipped);
+        assert_eq!(entry.state(Utc::now()), HealthState::Skipped);
     }
 
     #[test]
@@ -196,22 +201,26 @@ mod tests {
     }
 
     #[test]
-    fn status_icon_handles_all_states() {
-        assert_eq!(status_icon(None), "❔");
+    fn status_icon_reflects_state() {
+        assert_eq!(status_icon(None), HealthState::Unknown.icon());
 
-        let mut entry = HealthEntry::default();
-        assert_eq!(status_icon(Some(&entry)), "❔");
+        let mut report = HealthReport::default();
+        record_success(&mut report, URL, &success());
+        assert_eq!(
+            status_icon(report.entries.get(URL)),
+            HealthState::Healthy.icon()
+        );
 
-        entry.last_success = Some(Utc::now());
-        assert_eq!(status_icon(Some(&entry)), "✅");
+        record_soft_failure(&mut report, URL, "forbidden");
+        assert_eq!(
+            status_icon(report.entries.get(URL)),
+            HealthState::Blocked.icon()
+        );
 
-        entry.consecutive_failures = crate::WARN_FAILURE_THRESHOLD;
-        assert_eq!(status_icon(Some(&entry)), "⚠️");
-
-        entry.consecutive_failures = crate::DEAD_FAILURE_THRESHOLD;
-        assert_eq!(status_icon(Some(&entry)), "💀");
-
-        entry.skipped = true;
-        assert_eq!(status_icon(Some(&entry)), "🧅");
+        record_skipped(&mut report, URL);
+        assert_eq!(
+            status_icon(report.entries.get(URL)),
+            HealthState::Skipped.icon()
+        );
     }
 }

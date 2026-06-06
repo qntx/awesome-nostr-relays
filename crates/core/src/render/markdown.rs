@@ -25,9 +25,8 @@ use anyhow::{Context, Result, anyhow};
 use chrono::Utc;
 
 use crate::{
-    DEAD_FAILURE_THRESHOLD, README_END_MARKER, README_START_MARKER, WARN_FAILURE_THRESHOLD,
-    health::status_icon,
-    model::{Dataset, HealthEntry, HealthReport, Relay},
+    README_END_MARKER, README_START_MARKER,
+    model::{Dataset, Network, Relay},
 };
 
 /// Prefix identifying the wall-clock timestamp line. The line is excluded
@@ -46,7 +45,7 @@ const TIMESTAMP_LINE_PREFIX: &str = "> Catalog last generated at";
 ///
 /// Returns an error when the README cannot be read or written, or when either
 /// marker is missing or out of order.
-pub fn update_readme(path: &Path, dataset: &Dataset, health: &HealthReport) -> Result<()> {
+pub fn update_readme(path: &Path, dataset: &Dataset) -> Result<()> {
     let original =
         fs::read_to_string(path).with_context(|| format!("failed to read {}", path.display()))?;
 
@@ -65,7 +64,7 @@ pub fn update_readme(path: &Path, dataset: &Dataset, health: &HealthReport) -> R
 
     let start_end = start.saturating_add(README_START_MARKER.len());
     let existing_section = &original[start_end..end];
-    let new_section = render_section(dataset, health);
+    let new_section = render_section(dataset);
 
     if strip_timestamp(existing_section) == strip_timestamp(&new_section) {
         return Ok(());
@@ -81,18 +80,12 @@ pub fn update_readme(path: &Path, dataset: &Dataset, health: &HealthReport) -> R
 }
 
 /// Render the full section body (including the volatile timestamp line).
-fn render_section(dataset: &Dataset, health: &HealthReport) -> String {
+///
+/// The catalog is rendered without per-relay health: live status is published
+/// separately to the JSON API and a shields.io badge, so this block only
+/// changes when the curated catalog itself does.
+fn render_section(dataset: &Dataset) -> String {
     let total = dataset.relays.len();
-    let healthy = dataset
-        .relays
-        .iter()
-        .filter(|r| {
-            health
-                .entries
-                .get(r.url.as_str())
-                .is_some_and(HealthEntry::is_online)
-        })
-        .count();
 
     let mut out = String::new();
     out.push('\n');
@@ -103,10 +96,9 @@ fn render_section(dataset: &Dataset, health: &HealthReport) -> String {
         Utc::now().format("%Y-%m-%d %H:%M:%S UTC"),
     ));
     out.push_str(&format!(
-        "> **{total}** relays tracked · **{healthy}** currently healthy.\n\n",
-    ));
-    out.push_str(&format!(
-        "**Legend**: ✅ healthy · ❔ never probed · 🧅 skipped (e.g. onion) · ⚠️ {WARN_FAILURE_THRESHOLD} consecutive failures · 💀 ≥ {DEAD_FAILURE_THRESHOLD} consecutive failures (candidate for removal)\n\n",
+        "> **{total}** relays tracked · live health \
+         [![healthy](https://img.shields.io/endpoint?url=https%3A%2F%2Frelays.meowl.social%2Fbadge.json)](https://relays.meowl.social/) \
+         · full machine-readable status in [`relays.json`](https://relays.meowl.social/relays.json).\n\n",
     ));
 
     for collection in &dataset.collections {
@@ -124,16 +116,15 @@ fn render_section(dataset: &Dataset, health: &HealthReport) -> String {
             out.push_str("\n\n");
         }
         for relay in relays {
-            render_relay_line(&mut out, relay, health);
+            render_relay_line(&mut out, relay);
         }
         out.push('\n');
     }
     out
 }
 
-fn render_relay_line(out: &mut String, relay: &Relay, health: &HealthReport) {
-    let icon = status_icon(health.entries.get(relay.url.as_str()));
-    out.push_str(&format!("- {icon} `{}`", relay.url.as_str()));
+fn render_relay_line(out: &mut String, relay: &Relay) {
+    out.push_str(&format!("- `{}`", relay.url.as_str()));
     if let Some(name) = &relay.name
         && !name.is_empty()
     {
@@ -141,8 +132,10 @@ fn render_relay_line(out: &mut String, relay: &Relay, health: &HealthReport) {
     }
     if let Some(country) = &relay.country {
         out.push_str(&format!(" · {country}"));
+    } else if relay.effective_network() != Network::Clearnet {
+        out.push_str(&format!(" · {}", relay.effective_network().as_str()));
     }
-    if relay.paid == Some(true) {
+    if relay.is_paid() {
         out.push_str(" · 💰");
     }
     if let Some(desc) = &relay.description

@@ -12,14 +12,21 @@
 # -----------
 # - URL: MUST be `wss://` (WebSocket Secure) or `ws://` for onion services;
 #        include trailing slash for root paths (e.g. `wss://relay.damus.io/`).
+# - network: optional; auto-derived from the URL host (`.onion` → tor,
+#            `.i2p` → i2p, `.loki` → loki, otherwise clearnet). Set explicitly
+#            only to override. NIP-66 `n`.
 # - country: ISO 3166-1 alpha-2 uppercase (e.g. "US", "JP", "DE"); use "XX" for
-#            unknown and "T1" for tor-only services.
+#            unknown. Omit for hidden-service-only relays.
+# - geohash: optional NIP-52 geohash for finer-grained location (NIP-66 `g`).
+# - requirements: optional table of posting policies (NIP-66 `R`), e.g.
+#                 `requirements = { payment = true, auth = true }`.
+# - topics: optional free-form lowercase tags for discovery (NIP-66 `t`).
 # - collections: each relay MUST reference at least one existing collection id.
 # - Keep entries sorted alphabetically by `url` within each block for easier
 #   diffs and merges.
 # =============================================================================
 
-schema_version = "1"
+schema_version = "2"
 
 # -----------------------------------------------------------------------------
 # Collections — discovery taxonomy
@@ -109,51 +116,46 @@ name = "140"
 description = "Short-form relay limiting content to 140 characters."
 country = "US"
 software = "khatru"
-paid = false
 collections = ["special"]
-tags = ["short-form"]
+topics = ["short-form"]
 
 [[relays]]
 url = "wss://atlas.nostr.land/"
 name = "Atlas (nostr.land)"
 operator = "nostr.land"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "regional-americas"]
-tags = ["premium"]
+topics = ["premium"]
 
 [[relays]]
 url = "wss://bitcoiner.social/"
 name = "Bitcoiner Social"
 country = "US"
-paid = false
 collections = ["community", "topic", "regional-americas"]
-tags = ["bitcoin"]
+topics = ["bitcoin"]
 
 [[relays]]
 url = "wss://bookmarks.relays.land/"
 name = "Bookmarks"
 description = "Relay scoped to bookmark-style events."
 country = "US"
-paid = false
 collections = ["special"]
-tags = ["bookmarks"]
+topics = ["bookmarks"]
 
 [[relays]]
 url = "wss://bucket.coracle.social/"
 name = "Coracle Bucket"
 operator = "coracle.social"
 country = "US"
-paid = false
 collections = ["special"]
-tags = ["personal"]
+topics = ["personal"]
 
 [[relays]]
 url = "wss://christpill.nostr1.com/"
 name = "Christpill"
-paid = false
 collections = ["community"]
-tags = ["christian"]
+topics = ["christian"]
 
 [[relays]]
 url = "wss://ditto.pub/relay"
@@ -161,106 +163,96 @@ name = "Ditto"
 operator = "Ditto"
 software = "ditto"
 country = "US"
-paid = false
 collections = ["global", "bridge"]
-tags = ["fediverse"]
+topics = ["fediverse"]
 
 [[relays]]
 url = "wss://eden.nostr.land/"
 name = "Eden (nostr.land)"
 operator = "nostr.land"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "regional-americas"]
-tags = ["premium"]
+topics = ["premium"]
 
 [[relays]]
 url = "wss://feedback.relays.land/"
 name = "Feedback"
 description = "Feedback-scoped relay on the relays.land network."
-paid = false
 collections = ["special"]
-tags = ["feedback"]
+topics = ["feedback"]
 
 [[relays]]
 url = "wss://filter.nostr.wine/"
 name = "filter.nostr.wine"
 operator = "nostr.wine"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "bridge", "regional-americas"]
-tags = ["filter", "aggregator"]
+topics = ["filter", "aggregator"]
 
 [[relays]]
 url = "wss://groups.0xchat.com/"
 name = "0xchat Groups"
 operator = "0xchat"
-paid = false
 collections = ["community", "special"]
-tags = ["groups", "nip29"]
+topics = ["groups", "nip29"]
 
 [[relays]]
 url = "wss://haven.girino.org/outbox"
 name = "Girino Haven Outbox"
 operator = "girino"
-paid = false
 collections = ["wot", "special"]
-tags = ["haven", "outbox"]
+topics = ["haven", "outbox"]
 
 [[relays]]
 url = "wss://impromptu.relays.land/"
 name = "Impromptu"
 description = "Ephemeral impromptu events."
-paid = false
 collections = ["special"]
-tags = ["ephemeral"]
+topics = ["ephemeral"]
 
 [[relays]]
 url = "wss://inbox.nostr.wine/"
 name = "inbox.nostr.wine"
 operator = "nostr.wine"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "special", "regional-americas"]
-tags = ["inbox", "nip17"]
+topics = ["inbox", "nip17"]
 
 [[relays]]
 url = "wss://lockbox.relays.land/"
 name = "Lockbox"
 description = "Events are write-only and hidden from general reads."
-paid = false
 collections = ["special"]
-tags = ["write-only"]
+topics = ["write-only"]
 
 [[relays]]
 url = "wss://news.utxo.one/"
 name = "UTXO News"
 operator = "utxo.one"
-paid = false
 collections = ["bot"]
-tags = ["news"]
+topics = ["news"]
 
 [[relays]]
 url = "wss://nfrelay.app/"
 name = "nfrelay (nostr-filter-relay)"
 description = "Aggregator relay with content filtering (SFW/NSFW, language, topic)."
 software = "nostr-filter-relay"
-paid = false
 collections = ["bridge", "search"]
-tags = ["aggregator"]
+topics = ["aggregator"]
 
 [[relays]]
 url = "wss://njump.me/"
 name = "njump"
 description = "Companion relay to njump.me content previews."
-paid = false
 collections = ["special"]
-tags = ["preview"]
+topics = ["preview"]
 
 [[relays]]
 url = "wss://noornode.nostr1.com/"
 name = "Noor Node"
-paid = false
 collections = ["community"]
 
 [[relays]]
@@ -268,35 +260,31 @@ url = "wss://nos.lol/"
 name = "nos.lol"
 country = "US"
 software = "strfry"
-paid = false
 collections = ["featured", "global", "regional-americas"]
-tags = ["popular"]
+topics = ["popular"]
 
 [[relays]]
 url = "wss://nostr-01.yakihonne.com/"
 name = "YakiHonne"
 operator = "YakiHonne"
 country = "SG"
-paid = false
 collections = ["global", "regional-asia"]
-tags = ["yakihonne"]
+topics = ["yakihonne"]
 
 [[relays]]
 url = "wss://nostr.bitcoiner.social/"
 name = "nostr.bitcoiner.social"
 country = "US"
-paid = false
 collections = ["community", "topic", "regional-americas"]
-tags = ["bitcoin"]
+topics = ["bitcoin"]
 
 [[relays]]
 url = "wss://nostr.einundzwanzig.space/"
 name = "Einundzwanzig"
 description = "Relay for the German bitcoin podcast community."
 country = "DE"
-paid = false
 collections = ["community", "language", "regional-europe"]
-tags = ["german", "bitcoin"]
+topics = ["german", "bitcoin"]
 
 [[relays]]
 url = "wss://nostr.land/"
@@ -304,25 +292,23 @@ name = "nostr.land"
 operator = "nostr.land"
 country = "US"
 software = "NFDB"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "regional-americas"]
-tags = ["premium"]
+topics = ["premium"]
 
 [[relays]]
 url = "wss://nostr.lopp.social/"
 name = "lopp.social"
 operator = "Jameson Lopp"
 country = "US"
-paid = false
 collections = ["community", "topic", "regional-americas"]
-tags = ["bitcoin"]
+topics = ["bitcoin"]
 
 [[relays]]
 url = "wss://nostr.mom/"
 name = "nostr.mom"
 country = "US"
 software = "strfry"
-paid = false
 collections = ["featured", "global", "regional-americas"]
 
 [[relays]]
@@ -330,31 +316,28 @@ url = "wss://nostr.mutinywallet.com/"
 name = "Mutiny Wallet"
 operator = "Mutiny Wallet"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "regional-americas"]
-tags = ["bitcoin", "lightning"]
+topics = ["bitcoin", "lightning"]
 
 [[relays]]
 url = "wss://nostr.oxtr.dev/"
 name = "oxtr"
 operator = "0xtr"
-paid = false
 collections = ["global"]
 
 [[relays]]
 url = "wss://nostr.plebchain.org/"
 name = "Plebchain"
 country = "US"
-paid = false
 collections = ["community", "topic", "regional-americas"]
-tags = ["bitcoin"]
+topics = ["bitcoin"]
 
 [[relays]]
 url = "wss://nostr.superfriends.online/"
 name = "Superfriends"
-paid = false
 collections = ["global"]
-tags = ["community"]
+topics = ["community"]
 
 [[relays]]
 url = "wss://nostr.wine/"
@@ -363,52 +346,47 @@ description = "Paid relay for wine enthusiasts and everyone else."
 operator = "nostr.wine"
 country = "US"
 software = "strfry"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "featured", "regional-americas"]
-tags = ["premium", "popular"]
+topics = ["premium", "popular"]
 
 [[relays]]
 url = "wss://offchain.pub/"
 name = "offchain.pub"
 country = "US"
-paid = false
 collections = ["global", "regional-americas"]
 
 [[relays]]
 url = "wss://pareto.space/"
 name = "Pareto"
-paid = false
 collections = ["community"]
 
 [[relays]]
 url = "wss://personal.relays.land/"
 name = "Personal"
 description = "Relay scoped to personal events only."
-paid = false
 collections = ["special"]
-tags = ["personal"]
+topics = ["personal"]
 
 [[relays]]
 url = "wss://pow.relays.land/"
 name = "PoW"
 description = "Events must include Proof-of-Work (NIP-13)."
-paid = false
 collections = ["special"]
-tags = ["pow", "nip13"]
+topics = ["pow", "nip13"]
 
 [[relays]]
 url = "wss://premium.primal.net/"
 name = "Primal Premium"
 operator = "Primal"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "regional-americas"]
-tags = ["premium"]
+topics = ["premium"]
 
 [[relays]]
 url = "wss://primus.nostr1.com/"
 name = "Primus"
-paid = false
 collections = ["community"]
 
 [[relays]]
@@ -416,18 +394,17 @@ url = "wss://purplepag.es/"
 name = "Purple Pages"
 description = "Indexing relay for public metadata (kind 0 / 3 / 10002)."
 country = "US"
-paid = false
 collections = ["search", "special", "regional-americas"]
-tags = ["metadata", "index"]
+topics = ["metadata", "index"]
 
 [[relays]]
 url = "wss://puravida.nostr.land/"
 name = "Pura Vida (nostr.land)"
 operator = "nostr.land"
 country = "US"
-paid = true
+requirements = { payment = true }
 collections = ["paid", "regional-americas"]
-tags = ["premium"]
+topics = ["premium"]
 
 [[relays]]
 url = "wss://pyramid.fiatjaf.com/"
@@ -435,24 +412,21 @@ name = "Pyramid"
 description = "Invite-only relay with a WoT invitation tree."
 operator = "fiatjaf"
 software = "khatru-pyramid"
-paid = false
 collections = ["featured", "wot", "special"]
-tags = ["invite-only"]
+topics = ["invite-only"]
 
 [[relays]]
 url = "wss://relay.0xchat.com/"
 name = "0xchat"
 operator = "0xchat"
-paid = false
 collections = ["community"]
 
 [[relays]]
 url = "wss://relay.44billion.net/"
 name = "44billion"
 description = "Relay with built-in ranking and language-aware search."
-paid = false
 collections = ["community", "search"]
-tags = ["curation"]
+topics = ["curation"]
 
 [[relays]]
 url = "wss://relay.damus.io/"
@@ -460,40 +434,35 @@ name = "Damus"
 operator = "Damus Team"
 country = "US"
 software = "strfry"
-paid = false
 collections = ["featured", "global", "regional-americas"]
-tags = ["popular", "ios"]
+topics = ["popular", "ios"]
 
 [[relays]]
 url = "wss://relay.divine.video/"
 name = "Divine Video"
 country = "US"
-paid = false
 collections = ["global", "regional-americas"]
-tags = ["video"]
+topics = ["video"]
 
 [[relays]]
 url = "wss://relay.getalby.com/"
 name = "Alby"
 operator = "Alby"
 country = "AT"
-paid = false
 collections = ["global", "regional-europe"]
-tags = ["lightning"]
+topics = ["lightning"]
 
 [[relays]]
 url = "wss://relay.mostr.pub/"
 name = "Mostr"
 description = "Bridge relay to the fediverse (ActivityPub)."
-paid = false
 collections = ["bridge"]
-tags = ["fediverse", "activitypub"]
+topics = ["fediverse", "activitypub"]
 
 [[relays]]
 url = "wss://relay.nos.social/"
 name = "nos.social"
 operator = "Nos"
-paid = false
 collections = ["global"]
 
 [[relays]]
@@ -501,15 +470,13 @@ url = "wss://relay.nostr.band/"
 name = "Nostr.Band"
 description = "Indexing and full-text search relay (NIP-50)."
 operator = "nostr.band"
-paid = false
 collections = ["featured", "search", "global"]
-tags = ["search", "nip50"]
+topics = ["search", "nip50"]
 
 [[relays]]
 url = "wss://relay.noswhere.com/"
 name = "noswhere"
 operator = "noswhere"
-paid = false
 collections = ["global"]
 
 [[relays]]
@@ -517,15 +484,13 @@ url = "wss://relay.nostr.moe/"
 name = "nostr.moe"
 description = "Anime / otaku community relay."
 country = "JP"
-paid = false
 collections = ["community", "regional-asia"]
-tags = ["anime"]
+topics = ["anime"]
 
 [[relays]]
 url = "wss://relay.nostr.net/"
 name = "nostr.net"
 operator = "nostr.net"
-paid = false
 collections = ["global"]
 
 [[relays]]
@@ -533,9 +498,8 @@ url = "wss://relay.nostrzh.org/"
 name = "nostrzh"
 description = "Pyramid-style Chinese-language relay."
 country = "XX"
-paid = false
 collections = ["language", "community"]
-tags = ["chinese"]
+topics = ["chinese"]
 
 [[relays]]
 url = "wss://relay.primal.net/"
@@ -543,116 +507,99 @@ name = "Primal"
 operator = "Primal"
 country = "US"
 software = "primal-caching-service"
-paid = false
 collections = ["featured", "global", "regional-americas"]
-tags = ["popular", "caching"]
+topics = ["popular", "caching"]
 
 [[relays]]
 url = "wss://relay.snort.social/"
 name = "Snort"
 operator = "Snort"
-paid = false
 collections = ["global"]
 
 [[relays]]
 url = "wss://relay.wikifreedia.xyz/"
 name = "Wikifreedia"
 description = "Relay backing the Wikifreedia long-form wiki."
-paid = false
 collections = ["topic", "special"]
-tags = ["wiki", "long-form"]
+topics = ["wiki", "long-form"]
 
 [[relays]]
 url = "wss://relays.land/spatianostra"
 name = "Spatia Nostra"
-paid = false
 collections = ["community"]
-tags = ["spatianostra"]
+topics = ["spatianostra"]
 
 [[relays]]
 url = "wss://theforest.nostr1.com/"
 name = "The Forest"
-paid = false
 collections = ["community"]
 
 [[relays]]
 url = "wss://thecitadel.nostr1.com/"
 name = "The Citadel"
-paid = false
 collections = ["community"]
 
 [[relays]]
 url = "wss://topic.relays.land/ask"
 name = "Topic: Ask"
 description = "Questions addressed to the community."
-paid = false
 collections = ["topic"]
-tags = ["qna"]
+topics = ["qna"]
 
 [[relays]]
 url = "wss://topic.relays.land/complaint"
 name = "Topic: Complaint"
-paid = false
 collections = ["topic"]
 
 [[relays]]
 url = "wss://topic.relays.land/left"
 name = "Topic: Left"
-paid = false
 collections = ["topic"]
 
 [[relays]]
 url = "wss://topic.relays.land/praise"
 name = "Topic: Praise"
-paid = false
 collections = ["topic"]
 
 [[relays]]
 url = "wss://topic.relays.land/uncommon"
 name = "Topic: Uncommon"
-paid = false
 collections = ["topic"]
 
 [[relays]]
 url = "wss://topic.relays.land/whales"
 name = "Topic: Whales"
-paid = false
 collections = ["topic"]
 
 [[relays]]
 url = "wss://trending.relays.land/"
 name = "Trending"
 description = "Relay showcasing trending Nostr content."
-paid = false
 collections = ["featured", "special"]
-tags = ["trending"]
+topics = ["trending"]
 
 [[relays]]
 url = "wss://wot.dergigi.com/"
 name = "Gigi WoT"
 operator = "dergigi"
-paid = false
 collections = ["wot"]
 
 [[relays]]
 url = "wss://wot.girino.org/"
 name = "Girino WoT"
 operator = "girino"
-paid = false
 collections = ["wot"]
 
 [[relays]]
 url = "wss://wot.nostr.net/"
 name = "nostr.net WoT"
 operator = "nostr.net"
-paid = false
 collections = ["wot"]
 
 [[relays]]
 url = "wss://wot.utxo.one/"
 name = "UTXO WoT"
 operator = "utxo.one"
-paid = false
 collections = ["wot"]
 
 # -----------------------------------------------------------------------------
@@ -663,42 +610,37 @@ collections = ["wot"]
 url = "wss://nrelay-jp.c-stellar.net/"
 name = "c-stellar JP"
 country = "JP"
-paid = false
 collections = ["regional-asia", "language"]
-tags = ["japanese"]
+topics = ["japanese"]
 
 [[relays]]
 url = "wss://relay-jp.nostr.wirednet.jp/"
 name = "WiredNet JP"
 country = "JP"
-paid = false
 collections = ["regional-asia", "language"]
-tags = ["japanese"]
+topics = ["japanese"]
 
 [[relays]]
 url = "wss://relay.nostr.or.jp/"
 name = "nostr.or.jp"
 country = "JP"
-paid = false
 collections = ["regional-asia", "language"]
-tags = ["japanese"]
+topics = ["japanese"]
 
 [[relays]]
 url = "wss://relay.nostr.wirednet.jp/"
 name = "WiredNet"
 country = "JP"
-paid = false
 collections = ["regional-asia", "language"]
-tags = ["japanese"]
+topics = ["japanese"]
 
 [[relays]]
 url = "wss://yabu.me/"
 name = "yabu.me"
 description = "Japanese-language aggregator relay."
 country = "JP"
-paid = false
 collections = ["regional-asia", "language", "community"]
-tags = ["japanese", "aggregator"]
+topics = ["japanese", "aggregator"]
 
 # -----------------------------------------------------------------------------
 # Regional — Europe
@@ -708,37 +650,32 @@ tags = ["japanese", "aggregator"]
 url = "wss://nostr.bitcoinplebs.de/"
 name = "Bitcoin Plebs DE"
 country = "DE"
-paid = false
 collections = ["regional-europe", "language", "topic"]
-tags = ["german", "bitcoin"]
+topics = ["german", "bitcoin"]
 
 [[relays]]
 url = "wss://relay.mleku.dev/"
 name = "mleku"
 country = "DE"
-paid = false
 collections = ["regional-europe"]
 
 [[relays]]
 url = "wss://relay.bitcoinpark.com/"
 name = "Bitcoin Park"
 country = "DE"
-paid = false
 collections = ["regional-europe", "topic"]
-tags = ["bitcoin"]
+topics = ["bitcoin"]
 
 [[relays]]
 url = "wss://relay.tchncs.de/"
 name = "tchncs"
 country = "DE"
-paid = false
 collections = ["regional-europe"]
 
 [[relays]]
 url = "wss://nos.xmark.cc/"
 name = "xmark"
 country = "GB"
-paid = false
 collections = ["regional-europe"]
 
 # -----------------------------------------------------------------------------
@@ -750,47 +687,41 @@ url = "wss://nostr.zebedee.cloud/"
 name = "Zebedee"
 operator = "Zebedee"
 country = "US"
-paid = false
 collections = ["regional-americas", "topic"]
-tags = ["lightning", "gaming"]
+topics = ["lightning", "gaming"]
 
 [[relays]]
 url = "wss://relay.coinos.io/"
 name = "Coinos"
 operator = "Coinos"
 country = "CA"
-paid = false
 collections = ["regional-americas", "topic"]
-tags = ["lightning", "bitcoin"]
+topics = ["lightning", "bitcoin"]
 
 [[relays]]
 url = "wss://relay.fountain.fm/"
 name = "Fountain"
 operator = "Fountain.fm"
-paid = false
 collections = ["regional-americas", "topic"]
-tags = ["podcast", "lightning"]
+topics = ["podcast", "lightning"]
 
 [[relays]]
 url = "wss://relay.nostr.ai/"
 name = "nostr.ai"
 country = "US"
-paid = false
 collections = ["regional-americas"]
 
 [[relays]]
 url = "wss://relay.npub.bar/"
 name = "npub.bar"
-paid = false
 collections = ["regional-americas"]
 
 [[relays]]
 url = "wss://relay.olas.app/"
 name = "Olas"
 operator = "Olas"
-paid = false
 collections = ["regional-americas", "topic"]
-tags = ["photo"]
+topics = ["photo"]
 
 # -----------------------------------------------------------------------------
 # Groups & communities (NIP-29)
@@ -801,9 +732,8 @@ url = "wss://relay.groups.nip29.com/"
 name = "NIP-29 Groups"
 description = "Group-chat relay built on khatru + relay29."
 software = "groups-relay"
-paid = false
 collections = ["special", "community"]
-tags = ["groups", "nip29", "chat"]
+topics = ["groups", "nip29", "chat"]
 
 # -----------------------------------------------------------------------------
 # Bot / algorithmic feeds
@@ -813,26 +743,23 @@ tags = ["groups", "nip29", "chat"]
 url = "wss://algo.utxo.one/"
 name = "UTXO Algo"
 operator = "utxo.one"
-paid = false
 collections = ["bot"]
-tags = ["algorithm"]
+topics = ["algorithm"]
 
 [[relays]]
 url = "wss://rsslay.fiatjaf.com/"
 name = "rsslay"
 description = "RSS-to-Nostr bridge."
 operator = "fiatjaf"
-paid = false
 collections = ["bot", "bridge"]
-tags = ["rss"]
+topics = ["rss"]
 
 [[relays]]
 url = "wss://rss.nos.social/"
 name = "Nos RSS"
 operator = "Nos"
-paid = false
 collections = ["bot", "bridge"]
-tags = ["rss"]
+topics = ["rss"]
 
 # -----------------------------------------------------------------------------
 # Language collections — lang.relays.land (sample of popular languages;
@@ -842,93 +769,80 @@ tags = ["rss"]
 [[relays]]
 url = "wss://lang.relays.land/ar"
 name = "lang: Arabic"
-paid = false
 collections = ["language"]
-tags = ["arabic"]
+topics = ["arabic"]
 
 [[relays]]
 url = "wss://lang.relays.land/de"
 name = "lang: German"
-paid = false
 collections = ["language", "regional-europe"]
-tags = ["german"]
+topics = ["german"]
 
 [[relays]]
 url = "wss://lang.relays.land/en"
 name = "lang: English"
-paid = false
 collections = ["language"]
-tags = ["english"]
+topics = ["english"]
 
 [[relays]]
 url = "wss://lang.relays.land/es"
 name = "lang: Spanish"
-paid = false
 collections = ["language"]
-tags = ["spanish"]
+topics = ["spanish"]
 
 [[relays]]
 url = "wss://lang.relays.land/fr"
 name = "lang: French"
-paid = false
 collections = ["language", "regional-europe"]
-tags = ["french"]
+topics = ["french"]
 
 [[relays]]
 url = "wss://lang.relays.land/it"
 name = "lang: Italian"
-paid = false
 collections = ["language", "regional-europe"]
-tags = ["italian"]
+topics = ["italian"]
 
 [[relays]]
 url = "wss://lang.relays.land/ja"
 name = "lang: Japanese"
-paid = false
 collections = ["language", "regional-asia"]
-tags = ["japanese"]
+topics = ["japanese"]
 
 [[relays]]
 url = "wss://lang.relays.land/ko"
 name = "lang: Korean"
-paid = false
 collections = ["language", "regional-asia"]
-tags = ["korean"]
+topics = ["korean"]
 
 [[relays]]
 url = "wss://lang.relays.land/pt"
 name = "lang: Portuguese"
-paid = false
 collections = ["language"]
-tags = ["portuguese"]
+topics = ["portuguese"]
 
 [[relays]]
 url = "wss://lang.relays.land/ru"
 name = "lang: Russian"
-paid = false
 collections = ["language"]
-tags = ["russian"]
+topics = ["russian"]
 
 [[relays]]
 url = "wss://lang.relays.land/tr"
 name = "lang: Turkish"
-paid = false
 collections = ["language"]
-tags = ["turkish"]
+topics = ["turkish"]
 
 [[relays]]
 url = "wss://lang.relays.land/vi"
 name = "lang: Vietnamese"
-paid = false
 collections = ["language", "regional-asia"]
-tags = ["vietnamese"]
+topics = ["vietnamese"]
 
 [[relays]]
 url = "wss://lang.relays.land/zh"
 name = "lang: Chinese"
-paid = false
 collections = ["language", "regional-asia"]
-tags = ["chinese"]
+topics = ["chinese"]
 
 # -----------------------------------------------------------------------------
 # Tor / onion relays (ws:// scheme is intentional — .onion requires Tor)
@@ -939,8 +853,6 @@ url = "ws://oxtrdevav64z64yb7x6rjg4ntzqjhedm5b5zjqulugknhzr46ny2qbad.onion"
 name = "oxtr.dev (onion)"
 description = "Tor mirror of wss://nostr.oxtr.dev/."
 operator = "0xtr"
-country = "T1"
-paid = false
 collections = ["tor"]
 
 [[relays]]
@@ -948,8 +860,6 @@ url = "ws://skzzn6cimfdv5e2phjc4yr5v7ikbxtn5f7dkwn5c7v47tduzlbosqmqd.onion"
 name = "Snort (onion)"
 description = "Tor mirror of wss://relay.snort.social/."
 operator = "Snort"
-country = "T1"
-paid = false
 collections = ["tor"]
 
 [[relays]]
@@ -957,8 +867,7 @@ url = "ws://nostrland2gdw7g3y77ctftovvil76vquipymo7tsctlxpiwknevzfid.onion"
 name = "nostr.land (onion)"
 description = "Tor mirror of the paid wss://nostr.land/ relay."
 operator = "nostr.land"
-country = "T1"
-paid = true
+requirements = { payment = true }
 collections = ["tor", "paid"]
 
 [[relays]]
@@ -966,15 +875,12 @@ url = "ws://nostrwinemdptvqukjttinajfeedhf46hfd5bz2aj2q5uwp7zros3nad.onion"
 name = "nostr.wine (onion)"
 description = "Tor mirror of the paid wss://nostr.wine/ relay."
 operator = "nostr.wine"
-country = "T1"
-paid = true
+requirements = { payment = true }
 collections = ["tor", "paid"]
 
 [[relays]]
 url = "ws://bitcoinr6de5lkvx4tpwdmzrdfdpla5sya2afwpcabjup2xpi5dulbad.onion"
 name = "bitcoiner.social (onion)"
 operator = "bitcoiner.social"
-country = "T1"
-paid = false
 collections = ["tor", "topic"]
-tags = ["bitcoin"]
+topics = ["bitcoin"]

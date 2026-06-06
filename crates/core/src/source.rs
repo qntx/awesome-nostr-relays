@@ -123,7 +123,7 @@ mod tests {
     #[test]
     fn load_dataset_parses_minimal_toml() {
         let toml = r#"
-schema_version = "1"
+schema_version = "2"
 
 [[collections]]
 id = "featured"
@@ -138,7 +138,7 @@ collections = ["featured"]
         let tmp = unique_tempfile("dataset.toml");
         fs::write(&tmp, toml).expect("write fixture");
         let dataset = load_dataset(&tmp).expect("load dataset");
-        assert_eq!(dataset.schema_version, "1");
+        assert_eq!(dataset.schema_version, "2");
         assert_eq!(dataset.collections.len(), 1);
         assert_eq!(dataset.relays.len(), 1);
         let first = dataset.relays.first().expect("one relay present");

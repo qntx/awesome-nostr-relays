@@ -44,9 +44,9 @@ pub struct ValidationSummary {
 pub fn validate(dataset: &Dataset) -> Result<ValidationSummary, ValidationError> {
     let mut errors: Vec<String> = Vec::new();
 
-    if dataset.schema_version != "1" {
+    if dataset.schema_version != "2" {
         errors.push(format!(
-            "schema_version must be \"1\", got {:?}",
+            "schema_version must be \"2\", got {:?}",
             dataset.schema_version
         ));
     }
@@ -148,14 +148,21 @@ fn validate_relay(relay: &Relay, collection_ids: &HashSet<&str>, errors: &mut Ve
     if let Some(country) = &relay.country {
         let trimmed = country.trim();
         let ok = (trimmed.len() == 2 && trimmed.chars().all(|c| c.is_ascii_uppercase()))
-            || trimmed == "T1"
             || trimmed == "XX";
         if !ok {
             errors.push(format!(
-                "relay {} has invalid country {country:?} (expected ISO-3166 alpha-2 uppercase, or XX/T1)",
+                "relay {} has invalid country {country:?} (expected ISO-3166 alpha-2 uppercase, or XX)",
                 relay.url
             ));
         }
+    }
+    if let Some(geohash) = &relay.geohash
+        && !is_valid_geohash(geohash.trim())
+    {
+        errors.push(format!(
+            "relay {} has invalid geohash {geohash:?} (expected 1–12 base32 geohash chars)",
+            relay.url
+        ));
     }
 }
 
@@ -168,14 +175,21 @@ fn is_kebab_case(identifier: &str) -> bool {
         && !identifier.ends_with('-')
 }
 
+/// `true` when `value` is a syntactically valid NIP-52 geohash: 1–12
+/// characters drawn from the base32 geohash alphabet (no `a`, `i`, `l`, `o`).
+fn is_valid_geohash(value: &str) -> bool {
+    const GEOHASH_ALPHABET: &str = "0123456789bcdefghjkmnpqrstuvwxyz";
+    !value.is_empty() && value.len() <= 12 && value.chars().all(|c| GEOHASH_ALPHABET.contains(c))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::model::{Collection, Relay};
+    use crate::model::{Collection, Relay, Requirements};
 
     fn dataset(collections: Vec<Collection>, relays: Vec<Relay>) -> Dataset {
         Dataset {
-            schema_version: "1".to_owned(),
+            schema_version: "2".to_owned(),
             collections,
             relays,
         }
@@ -196,10 +210,12 @@ mod tests {
             description: None,
             operator: None,
             country: None,
+            geohash: None,
+            network: None,
             software: None,
-            paid: None,
+            requirements: Requirements::default(),
             collections: collections.iter().copied().map(str::to_owned).collect(),
-            tags: Vec::new(),
+            topics: Vec::new(),
             added_at: None,
         }
     }
@@ -232,7 +248,7 @@ mod tests {
     #[test]
     fn rejects_wrong_schema_version() {
         let mut ds = dataset(vec![], vec![]);
-        ds.schema_version = "2".to_owned();
+        ds.schema_version = "1".to_owned();
         let err = validate(&ds).expect_err("must reject");
         assert!(matches!(err, ValidationError::Failed { .. }));
     }
@@ -288,10 +304,24 @@ mod tests {
         assert!(validate(&build("US")).is_ok());
         assert!(validate(&build("JP")).is_ok());
         assert!(validate(&build("XX")).is_ok());
-        assert!(validate(&build("T1")).is_ok());
+        assert!(validate(&build("T1")).is_err());
         assert!(validate(&build("us")).is_err());
         assert!(validate(&build("USA")).is_err());
         assert!(validate(&build("U")).is_err());
+    }
+
+    #[test]
+    fn geohash_rules() {
+        let build = |geohash: &str| {
+            let mut r = relay("wss://a.example/", &["featured"]);
+            r.geohash = Some(geohash.to_owned());
+            dataset(vec![collection("featured")], vec![r])
+        };
+        assert!(validate(&build("ww8p1r4t8")).is_ok());
+        assert!(validate(&build("u4pruydqqvj")).is_ok());
+        assert!(validate(&build("")).is_err());
+        assert!(validate(&build("ABC")).is_err());
+        assert!(validate(&build("ail")).is_err());
     }
 
     #[test]

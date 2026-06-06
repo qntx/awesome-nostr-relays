@@ -6,3 +6,5 @@
 
 pub mod json;
 pub mod markdown;
+pub mod nip66;
+pub mod schema;

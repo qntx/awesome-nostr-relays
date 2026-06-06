@@ -9,9 +9,6 @@
 //! * `check` — probe every relay (or a subset with `--limit`), merge results
 //!   into `health.json`, and re-run `build`.
 
-// The library target re-exports these crates indirectly; declare them as
-// intentionally unused at the binary level so the `unused_crate_dependencies`
-// lint does not misfire on deps consumed only via `relays::`.
 use std::{
     path::{Path, PathBuf},
     sync::Arc,
@@ -22,22 +19,19 @@ use anyhow::{Context, Result};
 use clap::{Parser, Subcommand};
 use futures::stream::{self, StreamExt};
 use indicatif::{ProgressBar, ProgressStyle};
-use relays::{
+use relays_core::{
     health,
-    probe::{self, ProbeConfig, ProbeError, ProbeOutcome, USER_AGENT},
+    model::{HealthReport, HealthState},
+    probe_types::{ProbeConfig, ProbeError, ProbeOutcome},
     render,
     source::{
         self, default_api_dir, default_health_path, default_readme_path, default_relays_path,
     },
     validate,
 };
+use relays_probe::{self as probe, USER_AGENT};
 use tokio::sync::Mutex;
 use tracing::{info, warn};
-#[allow(
-    unused_imports,
-    reason = "deps are consumed through the library re-exports"
-)]
-use {serde as _, serde_json as _, thiserror as _, tokio_tungstenite as _, toml as _, url as _};
 
 /// Top-level CLI argument parser.
 #[derive(Parser, Debug)]
@@ -94,6 +88,9 @@ enum Command {
         #[arg(long)]
         skip_build: bool,
     },
+
+    /// List relays in the Dead state (removal candidates) as Markdown on stdout.
+    Dead,
 }
 
 #[tokio::main(flavor = "multi_thread")]
@@ -133,6 +130,7 @@ async fn main() -> Result<()> {
             )
             .await
         }
+        Command::Dead => run_report_dead(&relays_path, &health_path),
     }
 }
 
@@ -159,6 +157,58 @@ fn run_validate(relays_path: &Path) -> Result<()> {
     Ok(())
 }
 
+/// Print, as Markdown on stdout, every relay currently in the
+/// [`HealthState::Dead`] state so CI can open a removal-candidate issue.
+fn run_report_dead(relays_path: &Path, health_path: &Path) -> Result<()> {
+    let dataset = source::load_dataset(relays_path)?;
+    let report = source::load_health(health_path)?;
+    let now = chrono::Utc::now();
+
+    let mut entries: Vec<String> = Vec::new();
+    for relay in &dataset.relays {
+        let Some(health) = report.entries.get(relay.url.as_str()) else {
+            continue;
+        };
+        if health.state(now) != HealthState::Dead {
+            continue;
+        }
+        let mut line = format!(
+            "- `{}` — **{}** · {} consecutive failures",
+            relay.url.as_str(),
+            relay.display_name(),
+            health.consecutive_failures
+        );
+        if let Some(error) = &health.last_error {
+            line.push_str(" · ");
+            line.push_str(error);
+        }
+        entries.push(line);
+    }
+
+    if entries.is_empty() {
+        info!("no dead relays");
+        return Ok(());
+    }
+
+    let body = format!(
+        "The following {} relay(s) have failed every probe long enough to be removal candidates:\n\n{}",
+        entries.len(),
+        entries.join("\n")
+    );
+    print_report(&body);
+    Ok(())
+}
+
+/// Emit the report to stdout. Isolated so the `print_stdout` allowance is
+/// scoped to the single line that genuinely needs it.
+#[allow(
+    clippy::print_stdout,
+    reason = "the Markdown report is this command's stdout contract for CI"
+)]
+fn print_report(body: &str) {
+    println!("{body}");
+}
+
 fn run_build(
     relays_path: &Path,
     health_path: &Path,
@@ -174,10 +224,12 @@ fn run_build(
     let readme_path = readme.map_or_else(default_readme_path, Path::to_path_buf);
 
     render::json::write_all(&dataset, &health, &api_dir)?;
+    render::nip66::write(&dataset, &health, &api_dir)?;
+    render::schema::write(&api_dir)?;
     info!(dir = %api_dir.display(), "wrote api/*.json");
 
     if !skip_readme {
-        render::markdown::update_readme(&readme_path, &dataset, &health)?;
+        render::markdown::update_readme(&readme_path, &dataset)?;
         info!(path = %readme_path.display(), "updated README");
     }
     Ok(())
@@ -270,11 +322,7 @@ fn build_progress_bar(total: u64) -> ProgressBar {
 /// Dispatch a probe outcome into the health report, choosing between
 /// success / skipped / hard-failure / soft-failure branches based on the
 /// classified [`ProbeError`].
-fn apply_outcome(
-    report: &mut relays::model::HealthReport,
-    url: &str,
-    outcome: Result<ProbeOutcome, ProbeError>,
-) {
+fn apply_outcome(report: &mut HealthReport, url: &str, outcome: Result<ProbeOutcome, ProbeError>) {
     match outcome {
         Ok(ProbeOutcome::Success(ok)) => health::record_success(report, url, &ok),
         Ok(ProbeOutcome::Skipped(reason)) => {

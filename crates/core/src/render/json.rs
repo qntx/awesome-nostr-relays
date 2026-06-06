@@ -12,11 +12,11 @@
 use std::{fs, path::Path};
 
 use anyhow::{Context, Result};
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, SubsecRound, Utc};
 use serde::Serialize;
 use serde_json::Value;
 
-use crate::model::{Collection, Dataset, HealthEntry, HealthReport, Relay};
+use crate::model::{Collection, Dataset, HealthEntry, HealthReport, HealthState, Network, Relay};
 
 /// File name of the full dataset artefact.
 pub const FULL_FILE: &str = "relays.json";
@@ -27,22 +27,114 @@ pub const URLS_FILE: &str = "urls.json";
 /// File name of the per-collection index artefact.
 pub const COLLECTIONS_FILE: &str = "collections.json";
 
+/// File name of the shields.io endpoint badge artefact.
+pub const BADGE_FILE: &str = "badge.json";
+
 #[derive(Serialize)]
 struct FullDocument<'a> {
     schema_version: &'a str,
     generated_at: DateTime<Utc>,
-    total: usize,
-    healthy: usize,
+    monitor: Monitor,
+    summary: Summary,
     collections: &'a [Collection],
     relays: Vec<RelayView<'a>>,
+}
+
+/// NIP-66 (kind 10166) style metadata describing this catalog's monitor.
+#[derive(Serialize)]
+struct Monitor {
+    frequency_seconds: u64,
+    timeout_ms: u64,
+    checks: &'static [&'static str],
+}
+
+impl Monitor {
+    const fn standard() -> Self {
+        Self {
+            frequency_seconds: crate::MONITOR_FREQUENCY_SECONDS,
+            timeout_ms: crate::MONITOR_TIMEOUT_MS,
+            checks: &["open", "nip11", "dns", "ssl"],
+        }
+    }
+}
+
+/// Distribution of relays across [`HealthState`]s at `generated_at`.
+#[derive(Serialize, Default)]
+struct Summary {
+    total: usize,
+    healthy: usize,
+    flaky: usize,
+    warn: usize,
+    dead: usize,
+    stale: usize,
+    blocked: usize,
+    skipped: usize,
+    unknown: usize,
+}
+
+impl Summary {
+    const fn tally(&mut self, state: HealthState) {
+        let bucket = match state {
+            HealthState::Healthy => &mut self.healthy,
+            HealthState::Flaky => &mut self.flaky,
+            HealthState::Warn => &mut self.warn,
+            HealthState::Dead => &mut self.dead,
+            HealthState::Stale => &mut self.stale,
+            HealthState::Blocked => &mut self.blocked,
+            HealthState::Skipped => &mut self.skipped,
+            HealthState::Unknown => &mut self.unknown,
+        };
+        *bucket = bucket.saturating_add(1);
+    }
 }
 
 #[derive(Serialize)]
 struct RelayView<'a> {
     #[serde(flatten)]
     relay: &'a Relay,
+    /// Effective network transport (NIP-66 `n`), always present.
+    network: Network,
     #[serde(skip_serializing_if = "Option::is_none")]
-    status: Option<&'a HealthEntry>,
+    health: Option<HealthView<'a>>,
+}
+
+#[derive(Serialize)]
+struct HealthView<'a> {
+    /// Computed coarse classification, aligned with NIP-66 liveness semantics.
+    state: HealthState,
+    #[serde(flatten)]
+    entry: &'a HealthEntry,
+}
+
+/// Shields.io endpoint payload (`badge.json`) summarising relay health for the
+/// README badge, decoupled from the per-relay data path.
+#[derive(Serialize)]
+struct BadgeDocument {
+    #[serde(rename = "schemaVersion")]
+    schema_version: u8,
+    label: &'static str,
+    message: String,
+    color: &'static str,
+}
+
+impl BadgeDocument {
+    fn from_summary(summary: &Summary) -> Self {
+        let color = if summary.total == 0 {
+            "lightgrey"
+        } else if summary.healthy * 100 >= summary.total * 80 {
+            "brightgreen"
+        } else if summary.healthy * 100 >= summary.total * 50 {
+            "yellow"
+        } else {
+            "red"
+        };
+        Self {
+            schema_version: 1,
+            label: "relays",
+            message: format!("{}/{} healthy", summary.healthy, summary.total),
+            color,
+        }
+    }
 }
 
 #[derive(Serialize)]
@@ -88,26 +180,34 @@ pub fn write_all(dataset: &Dataset, health: &HealthReport, api_dir: &Path) -> Re
     fs::create_dir_all(api_dir)
         .with_context(|| format!("failed to create output dir {}", api_dir.display()))?;
 
-    let generated_at = Utc::now();
+    let generated_at = Utc::now().trunc_subsecs(0);
 
-    let mut healthy = 0_usize;
+    let mut summary = Summary {
+        total: dataset.relays.len(),
+        ..Summary::default()
+    };
     let relay_views: Vec<RelayView<'_>> = dataset
         .relays
         .iter()
         .map(|relay| {
-            let status = health.entries.get(relay.url.as_str());
-            if status.is_some_and(HealthEntry::is_online) {
-                healthy = healthy.saturating_add(1);
+            let entry = health.entries.get(relay.url.as_str());
+            let state = entry.map_or(HealthState::Unknown, |entry| entry.state(generated_at));
+            summary.tally(state);
+            RelayView {
+                relay,
+                network: relay.effective_network(),
+                health: entry.map(|entry| HealthView { state, entry }),
             }
-            RelayView { relay, status }
         })
         .collect();
+
+    let badge = BadgeDocument::from_summary(&summary);
 
     let full = FullDocument {
         schema_version: &dataset.schema_version,
         generated_at,
-        total: dataset.relays.len(),
-        healthy,
+        monitor: Monitor::standard(),
+        summary,
         collections: &dataset.collections,
         relays: relay_views,
     };
@@ -139,11 +239,12 @@ pub fn write_all(dataset: &Dataset, health: &HealthReport, api_dir: &Path) -> Re
             .collect(),
     };
     write_json_if_changed(&api_dir.join(COLLECTIONS_FILE), &collections)?;
+    write_json_if_changed(&api_dir.join(BADGE_FILE), &badge)?;
 
     Ok(())
 }
 
-fn write_json_if_changed<T: Serialize>(path: &Path, value: &T) -> Result<()> {
+pub(crate) fn write_json_if_changed<T: Serialize>(path: &Path, value: &T) -> Result<()> {
     let mut text = serde_json::to_string_pretty(value).context("serialize json")?;
     text.push('\n');
 
