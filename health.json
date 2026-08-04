@@ -1,66 +1,66 @@
 {
-  "last_run": "2026-08-04T09:52:48.913706061Z",
+  "last_run": "2026-08-04T12:33:22.243362956Z",
   "entries": {
     "ws://bitcoinr6de5lkvx4tpwdmzrdfdpla5sya2afwpcabjup2xpi5dulbad.onion/": {
-      "last_checked": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "skipped"
     },
     "ws://nostrland2gdw7g3y77ctftovvil76vquipymo7tsctlxpiwknevzfid.onion/": {
-      "last_checked": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "skipped"
     },
     "ws://nostrwinemdptvqukjttinajfeedhf46hfd5bz2aj2q5uwp7zros3nad.onion/": {
-      "last_checked": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "skipped"
     },
     "ws://oxtrdevav64z64yb7x6rjg4ntzqjhedm5b5zjqulugknhzr46ny2qbad.onion/": {
-      "last_checked": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "skipped"
     },
     "ws://skzzn6cimfdv5e2phjc4yr5v7ikbxtn5f7dkwn5c7v47tduzlbosqmqd.onion/": {
-      "last_checked": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "skipped"
     },
     "wss://140.f7z.io/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 685
+      "rtt_open_ms": 765
     },
     "wss://algo.utxo.one/": {
-      "last_checked": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
-      "consecutive_failures": 463,
+      "consecutive_failures": 464,
       "last_outcome": "failure",
       "last_error": "unexpected HTTP status 530 during WebSocket handshake"
     },
     "wss://atlas.nostr.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 1020,
+      "rtt_open_ms": 908,
       "supported_nips": [],
       "nip11_software": "NFDB",
       "nip11_version": "2.0 γ5"
     },
     "wss://bitcoiner.social/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 461,
+      "rtt_open_ms": 609,
       "supported_nips": [
         1,
         2,
@@ -77,11 +77,11 @@
       "nip11_version": "1.1.0"
     },
     "wss://bookmarks.relays.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 704,
+      "rtt_open_ms": 893,
       "supported_nips": [
         1,
         11,
@@ -93,11 +93,11 @@
       "nip11_version": "n/a"
     },
     "wss://bucket.coracle.social/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 619,
+      "rtt_open_ms": 529,
       "supported_nips": [
         1,
         11
@@ -105,8 +105,478 @@
       "nip11_software": "https://github.com/coracle-social/bucket"
     },
     "wss://christpill.nostr1.com/": {
-      "last_checked": "2026-08-04T09:51:43Z",
-      "last_success": "2026-08-04T09:51:43Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 177,
+      "supported_nips": [
+        1,
+        2,
+        4,
+        9,
+        11,
+        12,
+        16,
+        20,
+        22,
+        28,
+        33,
+        40,
+        17,
+        86,
+        77
+      ],
+      "nip11_software": "git+https://github.com/hoytech/strfry.git",
+      "nip11_version": "strfry v315-3cff8c9"
+    },
+    "wss://ditto.pub/relay": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": null,
+      "consecutive_failures": 464,
+      "last_outcome": "failure",
+      "last_error": "unexpected HTTP status 302 during WebSocket handshake"
+    },
+    "wss://eden.nostr.land/": {
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 894,
+      "supported_nips": [],
+      "nip11_software": "NFDB",
+      "nip11_version": "2.0 γ5"
+    },
+    "wss://feedback.relays.land/": {
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 650,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "feedback/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://filter.nostr.wine/": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 313,
+      "supported_nips": [
+        1,
+        2,
+        4,
+        9,
+        11,
+        40,
+        42,
+        50,
+        59,
+        65,
+        94
+      ],
+      "nip11_software": "https://filter.nostr.wine",
+      "nip11_version": "1.6"
+    },
+    "wss://groups.0xchat.com/": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 441,
+      "supported_nips": [
+        1,
+        11,
+        40,
+        42,
+        70,
+        86,
+        29,
+        9
+      ],
+      "nip11_software": "https://github.com/fiatjaf/khatru",
+      "nip11_version": "n/a"
+    },
+    "wss://haven.girino.org/outbox": {
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 744,
+      "supported_nips": [
+        1,
+        11,
+        40,
+        42,
+        70,
+        86,
+        9,
+        45
+      ],
+      "nip11_software": "https://github.com/barrydeen/haven",
+      "nip11_version": "v1.2.2+dirty"
+    },
+    "wss://impromptu.relays.land/": {
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 983,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "impromptu/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://inbox.nostr.wine/": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 522,
+      "supported_nips": [
+        1,
+        2,
+        4,
+        9,
+        11,
+        40,
+        42
+      ],
+      "nip11_software": "https://inbox.nostr.wine",
+      "nip11_version": "0.1.4"
+    },
+    "wss://lang.relays.land/ar": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 773,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/de": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 794,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/en": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": null,
+      "consecutive_failures": 464,
+      "last_outcome": "failure",
+      "last_error": "unexpected HTTP status 200 during WebSocket handshake"
+    },
+    "wss://lang.relays.land/es": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 699,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/fr": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 701,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/it": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 669,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/ja": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 685,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/ko": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 636,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/pt": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 621,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/ru": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 605,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/tr": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 641,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/vi": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 604,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lang.relays.land/zh": {
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 596,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lang/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://lockbox.relays.land/": {
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 601,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "lockbox/khatru/relays.land",
+      "nip11_version": "n/a"
+    },
+    "wss://news.utxo.one/": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 172,
+      "supported_nips": [
+        1,
+        9,
+        11,
+        42,
+        45,
+        70,
+        86
+      ],
+      "nip11_software": "https://github.com/bitvora/sw2",
+      "nip11_version": "0.1.0"
+    },
+    "wss://nfrelay.app/": {
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-07-06T13:09:06Z",
+      "consecutive_failures": 232,
+      "last_outcome": "failure",
+      "last_error": "unexpected HTTP status 502 during WebSocket handshake",
+      "supported_nips": [
+        1,
+        2,
+        4,
+        9,
+        11,
+        22,
+        28,
+        40,
+        77
+      ],
+      "nip11_software": "git+https://github.com/hoytech/strfry.git",
+      "nip11_version": "1.0.1"
+    },
+    "wss://njump.me/": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 341,
+      "supported_nips": [
+        1,
+        11,
+        42,
+        70,
+        86,
+        40,
+        9,
+        45
+      ],
+      "nip11_software": "https://pkg.go.dev/fiatjaf.com/nostr/khatru",
+      "nip11_version": "n/a"
+    },
+    "wss://noornode.nostr1.com/": {
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
       "rtt_open_ms": 168,
@@ -130,482 +600,12 @@
       "nip11_software": "git+https://github.com/hoytech/strfry.git",
       "nip11_version": "strfry v315-3cff8c9"
     },
-    "wss://ditto.pub/relay": {
-      "last_checked": "2026-08-04T09:51:43Z",
-      "last_success": null,
-      "consecutive_failures": 463,
-      "last_outcome": "failure",
-      "last_error": "unexpected HTTP status 302 during WebSocket handshake"
-    },
-    "wss://eden.nostr.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 1015,
-      "supported_nips": [],
-      "nip11_software": "NFDB",
-      "nip11_version": "2.0 γ5"
-    },
-    "wss://feedback.relays.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 647,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "feedback/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://filter.nostr.wine/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 564,
-      "supported_nips": [
-        1,
-        2,
-        4,
-        9,
-        11,
-        40,
-        42,
-        50,
-        59,
-        65,
-        94
-      ],
-      "nip11_software": "https://filter.nostr.wine",
-      "nip11_version": "1.6"
-    },
-    "wss://groups.0xchat.com/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 428,
-      "supported_nips": [
-        1,
-        11,
-        40,
-        42,
-        70,
-        86,
-        29,
-        9
-      ],
-      "nip11_software": "https://github.com/fiatjaf/khatru",
-      "nip11_version": "n/a"
-    },
-    "wss://haven.girino.org/outbox": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 733,
-      "supported_nips": [
-        1,
-        11,
-        40,
-        42,
-        70,
-        86,
-        9,
-        45
-      ],
-      "nip11_software": "https://github.com/barrydeen/haven",
-      "nip11_version": "v1.2.2+dirty"
-    },
-    "wss://impromptu.relays.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 896,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "impromptu/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://inbox.nostr.wine/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 692,
-      "supported_nips": [
-        1,
-        2,
-        4,
-        9,
-        11,
-        40,
-        42
-      ],
-      "nip11_software": "https://inbox.nostr.wine",
-      "nip11_version": "0.1.4"
-    },
-    "wss://lang.relays.land/ar": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 605,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/de": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 592,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/en": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": null,
-      "consecutive_failures": 463,
-      "last_outcome": "failure",
-      "last_error": "unexpected HTTP status 200 during WebSocket handshake"
-    },
-    "wss://lang.relays.land/es": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 609,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/fr": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 566,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/it": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 596,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/ja": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 547,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/ko": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 594,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/pt": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 555,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/ru": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 550,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/tr": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 587,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/vi": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 528,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lang.relays.land/zh": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 584,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lang/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://lockbox.relays.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 708,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "lockbox/khatru/relays.land",
-      "nip11_version": "n/a"
-    },
-    "wss://news.utxo.one/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 338,
-      "supported_nips": [
-        1,
-        9,
-        11,
-        42,
-        45,
-        70,
-        86
-      ],
-      "nip11_software": "https://github.com/bitvora/sw2",
-      "nip11_version": "0.1.0"
-    },
-    "wss://nfrelay.app/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-07-06T13:09:06Z",
-      "consecutive_failures": 231,
-      "last_outcome": "failure",
-      "last_error": "unexpected HTTP status 502 during WebSocket handshake",
-      "supported_nips": [
-        1,
-        2,
-        4,
-        9,
-        11,
-        22,
-        28,
-        40,
-        77
-      ],
-      "nip11_software": "git+https://github.com/hoytech/strfry.git",
-      "nip11_version": "1.0.1"
-    },
-    "wss://njump.me/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 453,
-      "supported_nips": [
-        1,
-        11,
-        42,
-        70,
-        86,
-        40,
-        9,
-        45
-      ],
-      "nip11_software": "https://pkg.go.dev/fiatjaf.com/nostr/khatru",
-      "nip11_version": "n/a"
-    },
-    "wss://noornode.nostr1.com/": {
-      "last_checked": "2026-08-04T09:51:43Z",
-      "last_success": "2026-08-04T09:51:43Z",
-      "consecutive_failures": 0,
-      "last_outcome": "success",
-      "rtt_open_ms": 209,
-      "supported_nips": [
-        1,
-        2,
-        4,
-        9,
-        11,
-        12,
-        16,
-        20,
-        22,
-        28,
-        33,
-        40,
-        17,
-        86,
-        77
-      ],
-      "nip11_software": "git+https://github.com/hoytech/strfry.git",
-      "nip11_version": "strfry v315-3cff8c9"
-    },
     "wss://nos.lol/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 671,
+      "rtt_open_ms": 593,
       "supported_nips": [
         1,
         2,
@@ -622,11 +622,11 @@
       "nip11_version": "1.1.0"
     },
     "wss://nos.xmark.cc/": {
-      "last_checked": "2026-08-04T09:51:49Z",
+      "last_checked": "2026-08-04T12:32:22Z",
       "last_success": "2026-06-25T21:29:56Z",
-      "consecutive_failures": 316,
+      "consecutive_failures": 317,
       "last_outcome": "failure",
-      "last_error": "tls error: invalid peer certificate: certificate expired: verification time 1785837109 (UNIX), but certificate is not valid after 1785325002 (512107 seconds ago)",
+      "last_error": "tls error: invalid peer certificate: certificate expired: verification time 1785846742 (UNIX), but certificate is not valid after 1785325002 (521740 seconds ago)",
       "supported_nips": [
         1,
         2,
@@ -641,11 +641,11 @@
       "nip11_version": "0.1.2"
     },
     "wss://nostr-01.yakihonne.com/": {
-      "last_checked": "2026-08-04T09:51:48Z",
-      "last_success": "2026-08-04T09:51:48Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 933,
+      "rtt_open_ms": 973,
       "supported_nips": [
         1,
         2,
@@ -664,11 +664,11 @@
       "nip11_version": "0.9.6-8-g013d611"
     },
     "wss://nostr.bitcoiner.social/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 434,
+      "rtt_open_ms": 425,
       "supported_nips": [
         1,
         2,
@@ -685,11 +685,11 @@
       "nip11_version": "1.1.0"
     },
     "wss://nostr.bitcoinplebs.de/": {
-      "last_checked": "2026-08-04T09:51:51Z",
-      "last_success": "2026-08-04T09:51:51Z",
+      "last_checked": "2026-08-04T12:32:24Z",
+      "last_success": "2026-08-04T12:32:24Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 881,
+      "rtt_open_ms": 710,
       "supported_nips": [
         1,
         2,
@@ -709,11 +709,11 @@
       "nip11_version": "2.0.0"
     },
     "wss://nostr.einundzwanzig.space/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 973,
+      "rtt_open_ms": 686,
       "supported_nips": [
         1,
         2,
@@ -731,21 +731,21 @@
       "nip11_version": "0.10.0"
     },
     "wss://nostr.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 710,
+      "rtt_open_ms": 886,
       "supported_nips": [],
       "nip11_software": "NFDB",
       "nip11_version": "2.0 γ5"
     },
     "wss://nostr.lopp.social/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 896,
+      "rtt_open_ms": 698,
       "supported_nips": [
         1,
         2,
@@ -764,11 +764,11 @@
       "nip11_version": "0.9.6"
     },
     "wss://nostr.mom/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 885,
+      "rtt_open_ms": 589,
       "supported_nips": [
         1,
         2,
@@ -785,18 +785,18 @@
       "nip11_version": "1.1.0"
     },
     "wss://nostr.mutinywallet.com/": {
-      "last_checked": "2026-08-04T09:51:43Z",
+      "last_checked": "2026-08-04T12:32:17Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "dns lookup failed: failed to lookup address information: No address associated with hostname"
     },
     "wss://nostr.oxtr.dev/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 1095,
+      "rtt_open_ms": 1670,
       "supported_nips": [
         1,
         2,
@@ -813,18 +813,18 @@
       "nip11_version": "1.0.4"
     },
     "wss://nostr.plebchain.org/": {
-      "last_checked": "2026-08-04T09:51:43Z",
+      "last_checked": "2026-08-04T12:32:25Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
     },
     "wss://nostr.superfriends.online/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 540,
+      "rtt_open_ms": 438,
       "supported_nips": [
         1,
         2,
@@ -841,11 +841,11 @@
       "nip11_version": "1.1.0-4-ge53d8de"
     },
     "wss://nostr.wine/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 583,
+      "rtt_open_ms": 337,
       "supported_nips": [
         1,
         2,
@@ -861,25 +861,25 @@
       "nip11_version": "0.3.3"
     },
     "wss://nostr.zebedee.cloud/": {
-      "last_checked": "2026-08-04T09:52:48Z",
+      "last_checked": "2026-08-04T12:33:21Z",
       "last_success": null,
-      "consecutive_failures": 463,
+      "consecutive_failures": 464,
       "last_outcome": "failure",
       "last_error": "probe timed out after 30s"
     },
     "wss://nrelay-jp.c-stellar.net/": {
-      "last_checked": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "forbidden by upstream (HTTP 403)"
     },
     "wss://offchain.pub/": {
-      "last_checked": "2026-08-04T09:51:43Z",
-      "last_success": "2026-08-04T09:51:43Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 236,
+      "rtt_open_ms": 189,
       "supported_nips": [
         1,
         2,
@@ -896,18 +896,18 @@
       "nip11_version": "1.1.0"
     },
     "wss://pareto.space/": {
-      "last_checked": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
       "last_success": null,
-      "consecutive_failures": 463,
+      "consecutive_failures": 464,
       "last_outcome": "failure",
       "last_error": "unexpected HTTP status 302 during WebSocket handshake"
     },
     "wss://personal.relays.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 736,
+      "rtt_open_ms": 638,
       "supported_nips": [
         1,
         11,
@@ -922,11 +922,11 @@
       "nip11_version": "n/a"
     },
     "wss://pow.relays.land/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 607,
+      "rtt_open_ms": 583,
       "supported_nips": [
         1,
         11,
@@ -941,11 +941,11 @@
       "nip11_version": "n/a"
     },
     "wss://premium.primal.net/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 607,
+      "rtt_open_ms": 609,
       "supported_nips": [
         1,
         2,
@@ -962,11 +962,11 @@
       "nip11_version": "1.0.3-1-g60d35a6"
     },
     "wss://primus.nostr1.com/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
+      "last_success": "2026-08-04T12:32:17Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 179,
+      "rtt_open_ms": 272,
       "supported_nips": [
         1,
         2,
@@ -988,21 +988,21 @@
       "nip11_version": "strfry v315-3cff8c9"
     },
     "wss://puravida.nostr.land/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 1113,
+      "rtt_open_ms": 616,
       "supported_nips": [],
       "nip11_software": "NFDB",
       "nip11_version": "2.0 γ5"
     },
     "wss://purplepag.es/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 710,
+      "rtt_open_ms": 643,
       "supported_nips": [
         1,
         11,
@@ -1017,11 +1017,11 @@
       "nip11_version": "0.2.0"
     },
     "wss://pyramid.fiatjaf.com/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 589,
+      "rtt_open_ms": 551,
       "supported_nips": [
         1,
         11,
@@ -1043,18 +1043,18 @@
       "nip11_version": "v1.3.2"
     },
     "wss://relay-jp.nostr.wirednet.jp/": {
-      "last_checked": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "forbidden by upstream (HTTP 403)"
     },
     "wss://relay.0xchat.com/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T06:47:13Z",
-      "consecutive_failures": 1,
-      "last_outcome": "failure",
-      "last_error": "unexpected HTTP status 500 during WebSocket handshake",
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 1172,
       "supported_nips": [
         1,
         4,
@@ -1072,25 +1072,25 @@
       "nip11_version": "0.9.6-39-g32a3677"
     },
     "wss://relay.44billion.net/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 336
+      "rtt_open_ms": 218
     },
     "wss://relay.bitcoinpark.com/": {
-      "last_checked": "2026-08-04T09:52:48Z",
+      "last_checked": "2026-08-04T12:33:21Z",
       "last_success": null,
-      "consecutive_failures": 463,
+      "consecutive_failures": 464,
       "last_outcome": "failure",
       "last_error": "probe timed out after 30s"
     },
     "wss://relay.coinos.io/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 356,
+      "rtt_open_ms": 441,
       "supported_nips": [
         1,
         2,
@@ -1107,9 +1107,9 @@
       "nip11_version": "1.1.0-beta5"
     },
     "wss://relay.damus.io/": {
-      "last_checked": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:17Z",
       "last_success": "2026-08-03T21:22:23Z",
-      "consecutive_failures": 4,
+      "consecutive_failures": 5,
       "last_outcome": "failure",
       "last_error": "unexpected HTTP status 503 during WebSocket handshake",
       "supported_nips": [
@@ -1128,11 +1128,11 @@
       "nip11_version": "1.1.0-1-g691a533f11eb"
     },
     "wss://relay.divine.video/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 194,
+      "rtt_open_ms": 149,
       "supported_nips": [
         1,
         4,
@@ -1163,11 +1163,11 @@
       "nip11_version": "0.1.0"
     },
     "wss://relay.fountain.fm/": {
-      "last_checked": "2026-08-04T09:51:49Z",
-      "last_success": "2026-08-04T09:51:49Z",
+      "last_checked": "2026-08-04T12:32:22Z",
+      "last_success": "2026-08-04T12:32:22Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 673,
+      "rtt_open_ms": 985,
       "supported_nips": [
         1,
         2,
@@ -1178,11 +1178,11 @@
       ]
     },
     "wss://relay.getalby.com/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 356,
+      "rtt_open_ms": 377,
       "supported_nips": [
         1,
         11,
@@ -1195,11 +1195,11 @@
       "nip11_version": "2.0.0"
     },
     "wss://relay.groups.nip29.com/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 629,
+      "rtt_open_ms": 648,
       "supported_nips": [
         1,
         11,
@@ -1214,9 +1214,9 @@
       "nip11_version": "n/a"
     },
     "wss://relay.mleku.dev/": {
-      "last_checked": "2026-08-04T09:51:48Z",
+      "last_checked": "2026-08-04T12:32:21Z",
       "last_success": "2026-07-16T00:16:29Z",
-      "consecutive_failures": 155,
+      "consecutive_failures": 156,
       "last_outcome": "failure",
       "last_error": "tls error: received fatal alert: InternalError",
       "supported_nips": [
@@ -1239,11 +1239,11 @@
       "nip11_version": "0.65.60\n"
     },
     "wss://relay.mostr.pub/": {
-      "last_checked": "2026-08-04T09:51:44Z",
-      "last_success": "2026-08-04T09:51:44Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 409,
+      "rtt_open_ms": 446,
       "supported_nips": [
         1,
         2,
@@ -1260,11 +1260,11 @@
       "nip11_version": "1.0.4"
     },
     "wss://relay.nos.social/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 487,
+      "rtt_open_ms": 226,
       "supported_nips": [
         1,
         2,
@@ -1284,25 +1284,25 @@
       "nip11_version": "1.0.3"
     },
     "wss://relay.nostr.ai/": {
-      "last_checked": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
     },
     "wss://relay.nostr.band/": {
-      "last_checked": "2026-08-04T09:52:47Z",
+      "last_checked": "2026-08-04T12:33:20Z",
       "last_success": null,
-      "consecutive_failures": 463,
+      "consecutive_failures": 464,
       "last_outcome": "failure",
       "last_error": "probe timed out after 30s"
     },
     "wss://relay.nostr.moe/": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 2212,
+      "rtt_open_ms": 1189,
       "supported_nips": [
         1,
         2,
@@ -1328,11 +1328,11 @@
       "nip11_version": "0.4.7"
     },
     "wss://relay.nostr.net/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 759,
+      "rtt_open_ms": 720,
       "supported_nips": [
         1,
         2,
@@ -1349,18 +1349,18 @@
       "nip11_version": "1.1.0-beta5-4-gf31a1b9"
     },
     "wss://relay.nostr.or.jp/": {
-      "last_checked": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
     },
     "wss://relay.nostr.wirednet.jp/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 800,
+      "rtt_open_ms": 877,
       "supported_nips": [
         1,
         2,
@@ -1377,11 +1377,11 @@
       "nip11_version": "1.0.4-2-gc15be27"
     },
     "wss://relay.nostrzh.org/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 724,
+      "rtt_open_ms": 491,
       "supported_nips": [
         1,
         11,
@@ -1399,11 +1399,11 @@
       "nip11_software": "https://github.com/fiatjaf/pyramid"
     },
     "wss://relay.noswhere.com/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 1114,
+      "rtt_open_ms": 869,
       "supported_nips": [
         1,
         11,
@@ -1413,25 +1413,25 @@
       "nip11_version": "0.0.1"
     },
     "wss://relay.npub.bar/": {
-      "last_checked": "2026-08-04T09:51:55Z",
+      "last_checked": "2026-08-04T12:32:28Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "dns lookup failed: failed to lookup address information: Temporary failure in name resolution"
     },
     "wss://relay.olas.app/": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 732
+      "rtt_open_ms": 648
     },
     "wss://relay.primal.net/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 614,
+      "rtt_open_ms": 605,
       "supported_nips": [
         1,
         2,
@@ -1448,11 +1448,11 @@
       "nip11_version": "1.0.3-1-g60d35a6"
     },
     "wss://relay.snort.social/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:25Z",
+      "last_success": "2026-08-04T12:32:25Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 893,
+      "rtt_open_ms": 2020,
       "supported_nips": [
         1,
         11
@@ -1461,11 +1461,11 @@
       "nip11_version": "0.2.0"
     },
     "wss://relay.tchncs.de/": {
-      "last_checked": "2026-08-04T09:51:47Z",
-      "last_success": "2026-08-04T09:51:47Z",
+      "last_checked": "2026-08-04T12:32:20Z",
+      "last_success": "2026-08-04T12:32:20Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 1089,
+      "rtt_open_ms": 928,
       "supported_nips": [
         1,
         2,
@@ -1482,11 +1482,11 @@
       "nip11_version": "1.0.4"
     },
     "wss://relay.wikifreedia.xyz/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 678,
+      "rtt_open_ms": 631,
       "supported_nips": [
         1,
         11,
@@ -1502,11 +1502,11 @@
       "nip11_version": "n/a"
     },
     "wss://relays.land/spatianostra": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 624,
+      "rtt_open_ms": 521,
       "supported_nips": [
         1,
         11,
@@ -1518,25 +1518,25 @@
       "nip11_version": "n/a"
     },
     "wss://rss.nos.social/": {
-      "last_checked": "2026-08-04T09:52:48Z",
+      "last_checked": "2026-08-04T12:33:22Z",
       "last_success": null,
-      "consecutive_failures": 463,
+      "consecutive_failures": 464,
       "last_outcome": "failure",
       "last_error": "probe timed out after 30s"
     },
     "wss://rsslay.fiatjaf.com/": {
-      "last_checked": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
       "last_success": null,
       "consecutive_failures": 0,
       "last_outcome": "blocked",
       "last_error": "dns lookup failed: failed to lookup address information: Name or service not known"
     },
     "wss://thecitadel.nostr1.com/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 141,
+      "rtt_open_ms": 140,
       "supported_nips": [
         1,
         2,
@@ -1558,11 +1558,11 @@
       "nip11_version": "strfry v315-3cff8c9"
     },
     "wss://theforest.nostr1.com/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 178,
+      "rtt_open_ms": 180,
       "supported_nips": [
         1,
         2,
@@ -1584,11 +1584,11 @@
       "nip11_version": "strfry v315-3cff8c9"
     },
     "wss://topic.relays.land/ask": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 670,
+      "rtt_open_ms": 530,
       "supported_nips": [
         1,
         11,
@@ -1603,11 +1603,11 @@
       "nip11_version": "n/a"
     },
     "wss://topic.relays.land/complaint": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 646,
+      "rtt_open_ms": 534,
       "supported_nips": [
         1,
         11,
@@ -1622,11 +1622,11 @@
       "nip11_version": "n/a"
     },
     "wss://topic.relays.land/left": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 645,
+      "rtt_open_ms": 599,
       "supported_nips": [
         1,
         11,
@@ -1641,11 +1641,11 @@
       "nip11_version": "n/a"
     },
     "wss://topic.relays.land/praise": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 638,
+      "rtt_open_ms": 590,
       "supported_nips": [
         1,
         11,
@@ -1660,11 +1660,11 @@
       "nip11_version": "n/a"
     },
     "wss://topic.relays.land/uncommon": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 582,
+      "rtt_open_ms": 577,
       "supported_nips": [
         1,
         11,
@@ -1679,11 +1679,11 @@
       "nip11_version": "n/a"
     },
     "wss://topic.relays.land/whales": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 678,
+      "rtt_open_ms": 547,
       "supported_nips": [
         1,
         11,
@@ -1698,11 +1698,11 @@
       "nip11_version": "n/a"
     },
     "wss://trending.relays.land/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 758,
+      "rtt_open_ms": 766,
       "supported_nips": [
         1,
         11,
@@ -1714,11 +1714,11 @@
       "nip11_version": "n/a"
     },
     "wss://wot.dergigi.com/": {
-      "last_checked": "2026-08-04T09:52:47Z",
-      "last_success": "2026-08-04T06:48:16Z",
-      "consecutive_failures": 1,
-      "last_outcome": "failure",
-      "last_error": "probe timed out after 30s",
+      "last_checked": "2026-08-04T12:32:45Z",
+      "last_success": "2026-08-04T12:32:45Z",
+      "consecutive_failures": 0,
+      "last_outcome": "success",
+      "rtt_open_ms": 20907,
       "supported_nips": [
         1,
         11,
@@ -1731,11 +1731,11 @@
       "nip11_version": "v0.1.18"
     },
     "wss://wot.girino.org/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 260,
+      "rtt_open_ms": 166,
       "supported_nips": [
         1,
         11,
@@ -1749,11 +1749,11 @@
       "nip11_version": "dev"
     },
     "wss://wot.nostr.net/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 599,
+      "rtt_open_ms": 641,
       "supported_nips": [
         1,
         11,
@@ -1766,11 +1766,11 @@
       "nip11_version": ""
     },
     "wss://wot.utxo.one/": {
-      "last_checked": "2026-08-04T09:51:45Z",
-      "last_success": "2026-08-04T09:51:45Z",
+      "last_checked": "2026-08-04T12:32:18Z",
+      "last_success": "2026-08-04T12:32:18Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 333,
+      "rtt_open_ms": 184,
       "supported_nips": [
         40,
         9,
@@ -1780,11 +1780,11 @@
       "nip11_version": "0.2.1"
     },
     "wss://yabu.me/": {
-      "last_checked": "2026-08-04T09:51:46Z",
-      "last_success": "2026-08-04T09:51:46Z",
+      "last_checked": "2026-08-04T12:32:19Z",
+      "last_success": "2026-08-04T12:32:19Z",
       "consecutive_failures": 0,
       "last_outcome": "success",
-      "rtt_open_ms": 599,
+      "rtt_open_ms": 729,
       "supported_nips": [
         1,
         2,
